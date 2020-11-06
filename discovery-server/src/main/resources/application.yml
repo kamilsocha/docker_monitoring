@@ -1,0 +1,109 @@
+spring:
+  application:
+    name: discovery
+
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: localhost
+    lease-renewal-interval-in-seconds: 30
+    lease-expiration-duration-in-seconds: 30
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  server:
+    enable-self-preservation: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      show-details: always
+
+swagger:
+  title:  Eureka Server
+  description: Eureka Discovery Server.
+  license: License
+  licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 0.1
+  contact:
+    name: Kamil Socha
+    url:
+    email: kamisoc782@student.polsl.pl
+
+info:
+  app:
+    name: ${spring.application.name}
+    description: Netflix Eureka Discovery Server for microservices system.
+    version: 0.1.0
+  developer:
+    name: Kamil Socha
+    email: kamisoc782@student.polsl.pl
+
+---
+spring:
+  profiles: docker
+  application:
+    name: discovery
+
+eureka:
+  instance:
+    hostname: discovery
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 30
+    lease-expiration-duration-in-seconds: 30
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://discovery:8761/eureka/
+  server:
+    enable-self-preservation: false
+
+#swagger:
+#  title:  Eureka Server
+#  description: Eureka Discovery Server.
+#  license: License
+#  licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
+#  version: 0.1
+#  contact:
+#    name: Kamil Socha
+#    url:
+#    email: kamisoc782@student.polsl.pl
+
+#---
+## Eureka instance 1 when used on Docker
+#spring:
+#  profiles: docker1
+#eureka:
+#  instance:
+#    hostname: discovery
+#  client:
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    serviceUrl:
+#      defaultZone: http://user:${eureka.password}@discovery2:8762/eureka/
+#
+#---
+## Eureka instance 2 when used on Docker
+#spring:
+#  profiles: docker2
+#server:
+#  port: 8762
+#eureka:
+#  instance:
+#    hostname: discovery2
+#    nonSecurePort: ${server.port}
+#  client:
+#    serviceUrl:
+#      defaultZone: http://user:${eureka.password}@discovery:8761/eureka/
+

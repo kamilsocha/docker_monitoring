@@ -1,0 +1,7 @@
+#spring:
+#  profiles: default
+#  application:
+#    name: user-movies-catalog-service
+#  cloud:
+#    config:
+#      uri:

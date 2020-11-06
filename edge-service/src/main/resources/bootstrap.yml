@@ -1,0 +1,7 @@
+#spring:
+#  application:
+#    name: zuul-proxy
+#
+#swagger:
+#  title:  Netflix Zuul API Gateway
+#  description: API Gateway for microservices system.

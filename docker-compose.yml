@@ -1,0 +1,162 @@
+version: "3"
+
+networks:
+  back:
+
+volumes:
+  moviedb:
+  ratingdb:
+  userdb:
+
+services:
+  # config-server:
+  #   environment:
+  #     - SPRING_PROFILES_ACTIVE=docker,native
+  #     - ENCRYPT_KEY=${CONFIG_SERVER_ENCRYPT_KEY}
+  #     - SPRING_SECURITY_USER_NAME=${CONFIG_SERVER_USR}
+  #     - SPRING_SECURITY_USER_PASSWORD=${CONFIG_SERVER_PWD}
+  #   volumes:
+  #     - config-repo:/config-repo
+  #   build: spring-cloud/config-server
+  #   mem_limit: 350m
+
+  discovery:
+    image: microservices/discovery-server
+    mem_limit: 350m
+    ports:
+      - "8761:8761"
+    environment:
+      - EUREKA_URI=http://discovery:8761/eureka
+    networks:
+      - back
+
+  apigateway:
+    image: microservices/edge-server
+    mem_limit: 350m
+    ports:
+      - "8080:8080"
+    environment:
+      - EUREKA_URI=http://discovery:8761/eureka
+    networks:
+      - back
+    depends_on:
+      - discovery
+
+  userCatalog:
+    image: microservices/user-movies-catalog-service
+    mem_limit: 350m
+    #
+    # ports:
+    #   - "8081:8080"
+    #
+    environment:
+      - EUREKA_URI=http://discovery:8761/eureka
+    depends_on:
+      - discovery
+    networks:
+      - back
+
+  movies:
+    image: microservices/movie-service
+    mem_limit: 350m
+    # ports:
+    #   - "8082:8080"
+    environment:
+      - DB_SERVER=movieDb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=moviedb
+    depends_on:
+      - discovery
+      - movieDb
+    links:
+      - movieDb
+    networks:
+      - back
+
+  ratings:
+    image: microservices/rating-service
+    mem_limit: 350m
+    # ports:
+    #   - "8083:8080"
+    environment:
+      - DB_SERVER=ratingDb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=ratingdb
+    depends_on:
+      - discovery
+      - ratingDb
+    links:
+      - ratingDb
+    networks:
+      - back
+
+  users:
+    image: microservices/user-service
+    mem_limit: 350m
+    environment:
+      - DB_SERVER=usersDb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=usersdb
+    depends_on:
+      - discovery
+      - userDb
+    links:
+      - userDb
+    networks:
+      - back
+
+  converter:
+    image: microservices/converter
+    mem_limit: 350m
+    depends_on:
+      - discovery
+    networks:
+      - back
+
+  movieDb:
+    image: postgres:alpine
+    container_name: movieDb
+    volumes:
+      - moviedb:/var/lib/postgresql/data:rw
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=moviedb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+      - PGDATA=/var/lib/postgresql/data
+    networks:
+      - back
+
+  ratingDb:
+    image: postgres:alpine
+    container_name: ratingDb
+    volumes:
+      - ratingdb:/var/lib/postgresql/data:rw
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_DB=ratingdb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+      - PGDATA=/var/lib/postgresql/data
+    networks:
+      - back
+
+  userDb:
+    image: postgres:alpine
+    container_name: userDb
+    volumes:
+      - userdb:/var/lib/postgresql/data:rw
+    ports:
+      - "5434:5432"
+    environment:
+      - POSTGRES_DB=userdb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+      - PGDATA=/var/lib/postgresql/data
+    networks:
+      - back:

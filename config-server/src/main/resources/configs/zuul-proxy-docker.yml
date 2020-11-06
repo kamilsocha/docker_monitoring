@@ -1,0 +1,46 @@
+eureka:
+  instance:
+    hostname: zuul-proxy
+    prefer-ip-address: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/
+
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000
+
+zuul:
+  ignored-services: '*'
+  routes:
+    user-movies-catalog:
+      path: "/user-movies-catalog-service/**"
+      serviceId: user-movies-catalog-service
+    movie-service:
+      path: "/movie-service/**"
+      serviceId: movie-service
+    rating-service:
+      path: "/rating-service/**"
+      serviceId: rating-service
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      show-details: always
+
+swagger:
+  title:  demoProject
+  description: Demo Spring API with database connection.
+  license: License
+  licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 0.1
+  contact:
+    name: Kamil Socha
+    url:
+    email: kamisoc782@student.polsl.pl
