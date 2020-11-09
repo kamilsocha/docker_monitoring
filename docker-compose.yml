@@ -11,6 +11,7 @@ volumes:
 services:
   # config-server:
   #   environment:
+  #     - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
   #     - SPRING_PROFILES_ACTIVE=docker,native
   #     - ENCRYPT_KEY=${CONFIG_SERVER_ENCRYPT_KEY}
   #     - SPRING_SECURITY_USER_NAME=${CONFIG_SERVER_USR}
@@ -24,59 +25,58 @@ services:
     image: microservices/discovery-server
     ports:
       - "8761:8761"
-    environment:
-      - "EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka"
+    env_file: ./.env
     networks:
       - back
-    mem_limit: 350M
-
 
   apigateway:
     image: microservices/edge-server
     ports:
       - "8080:8080"
+    env_file: ./.env
     environment:
-      - EUREKA_URI=http://discovery:8761/eureka
+      - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
     networks:
       - back
     depends_on:
       - discovery
 
-  # userCatalog:
-  #   image: microservices/user-movies-catalog-service
-  #   environment:
-  #     - EUREKA_URI=http://discovery:8761/eureka
-  #   depends_on:
-  #     - discovery
-  #   networks:
-  #     - back
+  userCatalog:
+    image: microservices/user-movies-catalog-service
+    env_file: ./.env
+    environment:
+      - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
+    depends_on:
+      - discovery
+    networks:
+      - back
 
-  # movies:
-  #   image: microservices/movie-service
-  #   # ports:
-  #   #   - "8082:8080"
-  #   environment:
-  #     - DB_SERVER=movieDb
-  #     - POSTGRES_USER=postgres
-  #     - POSTGRES_PASSWORD=1234
-  #     - POSTGRES_DB=moviedb
-  #   depends_on:
-  #     - discovery
-  #     - movieDb
-  #   links:
-  #     - movieDb
-  #   networks:
-  #     - back
+  movies:
+    image: microservices/movie-service
+    env_file: ./.env
+    environment:
+      - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
+      - DB_SERVER=movieDb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=${POSTGRES_MOVIE_DB}
+    depends_on:
+      - discovery
+      - movieDb
+    links:
+      - movieDb
+    networks:
+      - back
 
   ratings:
     image: microservices/rating-service
-    # ports:
-    #   - "8083:8080"
+    env_file: ./.env
     environment:
+      - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
       - DB_SERVER=ratingDb
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=1234
-      - POSTGRES_DB=ratingdb
+      - POSTGRES_DB=${POSTGRES_RATING_DB}
     depends_on:
       - discovery
       - ratingDb
@@ -85,42 +85,48 @@ services:
     networks:
       - back
 
-  # users:
-  #   image: microservices/user-service
-  #   environment:
-  #     - DB_SERVER=userDb
-  #     - POSTGRES_USER=postgres
-  #     - POSTGRES_PASSWORD=1234
-  #     - POSTGRES_DB=userdb
-  #   depends_on:
-  #     - discovery
-  #     - userDb
-  #   links:
-  #     - userDb
-  #   networks:
-  #     - back
+  users:
+    image: microservices/user-service
+    env_file: ./.env
+    environment:
+      - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
+      - DB_SERVER=userDb
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_USER_DB}
+    depends_on:
+      - discovery
+      - userDb
+    links:
+      - userDb
+    networks:
+      - back
 
   converter:
     image: microservices/converter-service
+    env_file: ./.env
+    environment:
+      - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
     depends_on:
       - discovery
     networks:
       - back
 
-  # movieDb:
-  #   image: postgres:alpine
-  #   container_name: movieDb
-  #   volumes:
-  #     - moviedb:/var/lib/postgresql/data:rw
-  #   ports:
-  #     - "5433:5432"
-  #   environment:
-  #     - POSTGRES_DB=moviedb
-  #     - POSTGRES_USER=postgres
-  #     - POSTGRES_PASSWORD=1234
-  #     - PGDATA=/var/lib/postgresql/data
-  #   networks:
-  #     - back
+  movieDb:
+    image: postgres:alpine
+    container_name: movieDb
+    volumes:
+      - moviedb:/var/lib/postgresql/data:rw
+    ports:
+      - "5433:5432"
+    env_file: ./.env
+    environment:
+      - POSTGRES_DB=${POSTGRES_MOVIE_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - PGDATA=/var/lib/postgresql/data
+    networks:
+      - back
 
   ratingDb:
     image: postgres:alpine
@@ -129,25 +135,27 @@ services:
       - ratingdb:/var/lib/postgresql/data:rw
     ports:
       - "5434:5432"
+    env_file: ./.env
     environment:
-      - POSTGRES_DB=ratingdb
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=${POSTGRES_RATING_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - PGDATA=/var/lib/postgresql/data
     networks:
       - back
 
-  # userDb:
-  #   image: postgres:alpine
-  #   container_name: userDb
-  #   volumes:
-  #     - userdb:/var/lib/postgresql/data:rw
-  #   ports:
-  #     - "5435:5432"
-  #   environment:
-  #     - POSTGRES_DB=userdb
-  #     - POSTGRES_USER=postgres
-  #     - POSTGRES_PASSWORD=1234
-  #     - PGDATA=/var/lib/postgresql/data
-  #   networks:
-  #     - back
+  userDb:
+    image: postgres:alpine
+    container_name: userDb
+    volumes:
+      - userdb:/var/lib/postgresql/data:rw
+    ports:
+      - "5435:5432"
+    env_file: ./.env
+    environment:
+      - POSTGRES_DB=${POSTGRES_USER_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - PGDATA=/var/lib/postgresql/data
+    networks:
+      - back
