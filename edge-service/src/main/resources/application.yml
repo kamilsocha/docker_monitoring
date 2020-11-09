@@ -37,6 +37,12 @@ zuul:
     rating-service:
       path: "/rating-service/**"
       serviceId: rating-service
+    user-service:
+      path: "/user-service/**"
+      serviceId: user-service
+    converter-service:
+      path: "/converter-service/**"
+      serviceId: converter-service
 
 management:
   endpoints:

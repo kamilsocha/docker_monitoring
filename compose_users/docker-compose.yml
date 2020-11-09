@@ -1,0 +1,45 @@
+version: '3'
+
+volumes:
+  userdb:
+
+networks:
+  back:
+
+services:
+  discovery:
+    image: microservices/discovery-server
+    ports:
+      - "8761:8761"
+    environment:
+      - "EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka"
+    networks:
+      - back
+  users:
+    image: microservices/user-service
+    environment:
+      - DB_SERVER=userDb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=userdb
+    depends_on:
+      - discovery
+      - userDb
+    links:
+      - userDb
+    networks:
+      - back
+  userDb:
+    image: postgres:alpine
+    container_name: userDb
+    volumes:
+      - userdb:/var/lib/postgresql/data:rw
+    ports:
+      - "5435:5432"
+    environment:
+      - POSTGRES_DB=userdb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+      - PGDATA=/var/lib/postgresql/data
+    networks:
+      - back
