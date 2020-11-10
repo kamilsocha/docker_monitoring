@@ -14,9 +14,27 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka/
 
+
 feign:
   hystrix:
     enabled: true
+
+hystrix:
+  command:
+    default:
+      circuitBreaker:
+        requestVolumeThreshold: 10
+        errorThresholdPercentage: 30
+        sleepWindowInMilliseconds: 10000
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000 # must be greater than ribbon timeout
+      metrics:
+        rollingStats:
+          timeInMilliseconds: 10000
+  dashboard:
+    proxy-stream-allow-list: "*"
 
 management:
   endpoints:

@@ -19,7 +19,11 @@ services:
   #   volumes:
   #     - config-repo:/config-repo
   #   build: spring-cloud/config-server
-  #   mem_limit: 350m
+    # deploy:
+    #   resources:
+    #     limits:
+    #       # cpus: '0.1'
+    #       memory: 350M
 
   discovery:
     image: microservices/discovery-server
@@ -28,6 +32,11 @@ services:
     env_file: ./.env
     networks:
       - back
+    deploy:
+      resources:
+        limits:
+          # cpus: '0.1'
+          memory: 350M
 
   apigateway:
     image: microservices/edge-server
@@ -40,6 +49,11 @@ services:
       - back
     depends_on:
       - discovery
+    deploy:
+      resources:
+        limits:
+          # cpus: '0.1'
+          memory: 350M
 
   userCatalog:
     image: microservices/user-movies-catalog-service
@@ -50,6 +64,11 @@ services:
       - discovery
     networks:
       - back
+    deploy:
+      resources:
+        limits:
+          # cpus: '0.1'
+          memory: 350M
 
   movies:
     image: microservices/movie-service
@@ -67,6 +86,11 @@ services:
       - movieDb
     networks:
       - back
+    deploy:
+      resources:
+        limits:
+          # cpus: '0.1'
+          memory: 350M
 
   ratings:
     image: microservices/rating-service
@@ -84,6 +108,11 @@ services:
       - ratingDb
     networks:
       - back
+    deploy:
+      resources:
+        limits:
+          # cpus: '0.1'
+          memory: 350M
 
   users:
     image: microservices/user-service
@@ -101,6 +130,11 @@ services:
       - userDb
     networks:
       - back
+    deploy:
+      resources:
+        limits:
+          # cpus: '0.1'
+          memory: 350M
 
   converter:
     image: microservices/converter-service
@@ -111,6 +145,11 @@ services:
       - discovery
     networks:
       - back
+    deploy:
+      resources:
+        limits:
+          # cpus: '0.1'
+          memory: 350M  
 
   movieDb:
     image: postgres:alpine
