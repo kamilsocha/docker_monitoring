@@ -24,16 +24,19 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public LinkedHashSet<Movie> findAll() {
-        return movieRepository.findAll()
+        logger.warn("Processing request find all... Port: " + port);
+        return movieRepository
+                .findAll()
                 .stream()
                 .collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
     @Override
     public Movie findById(Long id) {
-        logger.warn("Processing request... Port: " + port);
-        //return new Movie((long) 1, "The Conversation", "Wiretapping specialist tries to save two people", "Francis Ford Coppola");
-        return movieRepository.findById(id).orElse(null);
+        logger.warn("Processing request: find by id: " + id + "... Port: " + port);
+        return movieRepository
+                .findById(id)
+                .orElse(null);
     }
 
     @Override

@@ -2,6 +2,7 @@ package pl.polsl.student.usermoviescatalogservice.services;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,7 @@ import pl.polsl.student.usermoviescatalogservice.domain.Movie;
 public interface MovieClient {
 
     @ApiOperation(value = "Retrieve information about specific movie.", nickname = "findById")
+//    @CachePut("movies")
     @GetMapping(value = "/movies/{id}", produces = "application/json")
     ResponseEntity<Movie> findById(@PathVariable Long id);
 }

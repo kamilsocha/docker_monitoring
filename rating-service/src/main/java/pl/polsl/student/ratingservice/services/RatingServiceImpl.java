@@ -34,12 +34,7 @@ public class RatingServiceImpl implements RatingService {
 
     @Override
     public List<Rating> findByUserId(Long userId) {
-        logger.warn("Processing request: find by user... Port: " + port);
-//        return Arrays.asList(
-//                new Rating((long) 1, (long) 1, (long) 1, 4.0),
-//                new Rating((long) 2, (long) 2, (long) 1, 3.5),
-//                new Rating((long) 3, (long) 4, (long) 1, 4.5)
-//        );
+        logger.warn("Processing request: find by id: " + userId + "... Port: " + port);
         return ratingRepository.findByUserId(userId);
     }
 

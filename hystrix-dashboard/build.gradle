@@ -8,39 +8,29 @@ group = 'pl.polsl.student'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
-configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
-}
-
 repositories {
 	mavenCentral()
 }
 
 ext {
-	set('springCloudVersion', "Hoxton.SR8")
+	set('springCloudVersion', "Hoxton.SR9")
 }
 
 dependencies {
 	// standard
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	// eureka discovery client
+
+	// netflix stuff
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
-	// feign
-	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
-	// hystrix
-	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix'
-//	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix-dashboard'
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix-dashboard'
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-turbine'
+
 	// cloud config client
-//	implementation 'org.springframework.cloud:spring-cloud-starter-config'
-	// swagger
-	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+	//	implementation 'org.springframework.cloud:spring-cloud-starter-config'
+
 	// metrics
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-	runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
+
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
