@@ -9,24 +9,11 @@ volumes:
   userdb:
 
 services:
-  # config-server:
-  #   environment:
-  #     - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
-  #     - SPRING_PROFILES_ACTIVE=docker,native
-  #     - ENCRYPT_KEY=${CONFIG_SERVER_ENCRYPT_KEY}
-  #     - SPRING_SECURITY_USER_NAME=${CONFIG_SERVER_USR}
-  #     - SPRING_SECURITY_USER_PASSWORD=${CONFIG_SERVER_PWD}
-  #   volumes:
-  #     - config-repo:/config-repo
-  #   build: spring-cloud/config-server
-    # deploy:
-    #   resources:
-    #     limits:
-    #       # cpus: '0.1'
-    #       memory: 350M
-
   discovery:
     image: microservices/discovery-server
+    build: ./discovery-server/
+    container_name: discovery
+    restart: always
     ports:
       - "8761:8761"
     env_file: ./.env
@@ -35,16 +22,41 @@ services:
     deploy:
       resources:
         limits:
-          # cpus: '0.1'
+          memory: 350M
+
+  config-server:
+    image: microservices/config-server
+    build: ./config-server/
+    restart: always
+    env_file: ./.env
+    environment:
+      - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
+      - SPRING_SECURITY_USER_NAME=${CONFIG_SERVER_USR}
+      - SPRING_SECURITY_USER_PASSWORD=${CONFIG_SERVER_PWD}
+    networks:
+      - back
+    depends_on:
+      - discovery
+    volumes:
+      - type: bind
+        source: ./config-server/src/main/resources/configs
+        target: /app/config
+    deploy:
+      resources:
+        limits:
           memory: 350M
 
   apigateway:
     image: microservices/edge-server
+    build: ./edge-service/
+    restart: always
     ports:
       - "8080:8080"
     env_file: ./.env
     environment:
       - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
+      - CONFIG_SERVER_USER=${CONFIG_SERVER_USR}
+      - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
     networks:
       - back
     depends_on:
@@ -52,26 +64,31 @@ services:
     deploy:
       resources:
         limits:
-          # cpus: '0.1'
           memory: 350M
 
   userCatalog:
     image: microservices/user-movies-catalog-service
+    build: ./user-movies-catalog-service/
+    restart: always
     env_file: ./.env
     environment:
       - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
-    depends_on:
-      - discovery
+      - CONFIG_SERVER_USER=${CONFIG_SERVER_USR}
+      - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
     networks:
       - back
+    depends_on:
+      - discovery
+      - config-server
     deploy:
       resources:
         limits:
-          # cpus: '0.1'
           memory: 350M
 
   movies:
     image: microservices/movie-service
+    build: ./movie-service/
+    restart: always
     env_file: ./.env
     environment:
       - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
@@ -79,21 +96,25 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=1234
       - POSTGRES_DB=${POSTGRES_MOVIE_DB}
+      - CONFIG_SERVER_USER=${CONFIG_SERVER_USR}
+      - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
+    networks:
+      - back
     depends_on:
       - discovery
+      - config-server
       - movieDb
     links:
       - movieDb
-    networks:
-      - back
     deploy:
       resources:
         limits:
-          # cpus: '0.1'
           memory: 350M
 
   ratings:
     image: microservices/rating-service
+    build: ./rating-service/
+    restart: always
     env_file: ./.env
     environment:
       - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
@@ -101,21 +122,26 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=1234
       - POSTGRES_DB=${POSTGRES_RATING_DB}
+      - CONFIG_SERVER_USER=${CONFIG_SERVER_USR}
+      - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
+    networks:
+      - back
     depends_on:
       - discovery
+      - config-server
       - ratingDb
     links:
       - ratingDb
-    networks:
-      - back
     deploy:
       resources:
         limits:
-          # cpus: '0.1'
           memory: 350M
 
   users:
     image: microservices/user-service
+    build: ./user-service
+    restart: always
+    container_name: users
     env_file: ./.env
     environment:
       - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
@@ -123,36 +149,44 @@ services:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=${POSTGRES_USER_DB}
+      - CONFIG_SERVER_USER=${CONFIG_SERVER_USR}
+      - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
+    networks:
+      - back
     depends_on:
       - discovery
       - userDb
     links:
       - userDb
-    networks:
-      - back
     deploy:
       resources:
         limits:
-          # cpus: '0.1'
           memory: 350M
+    #
+    ports:
+      - "8089:8080"
 
   converter:
     image: microservices/converter-service
+    restart: always
+    container_name: converter
     env_file: ./.env
     environment:
       - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
-    depends_on:
-      - discovery
+      - CONFIG_SERVER_USER=${CONFIG_SERVER_USR}
+      - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
     networks:
       - back
+    depends_on:
+      - discovery
     deploy:
       resources:
         limits:
-          # cpus: '0.1'
-          memory: 350M  
+          memory: 350M
 
   movieDb:
     image: postgres:alpine
+    restart: always
     container_name: movieDb
     volumes:
       - moviedb:/var/lib/postgresql/data:rw
@@ -169,6 +203,7 @@ services:
 
   ratingDb:
     image: postgres:alpine
+    restart: always
     container_name: ratingDb
     volumes:
       - ratingdb:/var/lib/postgresql/data:rw
@@ -185,6 +220,7 @@ services:
 
   userDb:
     image: postgres:alpine
+    restart: always
     container_name: userDb
     volumes:
       - userdb:/var/lib/postgresql/data:rw

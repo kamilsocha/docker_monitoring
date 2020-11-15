@@ -1,65 +1,64 @@
-spring:
-  application:
-    name: converter-service
-
-server:
-  port: 9051
-
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  endpoint:
-    shutdown:
-      enabled: true
-    health:
-      show-details: always
-
-swagger:
-  title: Converter Service
-  description: Service converting Roman Numbers to Decimal and reversed.
-  license: License
-  licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: 0.1
-  contact:
-    name: Kamil Socha
-    url:
-    email: kamisoc782@student.polsl.pl
-
-info:
-  app:
-    name: ${spring.application.name}
-    description: Converter Service.
-    version: 0.1.0
-  developer:
-    name: Kamil Socha
-    email: kamisoc782@student.polsl.pl
-
----
-spring:
-  profiles: docker
-  cloud:
-    loadbalancer:
-      ribbon:
-        enabled: false #??
-
-server:
-  port: 8080
-
-eureka:
-  instance:
-    hostname: converter-service
-    prefer-ip-address: true
-  client:
-    service-url:
-      defaultZone: http://discovery:8761/eureka/
+#spring:
+#  application:
+#    name: converter-service
+#
+#server:
+#  port: 9051
+#
+#eureka:
+#  instance:
+#    hostname: localhost
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka/
+#
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#  endpoint:
+#    shutdown:
+#      enabled: true
+#    health:
+#      show-details: always
+#
+#swagger:
+#  title: Converter Service
+#  description: Service converting Roman Numbers to Decimal and reversed.
+#  license: License
+#  licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
+#  version: 0.1
+#  contact:
+#    name: Kamil Socha
+#    url:
+#    email: kamisoc782@student.polsl.pl
+#
+#info:
+#  app:
+#    name: ${spring.application.name}
+#    description: Converter Service.
+#    version: 0.1.0
+#  developer:
+#    name: Kamil Socha
+#    email: kamisoc782@student.polsl.pl
+#
+#---
+#spring:
+#  profiles: docker
+#    loadbalancer:
+#      ribbon:
+#        enabled: false #??
+#
+#server:
+#  port: 8080
+#
+#eureka:
+#  instance:
+#    hostname: converter-service
+#    prefer-ip-address: true
+#  client:
+#    service-url:
+#      defaultZone: http://discovery:8761/eureka/

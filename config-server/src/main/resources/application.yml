@@ -1,48 +1,43 @@
-spring:
-  profiles:
-    active: native
-  application:
-    name: config-server
-  cloud:
-    config:
-      server:
-        native:
-          search-locations: classpath:/configs
-  security:
-    user:
-      name: root
-      password: secret
-
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaulZone: http://localhost:8761/eureka/
-
-server:
-  port: 8888
-
-management:
-  endpoint:
-    health:
-      show-details: always
-
----
-spring:
-  profiles: docker
-  cloud:
-    config:
-      server:
-        native:
-          search-locations: file:/config-repo
-
-eureka:
-  instance:
-    hostname: zuul-proxy
-    prefer-ip-address: true
-  client:
-    serviceUrl:
-      defaultZone: http://discovery:8761/eureka/
+#spring:
+#  profiles:
+#    active: native
+#  application:
+#    name: config-server
+#  cloud:
+#    config:
+#      server:
+#        native:
+#          search-locations: classpath:/configs
+#  security:
+#    user:
+#      name: ${CONFIG_SERVER_USERNAME}
+#      password: ${CONFIG_SERVER_PASSWORD}
+#
+#eureka:
+#  instance:
+#    hostname: localhost
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaulZone: http://localhost:8761/eureka/
+#
+#server:
+#  port: 8888
+#
+#management:
+#  endpoint:
+#    health:
+#      show-details: always
+#
+#---
+#spring:
+#  profiles: docker
+#
+#eureka:
+#  instance:
+#    hostname: config-server
+#    prefer-ip-address: true
+#  client:
+#    serviceUrl:
+#      defaultZone: http://discovery:8761/eureka/

@@ -1,0 +1,136 @@
+version: "3"
+
+volumes:
+  moviedb:
+
+networks:
+  back:
+
+services:
+  discovery:
+    image: microservices/discovery-server
+    build: ../discovery-server/
+    container_name: discovery
+    ports:
+      - "8761:8761"
+    environment:
+      - "EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka"
+    networks:
+      - back
+
+  #
+  config-server:
+    image: microservices/config-server
+    build: ../config-server/
+    restart: always
+    env_file: ./.env
+    environment:
+      - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
+      - SPRING_SECURITY_USER_NAME=${CONFIG_SERVER_USR}
+      - SPRING_SECURITY_USER_PASSWORD=${CONFIG_SERVER_PWD}
+      - SPRING_PROFILES_ACTIVE=native,docker
+      - WAIT_HOSTS=discovery:8761
+      - WAIT_HOSTS_TIMEOUT=300
+      - WAIT_SLEEP_INTERVAL=30
+      - WAIT_HOST_CONNECT_TIMEOUT=30
+    networks:
+      - back
+    depends_on:
+      - discovery
+    command: sh -c "/wait && java -jar app/app.jar"
+    ports:
+      - "8888:8888"
+    deploy:
+      resources:
+        limits:
+          memory: 350M
+  #
+
+  apigateway:
+    image: microservices/edge-server
+    build: ../edge-service
+    restart: always
+    ports:
+      - "8080:8080"
+    env_file: ./.env
+    environment:
+      - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
+      - CONFIG_SERVER_USER=${CONFIG_SERVER_USR}
+      - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
+      - SPRING_PROFILES_ACTIVE=docker
+      - WAIT_HOSTS=discovery:8761,config-server:8888
+      - WAIT_HOSTS_TIMEOUT=300
+      - WAIT_SLEEP_INTERVAL=30
+      - WAIT_HOST_CONNECT_TIMEOUT=30
+    networks:
+      - back
+    depends_on:
+      - discovery
+      - config-server
+    command: sh -c "/wait && java -jar app.jar"
+    deploy:
+      resources:
+        limits:
+          memory: 350M
+
+  # movies:
+  #   image: microservices/movie-service
+  #   restart: always
+  #   env_file: ./.env
+  #   environment:
+  #     - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
+  #     - CONFIG_SERVER_USER=${CONFIG_SERVER_USR}
+  #     - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
+  #     - DB_SERVER=movieDb
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_PASSWORD=1234
+  #     - POSTGRES_DB=${POSTGRES_MOVIE_DB}
+  #   depends_on:
+  #     - discovery
+  #     - config-server
+  #     - movieDb
+  #   links:
+  #     - movieDb
+  #     # - config-server
+  #   networks:
+  #     - back
+  #   deploy:
+  #     resources:
+  #       limits:
+  #         memory: 350M
+
+  # converter:
+  #   image: microservices/converter-service
+  #   restart: always
+  #   env_file: ./.env
+  #   environment:
+  #     - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
+  #     - CONFIG_SERVER_USER=${CONFIG_SERVER_USR}
+  #     - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
+  #   depends_on:
+  #     - discovery
+  #     - config-server
+  #   networks:
+  #     - back
+  #   deploy:
+  #     resources:
+  #       limits:
+  #         # cpus: '0.1'
+  #         memory: 350M
+
+  # movieDb:
+  #   image: postgres:alpine
+  #   restart: always
+  #   container_name: movieDb
+  #   volumes:
+  #     - moviedb:/var/lib/postgresql/data:rw
+  #   ports:
+  #     - "5433:5432"
+  #   env_file: ./.env
+  #   environment:
+  #     - POSTGRES_DB=${POSTGRES_MOVIE_DB}
+  #     - POSTGRES_USER=${POSTGRES_USER}
+  #     - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+  #     - PGDATA=/var/lib/postgresql/data
+  #   networks:
+  #     - back

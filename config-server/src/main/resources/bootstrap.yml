@@ -1,0 +1,58 @@
+spring:
+  application:
+    name: config-server
+  profiles:
+      active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/configs
+  security:
+    user:
+      name: user
+      password: pass
+
+server:
+  port: 8888
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      show-details: always
+
+---
+spring:
+  profiles: docker
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:/app/config
+  security:
+    user:
+      name: ${CONFIG_SERVER_USR}
+      password: ${CONFIG_SERVER_PWD}
+
+eureka:
+  instance:
+    hostname: config-server
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URI:http://discovery:8761/eureka/}

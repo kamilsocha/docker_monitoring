@@ -28,7 +28,7 @@ dependencies {
 	// eureka client
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 	// cloud config client
-	//implementation 'org.springframework.cloud:spring-cloud-starter-config'
+	implementation 'org.springframework.cloud:spring-cloud-starter-config'
 	// swagger
 	implementation 'io.springfox:springfox-boot-starter:3.0.0'
 	// metrics
@@ -36,6 +36,8 @@ dependencies {
 	runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
 	// db
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-jooq'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	runtimeOnly 'org.postgresql:postgresql'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'

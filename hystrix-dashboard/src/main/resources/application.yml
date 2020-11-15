@@ -1,40 +1,40 @@
-spring:
-  application:
-    name: hystrix-dashboard
-
-server:
-  port: 9000
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  endpoint:
-    shutdown:
-      enabled: true
-    health:
-      show-details: always
-  security:
-    enabled: false
-
-turbine:
-  appConfig: converter-service,movie-service,rating-service,user-movies-catalog-service,user-service,edge-service
-  clusterNameExpression: "'default'"
-
-hystrix:
-  dashboard:
-    proxy-stream-allow-list: "*"
-
----
-spring:
-  profiles: docker
-eureka:
-  client:
-    service-url:
-      defualtZone: ${EUREKA_URI:http://discovery:8761/eureka}
+#spring:
+#  application:
+#    name: hystrix-dashboard
+#
+#server:
+#  port: 9000
+#
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka
+#
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#  endpoint:
+#    shutdown:
+#      enabled: true
+#    health:
+#      show-details: always
+#  security:
+#    enabled: false
+#
+#turbine:
+#  appConfig: converter-service,movie-service,rating-service,user-movies-catalog-service,user-service,edge-service
+#  clusterNameExpression: "'default'"
+#
+#hystrix:
+#  dashboard:
+#    proxy-stream-allow-list: "*"
+#
+#---
+#spring:
+#  profiles: docker
+#eureka:
+#  client:
+#    service-url:
+#      defualtZone: ${EUREKA_URI:http://discovery:8761/eureka}

@@ -1,93 +1,93 @@
-spring:
-  application:
-    name: user-movies-catalog-service
-
-server:
-  port: 9071
-
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-
-feign:
-  hystrix:
-    enabled: true
-
-ribbon:
-  eureka:
-    enabled: true
-  MaxAutoRetries: 1
-  MaxAutoRetriesNextServer: 1
-  ReadTimeout: 500
-
-hystrix:
-  command:
-    default:
-      circuitBreaker:
-        requestVolumeThreshold: 5
-        errorThresholdPercentage: 50
-        sleepWindowInMilliseconds: 5000
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 3000
-      metrics:
-        rollingStats:
-          timeInMilliseconds: 20000
-  dashboard:
-    proxy-stream-allow-list: "*"
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  endpoint:
-    shutdown:
-      enabled: true
-    health:
-      show-details: always
-  security:
-    enabled: false
-
-swagger:
-  title:  Eureka Server
-  description: Netflix Eureka Discovery Server for microservices system.
-  license: License
-  licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: 0.1
-  contact:
-    name: Kamil Socha
-    url:
-    email: kamisoc782@student.polsl.pl
-
-info:
-  app:
-    name: ${spring.application.name}
-    description: Eureka Discovery Server for microservices system.
-    version: 0.1.0
-  developer:
-    name: Kamil Socha
-    email: kamisoc782@student.polsl.pl
-
----
-spring:
-  profiles: docker
-  application:
-    name: user-movies-catalog-service
-
-server:
-  port: 8080
-
-eureka:
-  instance:
-    hostname: user-movies-catalog-service
-    prefer-ip-address: true
-  client:
-    service-url:
-      defaultZone: http://discovery:8761/eureka/
+#spring:
+#  application:
+#    name: user-movies-catalog-service
+#
+#server:
+#  port: 9071
+#
+#eureka:
+#  instance:
+#    hostname: localhost
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka/
+#
+#feign:
+#  hystrix:
+#    enabled: true
+#
+#ribbon:
+#  eureka:
+#    enabled: true
+#  MaxAutoRetries: 1
+#  MaxAutoRetriesNextServer: 1
+#  ReadTimeout: 500
+#
+#hystrix:
+#  command:
+#    default:
+#      circuitBreaker:
+#        requestVolumeThreshold: 5
+#        errorThresholdPercentage: 50
+#        sleepWindowInMilliseconds: 5000
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 3000
+#      metrics:
+#        rollingStats:
+#          timeInMilliseconds: 20000
+#  dashboard:
+#    proxy-stream-allow-list: "*"
+#
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#  endpoint:
+#    shutdown:
+#      enabled: true
+#    health:
+#      show-details: always
+#  security:
+#    enabled: false
+#
+#swagger:
+#  title:  Eureka Server
+#  description: Netflix Eureka Discovery Server for microservices system.
+#  license: License
+#  licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
+#  version: 0.1
+#  contact:
+#    name: Kamil Socha
+#    url:
+#    email: kamisoc782@student.polsl.pl
+#
+#info:
+#  app:
+#    name: ${spring.application.name}
+#    description: Eureka Discovery Server for microservices system.
+#    version: 0.1.0
+#  developer:
+#    name: Kamil Socha
+#    email: kamisoc782@student.polsl.pl
+#
+#---
+#spring:
+#  profiles: docker
+#  application:
+#    name: user-movies-catalog-service
+#
+#server:
+#  port: 8080
+#
+#eureka:
+#  instance:
+#    hostname: user-movies-catalog-service
+#    prefer-ip-address: true
+#  client:
+#    service-url:
+#      defaultZone: http://discovery:8761/eureka/

@@ -1,22 +1,22 @@
-spring:
-  application:
-    name: discovery
-
-server:
-  port: 8761
-
-eureka:
-  instance:
-    hostname: localhost
-    lease-renewal-interval-in-seconds: 30
-    lease-expiration-duration-in-seconds: 30
-  client:
-    register-with-eureka: false
-    fetch-registry: false
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-  server:
-    enable-self-preservation: false
+#spring:
+#  application:
+#    name: discovery
+#
+#server:
+#  port: 8761
+#
+#eureka:
+#  instance:
+#    hostname: localhost
+#    lease-renewal-interval-in-seconds: 30
+#    lease-expiration-duration-in-seconds: 30
+#  client:
+#    register-with-eureka: false
+#    fetch-registry: false
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka/
+#  server:
+#    enable-self-preservation: false
 
 management:
   endpoints:
@@ -49,36 +49,23 @@ info:
     name: Kamil Socha
     email: kamisoc782@student.polsl.pl
 
----
-spring:
-  profiles: docker
-  application:
-    name: discovery
-
-eureka:
-  instance:
-    hostname: discovery
-    prefer-ip-address: true
-    lease-renewal-interval-in-seconds: 30
-    lease-expiration-duration-in-seconds: 30
-  client:
-    register-with-eureka: false
-    fetch-registry: false
-    service-url:
-      defaultZone: http://discovery:8761/eureka/
-  server:
-    enable-self-preservation: false
-
-#swagger:
-#  title:  Eureka Server
-#  description: Eureka Discovery Server.
-#  license: License
-#  licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
-#  version: 0.1
-#  contact:
-#    name: Kamil Socha
-#    url:
-#    email: kamisoc782@student.polsl.pl
+#---
+#spring:
+#  profiles: docker
+#
+#eureka:
+#  instance:
+#    hostname: discovery
+#    prefer-ip-address: true
+#    lease-renewal-interval-in-seconds: 30
+#    lease-expiration-duration-in-seconds: 30
+#  client:
+#    register-with-eureka: false
+#    fetch-registry: false
+#    service-url:
+#      defaultZone: http://discovery:8761/eureka/
+#  server:
+#    enable-self-preservation: false
 
 #---
 ## Eureka instance 1 when used on Docker

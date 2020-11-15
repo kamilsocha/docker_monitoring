@@ -1,0 +1,30 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      show-details: always
+
+swagger:
+  title: Converter Service
+  description: Service converting Roman Numbers to Decimal and reversed.
+  license: License
+  licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 0.1
+  contact:
+    name: Kamil Socha
+    url:
+    email: kamisoc782@student.polsl.pl
+
+info:
+  app:
+    name: ${spring.application.name}
+    description: Converter Service.
+    version: 0.1.0
+  developer:
+    name: Kamil Socha
+    email: kamisoc782@student.polsl.pl

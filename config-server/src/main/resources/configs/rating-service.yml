@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ratingdb
+    username: postgres
+    password: 1234
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      show-details: always
+
+swagger:
+  title:  Rating Service
+  description: Rating service with postgres database connection.
+  license: License
+  licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 0.1
+  contact:
+    name: Kamil Socha
+    url:
+    email: kamisoc782@student.polsl.pl
+
+info:
+  app:
+    name: ${spring.application.name}
+    description: Service for retrieving information about ratings of movies.
+    version: 0.1.0
+  developer:
+    name: Kamil Socha
+    email: kamisoc782@student.polsl.pl

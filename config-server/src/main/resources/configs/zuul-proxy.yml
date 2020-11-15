@@ -1,27 +1,7 @@
-server:
-  port: 8080
-
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaulZone: http://localhost:8761/eureka/
-
-#hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000
-# hystrix timeout for specific service
-# hystrix.command.<serviceName>.execution.isolation.thread.timeoutInMilliseconds: 60000
-
-# test - UPDATE - seems to work
-hystrix.command.default.execution.timeout.enabled: false
-ribbon:
-  ConnectTimeout:  10000
-  ReadTimeout:  10000
-#
-
 zuul:
+  #  ribbon:
+  #    eager-load:
+  #      enabled: true
   ignored-services: '*'
   routes:
     user-movies-catalog-service:
@@ -33,3 +13,63 @@ zuul:
     rating-service:
       path: "/rating-service/**"
       serviceId: rating-service
+    user-service:
+      path: "/user-service/**"
+      serviceId: user-service
+    converter-service:
+      path: "/converter-service/**"
+      serviceId: converter-service
+#  add-host-header: true
+
+ribbon:
+  ConnectTimeout: 1000
+  ReadTimeout: 1000
+
+hystrix:
+  command:
+    default:
+      circuitBreaker:
+        requestVolumeThreshold: 5
+        errorThresholdPercentage: 50
+        sleepWindowInMilliseconds: 10000
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 4000
+      metrics:
+        rollingStats:
+          timeInMilliseconds: 10000
+    dashboard:
+      proxy-stream-allow-list: "*"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      show-details: always
+
+swagger:
+  title:  ${spring.application.name}
+  description: Netflix Zuul API Gateway Server for microservices system.
+  license: License
+  licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 0.1
+  contact:
+    name: Kamil Socha
+    url:
+    email: kamisoc782@student.polsl.pl
+
+info:
+  app:
+    name: ${spring.application.name}
+    description: Netflix Zuul API Gateway Server for microservices system.
+    version: 0.1.0
+  developer:
+    name: Kamil Socha
+    email: kamisoc782@student.polsl.pl
+

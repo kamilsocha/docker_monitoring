@@ -1,0 +1,20 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      show-details: always
+  security:
+    enabled: false
+
+turbine:
+  appConfig: converter-service,movie-service,rating-service,user-movies-catalog-service,user-service,edge-service
+  clusterNameExpression: "'default'"
+
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: "*"

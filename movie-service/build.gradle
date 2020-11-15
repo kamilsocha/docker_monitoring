@@ -28,7 +28,7 @@ dependencies {
 	// eureka discovery client
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 	// cloud config client
-//	implementation 'org.springframework.cloud:spring-cloud-starter-config'
+	implementation 'org.springframework.cloud:spring-cloud-starter-config'
 	// swagger
 	implementation 'io.springfox:springfox-boot-starter:3.0.0'
 	// metrics

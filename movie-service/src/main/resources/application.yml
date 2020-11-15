@@ -1,77 +1,78 @@
-spring:
-  application:
-    name: movie-service
-  datasource:
-    url: jdbc:postgresql://localhost:5432/moviedb
-    username: postgres
-    password: 1234
-  jpa:
-    hibernate:
-      ddl-auto: update
-
-server:
-  port: 9081
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  endpoint:
-    shutdown:
-      enabled: true
-    health:
-      show-details: always
-
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaulZone: http://localhost:8761/eureka/
-
-feign:
-  hystrix:
-    enabled: true
-
-swagger:
-  title:  Movie Service
-  description: Movie Service with postgres database connection.
-  license: License
-  licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: 0.1
-  contact:
-    name: Kamil Socha
-    url:
-    email: kamisoc782@student.polsl.pl
-
-info:
-  app:
-    name: ${spring.application.name}
-    description: Service for retrieving information about movies.
-    version: 0.1.0
-  developer:
-    name: Kamil Socha
-    email: kamisoc782@student.polsl.pl
-
----
-spring:
-  profiles: docker
-  cloud:
-    loadbalancer:
-      ribbon:
-        enabled: false
-  datasource:
-    url: jdbc:postgresql://${DB_SERVER}:5432/${POSTGRES_DB}
-    username: ${POSTGRES_USER}
-    password: ${POSTGRES_PASSWORD}
-
-eureka:
-  instance:
-    hostname: movie-service
-    prefer-ip-address: true
-  client:
-    service-url:
-      defaultZone: http://discovery:8761/eureka/
+#spring:
+#  application:
+#    name: movie-service
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/moviedb
+#    username: postgres
+#    password: 1234
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#
+#server:
+#  port: 9081
+#  forward-headers-strategy: framework
+#
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#  endpoint:
+#    shutdown:
+#      enabled: true
+#    health:
+#      show-details: always
+#
+#eureka:
+#  instance:
+#    hostname: localhost
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaulZone: http://localhost:8761/eureka/
+#
+#feign:
+#  hystrix:
+#    enabled: true
+#
+#swagger:
+#  title:  Movie Service
+#  description: Movie Service with postgres database connection.
+#  license: License
+#  licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
+#  version: 0.1
+#  contact:
+#    name: Kamil Socha
+#    url:
+#    email: kamisoc782@student.polsl.pl
+#
+#info:
+#  app:
+#    name: ${spring.application.name}
+#    description: Service for retrieving information about movies.
+#    version: 0.1.0
+#  developer:
+#    name: Kamil Socha
+#    email: kamisoc782@student.polsl.pl
+#
+#---
+#spring:
+#  profiles: docker
+#  cloud:
+#    loadbalancer:
+#      ribbon:
+#        enabled: false
+#  datasource:
+#    url: jdbc:postgresql://${DB_SERVER}:5432/${POSTGRES_DB}
+#    username: ${POSTGRES_USER}
+#    password: ${POSTGRES_PASSWORD}
+#
+#eureka:
+#  instance:
+#    hostname: movie-service
+#    prefer-ip-address: true
+#  client:
+#    service-url:
+#      defaultZone: http://discovery:8761/eureka/
