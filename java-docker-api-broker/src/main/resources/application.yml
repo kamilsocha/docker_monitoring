@@ -1,0 +1,108 @@
+spring:
+  application:
+    name: java-docker-api-broker
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/dockerapidb
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      minimum-idle: 0
+      maximum-pool-size: 15
+      connection-timeout: 10000
+      idle-timeout: 300000
+      max-lifetime: 600000
+      initialization-fail-timeout: -1
+      validation-timeout: 1000
+    continue-on-error: true
+  jpa:
+    open-in-view: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+#      naming:
+#        physical-strategy: pl.polsl.student.javadockerapibroker.configuration.CustomPhysicalNamingStrategy
+
+server:
+  port: 8000
+
+application:
+  security:
+    jwt:
+      prefix: Bearer
+      secret: N0NuokWWb5XjMP+V3XLfyLkaSArwxNm17VeAvv7+y4+Y/DmxBLenvwOPO404lfl6UfyyEGgQ02ETDEPRMwV/+Q==
+      access:
+        header: Authorization
+        expiration: 120
+      refresh:
+        header: RefreshToken
+        expiration: 14400
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      show-details: always
+
+swagger:
+  title: ${spring.application.name}
+  description: Broker for Client App communicating with Docker API.
+  license: License
+  licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 0.1
+  contact:
+    name: Kamil Socha
+    url:
+    email: kamisoc782@student.polsl.pl
+
+info:
+  app:
+    name: ${spring.application.name}
+    description: Broker for Client App communicating with Docker API.
+    version: 0.1.0
+  developer:
+    name: Kamil Socha
+    email: kamisoc782@student.polsl.pl
+  params:
+    dockerclient:
+      host:
+        protocol: tcp://, unix:///
+        address: Specify host where docker is running e.g. kamil-ubuntu or 192.168.254.119
+        port: 2375, 2376
+      cert:
+        verify: true/false, choose http or https
+        path: Path to certs, classpath:/certs
+
+dockerclient:
+  host:
+    protocol: ${PROTOCOL:tcp://}
+    address: ${HOST_ADDRESS:kamil-ubuntu}
+    port: ${HOST_PORT:2376}
+  cert:
+    verify: ${CERT_VERIFY:true}
+#    path: ${CERT_PATH:classpath:/certs}
+#    path: classpath:/resources/certs
+    path: /home/kamil/.docker/
+#    path:
+  api:
+    version: ${API_VERSION:1.40}
+  registry:
+    uri: ${REGISTRY_URI:}
+    username: ${REGISTRY_USERNAME:}
+    password: ${REGISTRY_PASSWORD:}
+    email: ${REGISTRY_EMAIL:}
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker
+  datasource:
+    url: jdbc:postgresql://${DB_SERVER}:5432/${POSTGRES_DB}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
