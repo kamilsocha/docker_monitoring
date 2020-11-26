@@ -1,31 +1,44 @@
 package pl.polsl.student.javadockerapibroker.services.impl;
 
 import com.github.dockerjava.api.DockerClient;
-import com.github.dockerjava.api.command.*;
-import com.github.dockerjava.api.model.Bind;
-import com.github.dockerjava.api.model.Container;
-import com.github.dockerjava.api.model.HostConfig;
-import com.github.dockerjava.api.model.PortBinding;
-import lombok.RequiredArgsConstructor;
+import com.github.dockerjava.api.async.ResultCallback;
+import com.github.dockerjava.api.command.CreateContainerResponse;
+import com.github.dockerjava.api.command.InspectContainerResponse;
+import com.github.dockerjava.api.command.LogContainerCmd;
+import com.github.dockerjava.api.model.*;
 import org.springframework.stereotype.Service;
-import pl.polsl.student.javadockerapibroker.dto.docker.ContainerCreateDto;
+import pl.polsl.student.javadockerapibroker.dto.ContainerCreateDto;
+import pl.polsl.student.javadockerapibroker.exceptions.ContainerCreationException;
 import pl.polsl.student.javadockerapibroker.services.ContainerService;
+import reactor.core.publisher.Flux;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-@RequiredArgsConstructor
 @Service
 public class ContainerServiceImpl implements ContainerService {
 
     private final DockerClient dockerClient;
+    private int lastLogTime;
+
+
+    public ContainerServiceImpl(DockerClient dockerClient) {
+        this.dockerClient = dockerClient;
+        this.lastLogTime = (int)(System.currentTimeMillis() / 1000);
+    }
 
     @Override
     public Container findOneContainer(String id) {
-        return null;
+
+        return dockerClient.listContainersCmd()
+                .withShowAll(true)
+                .exec()
+                .stream()
+                .filter(c -> c.getId().equals(id))
+                .findAny()
+                .orElse(null);
     }
 
     @Override
@@ -48,15 +61,17 @@ public class ContainerServiceImpl implements ContainerService {
                 .map(PortBinding::parse)
                 .collect(Collectors.toCollection(ArrayList::new));
         hostConfig.withPortBindings(portBindingList);
-
-        var res = dockerClient.createContainerCmd(dto.getImage())
+        var response = dockerClient.createContainerCmd(dto.getImage())
                 .withCmd(dto.getCmd()) // String...
                 .withName(dto.getName())
                 .withHostName(dto.getHostName())
                 .withEnv(dto.getEnv()) // String...
                 .withHostConfig(hostConfig)
                 .exec();
-        return res;
+        if(response == null) {
+            throw new ContainerCreationException("Container creation failed! Probably container with specified name already exists.");
+        }
+        return response;
     }
 
     @Override
@@ -77,5 +92,45 @@ public class ContainerServiceImpl implements ContainerService {
     @Override
     public InspectContainerResponse inspectContainer(String id) {
         return dockerClient.inspectContainerCmd(id).exec();
+    }
+
+    public List<String> logContainer(String id) throws InterruptedException {
+        final List<String> logs = new ArrayList<>();
+        LogContainerCmd logContainerCmd = dockerClient.logContainerCmd(id)
+                .withStdOut(true)
+                .withStdErr(true)
+                .withSince(lastLogTime)
+                .withTimestamps(true);
+
+        logContainerCmd.exec(new ResultCallback.Adapter<>() {
+            @Override
+            public void onNext(Frame object) {
+                logs.add(object.toString());
+            }
+        }).awaitCompletion();
+        lastLogTime = (int) (System.currentTimeMillis() / 1000) + 5; // at least 5 seconds gap between logs
+        return logs;
+    }
+
+//    public Flux<String> logs(String id) {
+    public List<String> logContainerContinuously(String id, Integer timeout)  {
+        List<String> res = new ArrayList<>();
+        try {
+            dockerClient.logContainerCmd(id)
+                    .withStdOut(true)
+                    .withStdErr(true)
+                    .withSince(lastLogTime)
+                    .withTimestamps(true)
+                    .exec(new ResultCallback.Adapter<>(){
+                        @Override
+                        public void onNext(Frame object) {
+                            res.add(object.toString());
+                        }
+                    }).awaitCompletion(timeout, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        lastLogTime = (int) (System.currentTimeMillis() / 1000) + timeout;
+        return res;
     }
 }

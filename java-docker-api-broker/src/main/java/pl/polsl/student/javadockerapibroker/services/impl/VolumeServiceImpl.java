@@ -37,12 +37,15 @@ public class VolumeServiceImpl implements VolumeService {
     }
 
     @Override
-    public CreateVolumeResponse createVolume() {
-        return null;
+    public CreateVolumeResponse createVolume(String name) {
+
+        return dockerClient.createVolumeCmd()
+                .withName(name)
+                .exec();
     }
 
     @Override
-    public void removeVolume(String id) {
-
+    public void removeVolume(String name) {
+        dockerClient.removeVolumeCmd(name).exec();
     }
 }

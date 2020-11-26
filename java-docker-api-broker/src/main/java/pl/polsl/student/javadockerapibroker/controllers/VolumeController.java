@@ -1,5 +1,6 @@
 package pl.polsl.student.javadockerapibroker.controllers;
 
+import com.github.dockerjava.api.command.CreateVolumeResponse;
 import com.github.dockerjava.api.command.InspectVolumeResponse;
 import com.github.dockerjava.api.model.Volume;
 import io.swagger.annotations.Api;
@@ -34,6 +35,33 @@ public class VolumeController {
     @GetMapping
     public List<InspectVolumeResponse> findAll(@RequestParam(name = "dangling", required = false, defaultValue = "false") Boolean dangling) {
         return volumeService.findAllVolumes(dangling);
+    }
+
+    @ApiOperation(value = "Inspect a volume.")
+    @GetMapping(value = "/{name}/inspect")
+    public ResponseEntity<InspectVolumeResponse> inspect(@PathVariable String name) {
+        var res = volumeService.inspectVolume(name);
+        var status = res == null ? HttpStatus.NOT_FOUND : HttpStatus.OK;
+        return ResponseEntity
+                .status(status)
+                .body(res);
+    }
+
+    @ApiOperation(value = "Create a volume.", notes = "Allows to specify a name, otherwise Docker gives volume the name.")
+    @PostMapping
+    public ResponseEntity<CreateVolumeResponse> create(@RequestParam String name) {
+        var res = volumeService.createVolume(name);
+        var status = res == null ? HttpStatus.INTERNAL_SERVER_ERROR : HttpStatus.CREATED;
+        return ResponseEntity
+                .status(status)
+                .body(res);
+    }
+
+    @ApiOperation(value = "Remove a volume.", notes = "You can't remove a volume if it is in use from a container.")
+    @DeleteMapping("/{name}")
+    public ResponseEntity<?> remove(@PathVariable String name) {
+        volumeService.removeVolume(name);
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 
 }

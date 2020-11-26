@@ -7,24 +7,35 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import pl.polsl.student.javadockerapibroker.dto.docker.ContainerCreateDto;
+import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
+import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
+import pl.polsl.student.javadockerapibroker.dto.ContainerCreateDto;
 import pl.polsl.student.javadockerapibroker.services.impl.ContainerServiceImpl;
+import reactor.core.publisher.Flux;
 
+import java.time.Duration;
+import java.time.LocalTime;
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @Api(value = "docker containers management")
 @RequiredArgsConstructor
 @RequestMapping("/containers")
 @RestController
+//@Controller
 public class ContainerController {
 
     private final ContainerServiceImpl containerService;
 
-    @ApiOperation(value = "Find one container.")
+    @ApiOperation(value = "Find container by id.")
     @GetMapping("/{id}")
-    public ResponseEntity<Container> findOne(@PathVariable String id) {
+    public ResponseEntity<Container> findById(@PathVariable String id) {
         Container container = containerService.findOneContainer(id);
         HttpStatus status = container == null ? HttpStatus.NOT_FOUND : HttpStatus.OK;
         return ResponseEntity
@@ -47,8 +58,8 @@ public class ContainerController {
         var response = containerService.inspectContainer(id);
         var status = response == null ? HttpStatus.NOT_FOUND : HttpStatus.OK;
         return ResponseEntity
-                .status(status)
-                .body(response);
+               .status(status)
+              .body(response);
     }
 
     @ApiOperation(value = "Create a container.")
@@ -80,6 +91,49 @@ public class ContainerController {
     public ResponseEntity<?> kill(@PathVariable String id) {
         containerService.killContainer(id);
         return null;
+    }
+
+    @GetMapping("/{id}/logs")
+    public ResponseEntity<List<String>> log(@PathVariable String id) {
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(containerService.logContainer(id));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+//    private ExecutorService nonBlockingService = Executors.newCachedThreadPool();
+//
+//    @GetMapping("/sse")
+//    public SseEmitter handleSse() {
+//        SseEmitter emitter = new SseEmitter();
+//        nonBlockingService.execute(() -> {
+//            try {
+//                emitter.send("/sse" + " @ " + new Date());
+//                emitter.complete();
+//            } catch (Exception e) {
+//                emitter.completeWithError(e);
+//            }
+//        });
+//        return emitter;
+//    }
+
+//    @GetMapping("/srb")
+//    public ResponseEntity<StreamingResponseBody> handleRbe() {
+//        StreamingResponseBody stream = out -> {
+//            String msg = "/srb" + " @ " + new Date();
+//            out.write(msg.getBytes());
+//        };
+//        return new ResponseEntity<>(stream, HttpStatus.OK);
+//    }
+
+    @GetMapping(path = "/{id}/logs/continuous", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public Flux<List<String>> streamFlux(@PathVariable String id, @RequestParam(required = false, defaultValue = "5") Integer timeout) {
+//        return Flux.interval(Duration.ofSeconds(1))
+//                .map(sequence -> "Flux -  " + LocalTime.now().toString());
+        return Flux.interval(Duration.ofSeconds(timeout))
+                .map(sequence -> containerService.logContainerContinuously(id, timeout));
     }
 
     // Snapshot a container

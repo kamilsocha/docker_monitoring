@@ -9,9 +9,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import pl.polsl.student.javadockerapibroker.services.impl.ImageServiceImpl;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Api(value = "docker images management")
 @RequiredArgsConstructor
@@ -33,7 +37,8 @@ public class ImageController {
 
     @ApiOperation(value = "Find all images.", response = List.class)
     @GetMapping
-    public List<Image> findAll(@RequestParam(name = "showAll", required = false, defaultValue = "false") Boolean showAll, @RequestParam(name = "dangling", required = false, defaultValue = "false") Boolean dangling) {
+    public List<Image> findAll(@RequestParam(name = "showAll", required = false, defaultValue = "false") Boolean showAll,
+                               @RequestParam(name = "dangling", required = false, defaultValue = "false") Boolean dangling) {
         return imageService.findAllImages(showAll, dangling);
     }
 
@@ -43,9 +48,15 @@ public class ImageController {
         return imageService.searchImages(name);
     }
 
+    @ApiOperation("Build image from tar archive containing Dockerfile and essential content. ")
     @PostMapping("/build")
-    public ResponseEntity<String> build() {
-        return null;
+    public ResponseEntity<String> build(@RequestParam MultipartFile tarArchive, @RequestParam Boolean withPull,
+                                        @RequestParam Boolean withNoCache,  @RequestParam String[] tags) {
+        var res = imageService.buildImage(tarArchive, withPull, withNoCache, Arrays.stream(tags).collect(Collectors.toSet()));
+        var status = res == null ? HttpStatus.INTERNAL_SERVER_ERROR : HttpStatus.OK;
+        return ResponseEntity
+                .status(status)
+                .body(res);
     }
 
     @ApiOperation(value = "Create image.")
