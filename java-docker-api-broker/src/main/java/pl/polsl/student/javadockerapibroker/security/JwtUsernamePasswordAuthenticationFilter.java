@@ -6,6 +6,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import pl.polsl.student.javadockerapibroker.domain.User;
 
@@ -14,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 @RequiredArgsConstructor
 public class JwtUsernamePasswordAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
@@ -23,6 +25,10 @@ public class JwtUsernamePasswordAuthenticationFilter extends UsernamePasswordAut
     private final JwtUtils jwtUtils;
 
     private final JwtUserDetailsService userDetailsService;
+
+    private static final String datePattern = "yyyy-MM-dd HH:mm:ss";
+
+    private final SimpleDateFormat simpleDateFormat = new SimpleDateFormat(datePattern);
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
@@ -35,6 +41,8 @@ public class JwtUsernamePasswordAuthenticationFilter extends UsernamePasswordAut
             ));
         } catch (IOException e) {
             throw new AuthenticationException("Invalid Credentials.") {};
+        } catch(UsernameNotFoundException e) {
+            throw new UsernameNotFoundException("User not found");
         }
     }
 
@@ -43,6 +51,6 @@ public class JwtUsernamePasswordAuthenticationFilter extends UsernamePasswordAut
         User principal = (User) authResult.getPrincipal();
         String accessToken = jwtUtils.generateAccessToken(principal);
         response.addHeader(jwtUtils.getAuthorizationHeader(), jwtUtils.getTokenPrefix() + accessToken);
-        response.addHeader("AccessTokenExpiration", jwtUtils.extractExpirationDate(accessToken).toString());
+        response.addHeader("AccessTokenExpiration", simpleDateFormat.format(jwtUtils.extractExpirationDate(accessToken)));
     }
 }

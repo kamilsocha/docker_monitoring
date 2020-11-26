@@ -5,9 +5,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.polsl.student.javadockerapibroker.domain.User;
 import pl.polsl.student.javadockerapibroker.dto.UserPostDto;
+import pl.polsl.student.javadockerapibroker.repositories.RoleRepository;
 import pl.polsl.student.javadockerapibroker.repositories.UserRepository;
 import pl.polsl.student.javadockerapibroker.services.UserService;
 
+import java.util.Collections;
 import java.util.LinkedHashSet;
 
 @RequiredArgsConstructor
@@ -15,6 +17,8 @@ import java.util.LinkedHashSet;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+
+    private final RoleRepository roleRepository;
 
     private final BCryptPasswordEncoder passwordEncoder;
 
@@ -39,9 +43,8 @@ public class UserServiceImpl implements UserService {
         User entity = new User();
         entity.setEmail(dto.getEmail());
         entity.setPassword(passwordEncoder.encode(dto.getPassword()));
-        entity.setFirstName(dto.getFirstName());
-        entity.setLastName(dto.getLastName());
         entity.setIsActive(true);
+        entity.setRoles(Collections.singleton(roleRepository.findFirstByName("ROLE_USER")));
         //
         return entity;
     }

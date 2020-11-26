@@ -2,7 +2,8 @@ spring:
   application:
     name: java-docker-api-broker
   datasource:
-    url: jdbc:postgresql://127.0.0.1:5432/dockerapidb
+#    url: jdbc:postgresql://127.0.0.1:5432/dockerapidb
+    url: jdbc:postgresql://localhost:5432/dockerapidb
     username: postgres
     password: 1234
     driver-class-name: org.postgresql.Driver
@@ -29,7 +30,7 @@ server:
 application:
   security:
     jwt:
-      prefix: Bearer
+      prefix: "Bearer "
       secret: N0NuokWWb5XjMP+V3XLfyLkaSArwxNm17VeAvv7+y4+Y/DmxBLenvwOPO404lfl6UfyyEGgQ02ETDEPRMwV/+Q==
       access:
         header: Authorization

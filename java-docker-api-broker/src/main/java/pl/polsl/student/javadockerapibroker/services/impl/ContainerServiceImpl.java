@@ -48,13 +48,15 @@ public class ContainerServiceImpl implements ContainerService {
                 .map(PortBinding::parse)
                 .collect(Collectors.toCollection(ArrayList::new));
         hostConfig.withPortBindings(portBindingList);
-        return dockerClient.createContainerCmd(dto.getImage())
+
+        var res = dockerClient.createContainerCmd(dto.getImage())
                 .withCmd(dto.getCmd()) // String...
                 .withName(dto.getName())
                 .withHostName(dto.getHostName())
                 .withEnv(dto.getEnv()) // String...
                 .withHostConfig(hostConfig)
                 .exec();
+        return res;
     }
 
     @Override

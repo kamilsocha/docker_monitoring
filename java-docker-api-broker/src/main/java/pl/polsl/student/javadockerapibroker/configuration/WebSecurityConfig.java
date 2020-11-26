@@ -35,9 +35,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             "/login",
             "/users/register"
 //            ,"/users/**"
-            ,"/**"
-            ,"/images/**"
-            ,"/info/**"
+//            ,"/**"
+//            ,"/images/**"
+//            ,"/info"
+//            ,"/info/**"
     };
 
     @Override

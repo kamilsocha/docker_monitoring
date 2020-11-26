@@ -11,9 +11,9 @@ public class UserGetDto {
 
     private String email;
 
-    private String firstName;
+//    private String firstName;
 
-    private String lastName;
+//    private String lastName;
 
     private Boolean isActive;
 

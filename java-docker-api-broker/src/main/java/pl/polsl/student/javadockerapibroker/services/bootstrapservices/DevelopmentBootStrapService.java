@@ -48,8 +48,8 @@ public class DevelopmentBootStrapService extends BootStrapService {
         log.info("Creating default development user accounts...");
         User userAdmin = new User();
         userAdmin.setEmail("admin@admin.com");
-        userAdmin.setFirstName("admin");
-        userAdmin.setLastName("admin");
+//        userAdmin.setFirstName("admin");
+//        userAdmin.setLastName("admin");
         userAdmin.setIsActive(true);
         userAdmin.setPassword(passwordEncoder.encode("admin"));
         LinkedHashSet<Role> authoritiesAdmin = new LinkedHashSet<>();
@@ -57,8 +57,8 @@ public class DevelopmentBootStrapService extends BootStrapService {
         userAdmin.setRoles(authoritiesAdmin);
         User user = new User();
         user.setEmail("user@user.com");
-        user.setFirstName("user");
-        user.setLastName("user");
+//        user.setFirstName("user");
+//        user.setLastName("user");
         user.setIsActive(true);
         user.setPassword(passwordEncoder.encode("user"));
         LinkedHashSet<Role> authoritiesUser = new LinkedHashSet<>();
