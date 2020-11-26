@@ -11,7 +11,7 @@ public interface VolumeService {
     Volume findOneVolume();
     List<InspectVolumeResponse> findAllVolumes(Boolean dangling);
     InspectVolumeResponse inspectVolume(String name);
-    CreateVolumeResponse createVolume();
-    void removeVolume(String id);
+    CreateVolumeResponse createVolume(String name);
+    void removeVolume(String name);
 
 }

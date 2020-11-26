@@ -33,11 +33,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final String[] AUTH_WHITELIST = {
             "/login",
-            "/users/register"
-//            ,"/users/**"
+            "/users/register",
+            // swagger
+            "/v2/api-docs",
+            "/swagger-resources/**",
+            "/configuration/**",
+            "/swagger-ui/",
+            "/webjars/**"
             ,"/**"
-            ,"/images/**"
-            ,"/info/**"
     };
 
     @Override

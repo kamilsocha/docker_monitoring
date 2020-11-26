@@ -1,6 +1,7 @@
 package pl.polsl.student.javadockerapibroker.services.impl;
 
 import com.github.dockerjava.api.DockerClient;
+import com.github.dockerjava.api.command.BuildImageResultCallback;
 import com.github.dockerjava.api.command.CreateImageResponse;
 import com.github.dockerjava.api.command.InspectImageResponse;
 import com.github.dockerjava.api.command.PullImageResultCallback;
@@ -8,9 +9,14 @@ import com.github.dockerjava.api.model.Image;
 import com.github.dockerjava.api.model.SearchItem;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 import pl.polsl.student.javadockerapibroker.services.ImageService;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 @RequiredArgsConstructor
@@ -21,7 +27,14 @@ public class ImageServiceImpl implements ImageService {
 
     @Override
     public Image findOneImage(String id) {
-        return null;
+
+        return dockerClient.listImagesCmd()
+                .withShowAll(true)
+                .exec()
+                .stream()
+                .filter(i -> i.getId().equals(id))
+                .findAny()
+                .orElse(null);
     }
 
     @Override
@@ -40,8 +53,20 @@ public class ImageServiceImpl implements ImageService {
     }
 
     @Override
-    public String buildImage() {
-        return null;
+//    public String buildImage(ImageBuildDto imageBuildDto) {
+    public String buildImage(MultipartFile tarArchive, Boolean withPull, Boolean withNoCache, Set<String> tags) {
+        try {
+            return dockerClient
+                    .buildImageCmd(tarArchive.getInputStream())
+                    .withPull(withPull)
+                    .withNoCache(withNoCache)
+                    .withTags(tags)
+                    .exec(new BuildImageResultCallback())
+                    .awaitImageId();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
@@ -65,8 +90,6 @@ public class ImageServiceImpl implements ImageService {
                 .withTag(tag)
                 .exec(new PullImageResultCallback())
                 .awaitCompletion(awaitCompletion, TimeUnit.SECONDS);
-        String r = "asb";
-        System.out.println(r);
     }
 
     @Override
@@ -79,4 +102,5 @@ public class ImageServiceImpl implements ImageService {
 
         return dockerClient.searchImagesCmd(name).exec();
     }
+
 }
