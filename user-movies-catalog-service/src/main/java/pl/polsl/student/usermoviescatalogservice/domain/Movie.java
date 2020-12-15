@@ -21,8 +21,10 @@ public class Movie {
     @ApiModelProperty(required = true, example = "Wiretapping specialist tries to save two people")
     private String description;
 
-    @ApiModelProperty(required = true, example = "Francis Ford Coppola")
+    @ApiModelProperty(example = "Francis Ford Coppola")
     private String director;
 
-//    private Integer length;
+    @ApiModelProperty(required = true, example = "...")
+    private String posterUri;
+
 }

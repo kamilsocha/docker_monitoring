@@ -1,0 +1,23 @@
+.card-image {
+  width: 360px;
+  height: 640px;
+  width: 180px;
+  height: 320px;
+  width: 270px;
+  height: 480px;
+}
+
+.bg-main {
+  background-image: linear-gradient(to right, #ffedff, #ffe3ff);
+}
+
+/* .image-container {
+  position: relative;
+  transition: transform 0.5s ease;
+}
+
+.image-container:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  box-shadow: 5px 10px 20px 1px rgba(0, 0, 0, 0.253) !important;
+} */

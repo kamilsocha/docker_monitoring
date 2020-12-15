@@ -10,4 +10,6 @@ public interface RatingService {
     LinkedHashSet<Rating> findAll();
     List<Rating> findByUserId(Long userId);
     Rating createRating(Rating rating);
+    Rating updateRating(Long id, Double rating);
+    void deleteRating(Long id);
 }

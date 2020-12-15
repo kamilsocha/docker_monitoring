@@ -1,49 +1,59 @@
 package pl.polsl.student.userservice.services;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import pl.polsl.student.userservice.domain.User;
+import pl.polsl.student.userservice.domain.UserPostDto;
+import pl.polsl.student.userservice.domain.UserRole;
 import pl.polsl.student.userservice.repositories.UserRepository;
 
 import java.util.LinkedHashSet;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Slf4j
 @RequiredArgsConstructor
 @Service
 public class UserServiceImpl implements UserService {
-
-    Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Value("${server.port}")
     private Integer port;
 
     private final UserRepository userRepository;
 
+    private final ObjectMapper objectMapper = new ObjectMapper();
+
     @Override
     public LinkedHashSet<User> findAll() {
-        logger.warn("Processing request: find all... Port: " + port);
-        return userRepository.findAll()
-                .stream()
-                .collect(Collectors.toCollection(LinkedHashSet::new));
+        log.warn("Processing request: find all... Port: " + port);
+        return new LinkedHashSet<>(userRepository.findAll());
     }
 
     @Override
     public User findById(Long id) {
-        logger.warn("Processing request: find by user... Port: " + port);
-//        return Arrays.asList(
-//                new Rating((long) 1, (long) 1, (long) 1, 4.0),
-//                new Rating((long) 2, (long) 2, (long) 1, 3.5),
-//                new Rating((long) 3, (long) 4, (long) 1, 4.5)
-//        );
+        log.warn("Processing request... Find by user id: " + id + "... Port: " + port);
         return userRepository.findById(id).orElse(null);
     }
 
     @Override
-    public User createUser(User user) {
-        logger.warn("Processing request: create rating... Port: " + port);
+    public User findByEmail(String email) {
+        log.warn("Processing request... Find by user email: " + email + "... Port: " + port);
+        Optional<User> user = userRepository.findByEmail(email);
+        return user.orElse(null);
+    }
+
+    @Override
+    public User createUser(UserPostDto userPostDto) {
+        log.warn("Processing request... Create user... Port: " + port);
+
+        User user = objectMapper.convertValue(userPostDto, User.class);
+        user.setRole(UserRole.ROLE_USER);
+
         return userRepository.save(user);
     }
 }

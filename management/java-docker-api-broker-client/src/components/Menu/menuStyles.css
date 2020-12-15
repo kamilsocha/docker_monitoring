@@ -1,0 +1,18 @@
+.bg-routes {
+  background-image: linear-gradient(to right, #ffedff, #ffe3ff);
+}
+
+.m-active {
+  /* opacity: 50%; */
+  /* background-color: slategray; */
+  background-color: #454d54;
+}
+
+.m-nav-link {
+  width: 100%;
+}
+
+.dac_logo {
+  width: 120px;
+  height: 120px;
+}

@@ -7,11 +7,13 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.polsl.student.ratingservice.domain.Rating;
+import pl.polsl.student.ratingservice.domain.RatingPatchDto;
 import pl.polsl.student.ratingservice.domain.UserRatings;
 import pl.polsl.student.ratingservice.services.RatingServiceImpl;
 
 import java.util.LinkedHashSet;
 
+@CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("/ratings")
 @RestController
@@ -42,5 +44,22 @@ public class RatingController {
         return  ResponseEntity
                 .status(status)
                 .body(entity);
+    }
+
+    @ApiOperation(value = "Update rating.")
+    @PatchMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Rating> update(@RequestBody RatingPatchDto ratingPatchDto) {
+        Rating entity = ratingService.updateRating(ratingPatchDto.getRatingId(), ratingPatchDto.getRating());
+        final HttpStatus status = entity == null ? HttpStatus.INTERNAL_SERVER_ERROR : HttpStatus.OK;
+        return  ResponseEntity
+                .status(status)
+                .body(entity);
+    }
+
+    @ApiOperation(value = "Delete rating")
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> delete(@PathVariable Long id) {
+        ratingService.deleteRating(id);
+        return ResponseEntity.ok().build();
     }
 }

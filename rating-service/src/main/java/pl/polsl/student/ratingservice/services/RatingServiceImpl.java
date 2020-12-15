@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import pl.polsl.student.ratingservice.domain.Rating;
+import pl.polsl.student.ratingservice.exceptions.RatingNotFoundException;
 import pl.polsl.student.ratingservice.repositories.RatingRepository;
 
 import java.util.Arrays;
@@ -42,5 +43,19 @@ public class RatingServiceImpl implements RatingService {
     public Rating createRating(Rating rating) {
         logger.warn("Processing request: create rating... Port: " + port);
         return ratingRepository.save(rating);
+    }
+
+    @Override
+    public Rating updateRating(Long id, Double rating) {
+        logger.warn("Processing request: update rating... Port: " + port);
+        Rating ratingEntity = ratingRepository.findById(id).orElseThrow(() -> new RatingNotFoundException("Rating with id: " + id + " was not found"));
+        ratingEntity.setRating(rating);
+        return ratingRepository.save(ratingEntity);
+    }
+
+    @Override
+    public void deleteRating(Long id) {
+        logger.warn("Processing request: delete rating... Port: " + port);
+        ratingRepository.deleteById(id);
     }
 }

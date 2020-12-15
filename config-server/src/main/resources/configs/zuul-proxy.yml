@@ -1,8 +1,8 @@
+server:
+  forward-headers-strategy: framework
+
 zuul:
-  #  ribbon:
-  #    eager-load:
-  #      enabled: true
-  ignored-services: '*'
+#  ignored-services: '*'
   routes:
     user-movies-catalog-service:
       path: "/user-movies-catalog-service/**"
@@ -19,6 +19,10 @@ zuul:
     converter-service:
       path: "/converter-service/**"
       serviceId: converter-service
+    ui:
+      url: "http://localhost:8080/index.html"
+    nginx:
+      url: "http://localhost:80/nginx"
 #  add-host-header: true
 
 ribbon:

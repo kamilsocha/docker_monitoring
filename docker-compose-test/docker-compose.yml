@@ -1,0 +1,315 @@
+version: "3"
+
+networks:
+  back:
+  front:
+
+volumes:
+  moviedb:
+  ratingdb:
+  userdb:
+
+services:
+  discovery:
+    image: sochakamil/discovery-server
+    build: ../discovery-server/
+    container_name: discoverytest
+    restart: always
+    ports:
+      - "9761:8761"
+    env_file: ./.env
+    networks:
+      - back
+      - front
+    labels:
+      pl.polsl.student.name: "eureka-discovery-server"
+      pl.polsl.student.systembelongto.name: "test1system"
+
+      pl.polsl.student.type: "infra"
+      pl.polsl.student.type.infra: "discovery"
+
+    deploy:
+      resources:
+        limits:
+          memory: 350M
+
+  config-server:
+    image: sochakamil/config-server
+    build: ../config-server/
+    restart: always
+    env_file: ./.env
+    environment:
+      - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
+      - SPRING_SECURITY_USER_NAME=${CONFIG_SERVER_USR}
+      - SPRING_SECURITY_USER_PASSWORD=${CONFIG_SERVER_PWD}
+    networks:
+      - back
+    depends_on:
+      - discovery
+    volumes:
+      - type: bind
+        source: ../config-server/src/main/resources/configs
+        target: /app/config
+    labels:
+      pl.polsl.student.name: "cloud-config-server"
+      pl.polsl.student.systembelongto.name: "test1system"
+
+      pl.polsl.student.type: "infra"
+      pl.polsl.student.type.infra: "config"
+
+    deploy:
+      resources:
+        limits:
+          memory: 350M
+
+  apigateway:
+    image: sochakamil/edge-server
+    build: ../edge-service/
+    restart: always
+    ports:
+      - "9080:8080"
+    env_file: ./.env
+    environment:
+      - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
+      - CONFIG_SERVER_USER=${CONFIG_SERVER_USR}
+      - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
+      - MOVIE_CLIENT=movieclienttest
+    networks:
+      - back
+      - front
+    depends_on:
+      - discovery
+    labels:
+      pl.polsl.student.name: "zuul-proxy-server"
+      pl.polsl.student.systembelongto.name: "test1system"
+
+      pl.polsl.student.type: "infra"
+      pl.polsl.student.type.infra: "apigateway"
+
+    deploy:
+      resources:
+        limits:
+          memory: 350M
+
+  movieclienttest:
+    image: sochakamil/movies-api-client
+    build: ../movies-api-client
+    container_name: movieclienttest
+    # ports:
+    #   - "80:80"
+    networks:
+      - front
+    labels:
+      pl.polsl.student.name: "movies-api-client"
+      pl.polsl.student.systembelongto.name: "test1system"
+
+      pl.polsl.student.type: "dom"
+      pl.polsl.student.type.dom: "ui"
+
+  userCatalog:
+    image: sochakamil/user-movies-catalog-service
+    build: ../user-movies-catalog-service/
+    restart: always
+    env_file: ./.env
+    environment:
+      - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
+      - CONFIG_SERVER_USER=${CONFIG_SERVER_USR}
+      - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
+    networks:
+      - back
+    depends_on:
+      - discovery
+      - config-server
+    labels:
+      pl.polsl.student.name: "user-movies-catalog-service"
+      pl.polsl.student.systembelongto.name: "test1system"
+
+      pl.polsl.student.type: "dom"
+      pl.polsl.student.type.dom: "ms"
+
+    deploy:
+      resources:
+        limits:
+          memory: 350M
+
+  movies:
+    image: sochakamil/movie-service
+    build: ../movie-service/
+    restart: always
+    env_file: ./.env
+    environment:
+      - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
+      - DB_SERVER=movieDb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=${POSTGRES_MOVIE_DB}
+      - CONFIG_SERVER_USER=${CONFIG_SERVER_USR}
+      - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
+    networks:
+      - back
+    depends_on:
+      - discovery
+      - config-server
+      - movieDb
+    volumes:
+      - ./uploadsVolume:/app/uploads
+    labels:
+      pl.polsl.student.name: "movie-service"
+      pl.polsl.student.systembelongto.name: "test1system"
+
+      pl.polsl.student.type: "dom"
+      pl.polsl.student.type.dom: "ms"
+
+    deploy:
+      resources:
+        limits:
+          memory: 350M
+
+  ratings:
+    image: sochakamil/rating-service
+    build: ../rating-service/
+    restart: always
+    env_file: ./.env
+    environment:
+      - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
+      - DB_SERVER=ratingDb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=${POSTGRES_RATING_DB}
+      - CONFIG_SERVER_USER=${CONFIG_SERVER_USR}
+      - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
+    networks:
+      - back
+    depends_on:
+      - discovery
+      - config-server
+      - ratingDb
+    labels:
+      pl.polsl.student.name: "ratings-service"
+      pl.polsl.student.systembelongto.name: "test1system"
+
+      pl.polsl.student.type: "dom"
+      pl.polsl.student.type.dom: "ms"
+
+    deploy:
+      resources:
+        limits:
+          memory: 350M
+
+  users:
+    image: sochakamil/user-service
+    build: ../user-service
+    restart: always
+    env_file: ./.env
+    environment:
+      - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
+      - DB_SERVER=userDb
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_USER_DB}
+      - CONFIG_SERVER_USER=${CONFIG_SERVER_USR}
+      - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
+    networks:
+      - back
+    depends_on:
+      - discovery
+      - userDb
+    labels:
+      pl.polsl.student.name: "user-service"
+      pl.polsl.student.systembelongto.name: "test1system"
+
+      pl.polsl.student.type: "dom"
+      pl.polsl.student.type.dom: "ms"
+
+    deploy:
+      resources:
+        limits:
+          memory: 350M
+
+  converter:
+    image: sochakamil/converter-service
+    build: ../converter-service
+    restart: always
+    env_file: ./.env
+    environment:
+      - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
+      - CONFIG_SERVER_USER=${CONFIG_SERVER_USR}
+      - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
+    networks:
+      - back
+    depends_on:
+      - discovery
+    labels:
+      pl.polsl.student.name: "converter-service"
+      pl.polsl.student.systembelongto.name: "test1system"
+
+      pl.polsl.student.type: "dom"
+      pl.polsl.student.type.dom: "ms"
+
+    deploy:
+      resources:
+        limits:
+          memory: 350M
+
+  movieDb:
+    image: postgres:alpine
+    restart: always
+    container_name: movieDbTest
+    volumes:
+      - moviedb:/var/lib/postgresql/data:rw
+    env_file: ./.env
+    environment:
+      - POSTGRES_DB=${POSTGRES_MOVIE_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - PGDATA=/var/lib/postgresql/data
+    networks:
+      - back
+    labels:
+      pl.polsl.student.name: "postgres-movie-database"
+      pl.polsl.student.systembelongto.name: "test1system"
+
+      pl.polsl.student.type: "dom"
+      pl.polsl.student.type.dom: "db"
+
+  ratingDb:
+    image: postgres:alpine
+    restart: always
+    container_name: ratingDbTest
+    volumes:
+      - ratingdb:/var/lib/postgresql/data:rw
+    env_file: ./.env
+    environment:
+      - POSTGRES_DB=${POSTGRES_RATING_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - PGDATA=/var/lib/postgresql/data
+    networks:
+      - back
+    labels:
+      pl.polsl.student.name: "postgres-rating-database"
+      pl.polsl.student.systembelongto.name: "test1system"
+
+      pl.polsl.student.type: "dom"
+      pl.polsl.student.type.dom: "db"
+
+  userDb:
+    image: postgres:alpine
+    restart: always
+    container_name: userDbTest
+    volumes:
+      - userdb:/var/lib/postgresql/data:rw
+    env_file: ./.env
+    environment:
+      - POSTGRES_DB=${POSTGRES_USER_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - PGDATA=/var/lib/postgresql/data
+    networks:
+      - back
+    labels:
+      pl.polsl.student.name: "postgres-user-database"
+      pl.polsl.student.systembelongto.name: "test1system"
+
+      pl.polsl.student.type: "dom"
+      pl.polsl.student.type.dom: "db"

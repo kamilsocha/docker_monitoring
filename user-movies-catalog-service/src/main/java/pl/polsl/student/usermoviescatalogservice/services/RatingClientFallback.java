@@ -14,8 +14,6 @@ public class RatingClientFallback implements RatingClient {
 //        return cacheRepository
         return new UserRatings(
                 Arrays.asList(
-                        new Rating((long) 0, (long) 0, (long) 0, 0.0),
-                        new Rating((long) 0, (long) 0, (long) 0, 0.0),
                         new Rating((long) 0, (long) 0, (long) 0, 0.0)
                 )
         );

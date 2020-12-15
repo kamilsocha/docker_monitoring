@@ -1,0 +1,36 @@
+.container-horizontal-scroll > .row {
+  overflow-x: auto;
+  flex-wrap: nowrap;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
+  /* background-color: #292b2c; */
+  background-image: linear-gradient(to right, #ffedff, #ffe3ff);
+  -webkit-box-shadow: inset 0 0 6px rgba(200, 200, 200, 1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); */
+  background-color: #292b2c;
+  /* background-image: linear-gradient(to right, #ffedff, #ffe3ff); */
+  -webkit-box-shadow: inset 0 0 6px rgba(90, 90, 90, 0.7);
+}
+
+/* ::-webkit-scrollbar-thumb:hover {
+} */
+
+/* .movies-container {
+  overflow-y: scroll;
+  transform: rotate(90deg);
+}
+
+.movies-content {
+  transform: rotate(-90deg);
+} */

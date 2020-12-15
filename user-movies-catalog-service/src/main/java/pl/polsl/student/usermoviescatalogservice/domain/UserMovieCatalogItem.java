@@ -14,12 +14,23 @@ import lombok.Setter;
 @AllArgsConstructor
 public class UserMovieCatalogItem {
 
+    private Long movieId;
+
     @ApiModelProperty(value = "Name of the movie", example = "The Conversation")
     private String name;
 
     @ApiModelProperty(example = "Wiretapping specialist tries to save two people")
     private String description;
 
+    private String director;
+
+    @ApiModelProperty(example = "...")
+    private String posterUri;
+
+    private Long ratingId;
+
     @ApiModelProperty(example = "2.0")
     private Double rating;
+
+
 }

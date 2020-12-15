@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.3.5.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 	id 'java'
+//	id "com.github.node-gradle.node" version "2.2.4"
 }
 
 group = 'pl.polsl.student'
@@ -21,6 +22,48 @@ repositories {
 ext {
 	set('springCloudVersion', "Hoxton.SR8")
 }
+
+//node {
+//
+//	version = '12.18.3'
+//
+//	npmVersion = '6.14.6'
+//
+//	workDir = file("${project.projectDir}/src/main/frontend/nodejs")
+//
+//	npmWorkDir = file("${project.projectDir}/src/main/frontend/npm")
+//
+//	nodeModulesDir = file("${project.projectDir}/src/main/frontend")
+//
+//	download = true
+//}
+//
+//task npmInstallDependencies(type: NpmTask) {
+//	dependsOn 'npmSetup'
+//	execOverrides {
+//		it.ignoreExitValue = true
+//		it.workingDir = 'src/main/frontend'
+//	}
+//	args = ['install']
+//}
+//
+//task npmBuild(type: NpmTask) {
+//	dependsOn 'npmInstallDependencies'
+//	execOverrides {
+//		it.workingDir = 'src/main/frontend'
+//	}
+//	args = ['run', 'build']
+//}
+//
+//task copyFrontendToBuild(type: Copy) {
+//	dependsOn 'npmBuild'
+//	from "${projectDir}/src/main/frontend/build/"
+//	into "${buildDir}/resources/main/static"
+//}
+//
+//processResources {
+//	dependsOn 'copyFrontendToBuild'
+//}
 
 dependencies {
 	// standard

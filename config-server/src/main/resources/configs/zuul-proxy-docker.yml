@@ -1,8 +1,7 @@
+server:
+  forward-headers-strategy: framework
+
 zuul:
-  #  ribbon:
-  #    eager-load:
-  #      enabled: true
-  ignored-services: '*'
   routes:
     user-movies-catalog-service:
       path: "/user-movies-catalog-service/**"
@@ -19,6 +18,15 @@ zuul:
     converter-service:
       path: "/converter-service/**"
       serviceId: converter-service
+    ui:
+      url: "http://localhost:8080/index.html"
+    nginx:
+      #      url: "http://movieclient:80/nginx"
+      url: http://${movie_client}/nginx
+      # url: "http://localhost:80/nginx"
+#      stripPrefix: false
+#      sensitiveHeaders:
+
 #  add-host-header: true
 
 ribbon:
@@ -46,7 +54,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: '*'
+        include: "*"
   endpoint:
     shutdown:
       enabled: true
@@ -54,7 +62,7 @@ management:
       show-details: always
 
 swagger:
-  title:  ${spring.application.name}
+  title: ${spring.application.name}
   description: Netflix Zuul API Gateway Server for microservices system.
   license: License
   licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
@@ -72,6 +80,3 @@ info:
   developer:
     name: Kamil Socha
     email: kamisoc782@student.polsl.pl
-
-
-

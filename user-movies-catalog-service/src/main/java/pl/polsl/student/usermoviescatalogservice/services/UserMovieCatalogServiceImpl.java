@@ -1,6 +1,7 @@
 package pl.polsl.student.usermoviescatalogservice.services;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,13 +12,14 @@ import pl.polsl.student.usermoviescatalogservice.domain.UserMovieCatalogItem;
 import pl.polsl.student.usermoviescatalogservice.domain.UserRatings;
 
 import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
+@Slf4j
 @RequiredArgsConstructor
 @Service
 public class UserMovieCatalogServiceImpl implements UserMovieCatalogService {
-
-    Logger logger = LoggerFactory.getLogger(UserMovieCatalogServiceImpl.class);
 
     @Value("${server.port}")
     private Integer port;
@@ -36,14 +38,24 @@ public class UserMovieCatalogServiceImpl implements UserMovieCatalogService {
 
     @Override
     public LinkedHashSet<UserMovieCatalogItem> findAll() {
+        // get all movies
+        // get all ratings
+        // assign ratings to movies
         return null;
+    }
+
+    @Override
+    public List<Movie> findAllMoviesForUser(Long userId) {
+        UserRatings userRatings = ratingClient.ratingsByUserId(userId);
+        Set<Long> movieIds = userRatings.getRatings().stream().map(Rating::getMovieId).collect(Collectors.toCollection(LinkedHashSet::new));
+
+        return movieClient.findAllButSpecified(movieIds.stream().toArray(m -> new Long[m]));
     }
 
     @Override
     public LinkedHashSet<UserMovieCatalogItem> findByUserId(Long userId) {
 
-        logger.warn("Processing request... Port: " + port);
-
+        log.warn("Processing request... Port: " + port);
         UserRatings userRatings = ratingClient.ratingsByUserId(userId);
         return userRatings.getRatings().stream()
                 .map(this::getMovieCatalogItem)
@@ -52,6 +64,6 @@ public class UserMovieCatalogServiceImpl implements UserMovieCatalogService {
 
     private UserMovieCatalogItem getMovieCatalogItem(Rating rating) {
         Movie movie = movieClient.findById(rating.getMovieId()).getBody();
-        return movie != null ? new UserMovieCatalogItem(movie.getName(), movie.getDescription(), rating.getRating()) : null;
+        return movie != null ? new UserMovieCatalogItem(movie.getId(), movie.getName(), movie.getDescription(), movie.getDirector(), movie.getPosterUri(), rating.getId(), rating.getRating()) : null;
     }
 }

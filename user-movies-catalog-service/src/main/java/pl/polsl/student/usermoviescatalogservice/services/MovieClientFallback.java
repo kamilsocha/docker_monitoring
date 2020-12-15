@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import pl.polsl.student.usermoviescatalogservice.domain.Movie;
 
+import java.util.List;
+
 //@RequiredArgsConstructor
 @Component
 public class MovieClientFallback implements MovieClient {
@@ -16,7 +18,7 @@ public class MovieClientFallback implements MovieClient {
 
     @Override
     public ResponseEntity<Movie> findById(Long id) {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Movie((long) 0, "Fallback movie name", "Fallback movie description", "Fallback movie director"));
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Movie((long) 0, "Fallback movie name", "Fallback movie description", "Fallback movie director", ""));
 //        ValueWrapper w = cacheManager.getCache("movies").get(id);
 //        if(w != null) {
 //            return ResponseEntity
@@ -32,5 +34,10 @@ public class MovieClientFallback implements MovieClient {
 //                                    "Fallback movie director"
 //                            ));
 //        }
+    }
+
+    @Override
+    public List<Movie> findAllButSpecified(Long[] idsToFilterOut) {
+        return null;
     }
 }

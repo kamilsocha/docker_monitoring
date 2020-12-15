@@ -1,0 +1,9 @@
+.topBar {
+  height: 10vh;
+  /* background-image: linear-gradient(to right, #eeaeca, #e994c9); */
+}
+
+.mainContainer {
+  height: 90vh;
+  /* padding-top: 10vh; */
+}

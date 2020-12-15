@@ -17,6 +17,8 @@ spring:
 server:
   port: 8080
 
+movie_client: ${MOVIE_CLIENT}
+
 eureka:
   instance:
     hostname: localhost
