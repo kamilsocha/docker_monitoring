@@ -12,7 +12,7 @@ const ContainersNav = ({ baseurl }) => {
             as={NavLink}
             exact={true}
             to={`${baseurl}`}
-            className="text-dark font-weight-bold"
+            className="mc-nav-link text-dark font-weight-bold"
             activeClassName="mc-active"
           >
             Systems
@@ -22,7 +22,7 @@ const ContainersNav = ({ baseurl }) => {
           <Nav.Link
             as={NavLink}
             to={`${baseurl}/non-system`}
-            className="text-dark font-weight-bold"
+            className="mc-nav-link text-dark font-weight-bold"
             activeClassName="mc-active"
           >
             Non System
@@ -32,7 +32,7 @@ const ContainersNav = ({ baseurl }) => {
           <Nav.Link
             as={NavLink}
             to={`${baseurl}/all`}
-            className="text-dark font-weight-bold"
+            className="mc-nav-link text-dark font-weight-bold"
             activeClassName="mc-active"
           >
             All

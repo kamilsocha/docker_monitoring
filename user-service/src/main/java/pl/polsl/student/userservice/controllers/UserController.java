@@ -12,7 +12,7 @@ import pl.polsl.student.userservice.services.UserServiceImpl;
 
 import java.util.LinkedHashSet;
 
-@CrossOrigin("*")
+// @CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("/users")
 @RestController

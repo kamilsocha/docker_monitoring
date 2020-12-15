@@ -1,8 +1,12 @@
-version: "3"
+version: "3.2"
 
 networks:
   back:
   front:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.6.0.0/16
 
 volumes:
   moviedb:
@@ -20,7 +24,6 @@ services:
     env_file: ./.env
     networks:
       - back
-      - front
     labels:
       pl.polsl.student.name: "eureka-discovery-server"
       pl.polsl.student.systembelongto.name: "test1system"
@@ -73,10 +76,11 @@ services:
       - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
       - CONFIG_SERVER_USER=${CONFIG_SERVER_USR}
       - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
-      - MOVIE_CLIENT=movieclienttest
+      - MOVIE_CLIENT=movieclienttest:80
     networks:
-      - back
-      - front
+      front:
+        ipv4_address: 10.6.0.5
+      back:
     depends_on:
       - discovery
     labels:
@@ -95,10 +99,9 @@ services:
     image: sochakamil/movies-api-client
     build: ../movies-api-client
     container_name: movieclienttest
-    # ports:
-    #   - "80:80"
     networks:
-      - front
+      front:
+        ipv4_address: 10.6.0.6
     labels:
       pl.polsl.student.name: "movies-api-client"
       pl.polsl.student.systembelongto.name: "test1system"
@@ -265,6 +268,10 @@ services:
       - PGDATA=/var/lib/postgresql/data
     networks:
       - back
+    deploy:
+      resources:
+        limits:
+          memory: 1000M
     labels:
       pl.polsl.student.name: "postgres-movie-database"
       pl.polsl.student.systembelongto.name: "test1system"
@@ -286,6 +293,10 @@ services:
       - PGDATA=/var/lib/postgresql/data
     networks:
       - back
+    deploy:
+      resources:
+        limits:
+          memory: 1000M
     labels:
       pl.polsl.student.name: "postgres-rating-database"
       pl.polsl.student.systembelongto.name: "test1system"
@@ -307,6 +318,10 @@ services:
       - PGDATA=/var/lib/postgresql/data
     networks:
       - back
+    deploy:
+      resources:
+        limits:
+          memory: 1000M
     labels:
       pl.polsl.student.name: "postgres-user-database"
       pl.polsl.student.systembelongto.name: "test1system"

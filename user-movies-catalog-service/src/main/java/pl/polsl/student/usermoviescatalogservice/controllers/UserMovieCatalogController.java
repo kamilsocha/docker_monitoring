@@ -13,7 +13,7 @@ import pl.polsl.student.usermoviescatalogservice.services.UserMovieCatalogServic
 import java.util.LinkedHashSet;
 import java.util.List;
 
-@CrossOrigin("*")
+//@CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("/catalog")
 @RestController

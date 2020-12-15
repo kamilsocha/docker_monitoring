@@ -13,7 +13,7 @@ import pl.polsl.student.ratingservice.services.RatingServiceImpl;
 
 import java.util.LinkedHashSet;
 
-@CrossOrigin("*")
+//@CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("/ratings")
 @RestController

@@ -1,8 +1,8 @@
-server:
-  forward-headers-strategy: framework
+# server:
+#   forward-headers-strategy: framework
 
 zuul:
-#  ignored-services: '*'
+  #  ignored-services: '*'
   routes:
     user-movies-catalog-service:
       path: "/user-movies-catalog-service/**"
@@ -50,7 +50,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: '*'
+        include: "*"
   endpoint:
     shutdown:
       enabled: true
@@ -58,7 +58,7 @@ management:
       show-details: always
 
 swagger:
-  title:  ${spring.application.name}
+  title: ${spring.application.name}
   description: Netflix Zuul API Gateway Server for microservices system.
   license: License
   licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
@@ -76,4 +76,3 @@ info:
   developer:
     name: Kamil Socha
     email: kamisoc782@student.polsl.pl
-

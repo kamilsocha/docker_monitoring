@@ -5,8 +5,8 @@ spring:
     password: ${POSTGRES_PASSWORD}
   jpa:
     hibernate:
-      dll-auto: none
-      # dll-auto: create
+      ddl-auto: none
+      # ddl-auto: create
 
 server:
   port: 8080

@@ -26,7 +26,6 @@ const designateSystemLabels = (containers, systemLabelName) => {
 }
 
 export const distinguishSystems = (containers, systemLabelName) => {
-  console.log("distinguish")
   const { systemLabelFullName, systemLabels } = designateSystemLabels(
     containers,
     systemLabelName

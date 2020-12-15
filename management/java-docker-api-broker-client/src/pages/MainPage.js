@@ -10,7 +10,7 @@ const MainPage = () => {
         <Col xs="3" className="h-100" style={{ minHeight: "100vh" }}>
           <Menu />
         </Col>
-        <Col xs={{ span: 9 }} className="bg-routes">
+        <Col xs={{ span: 9 }} className="bg-light">
           <Routes />
         </Col>
       </Row>

@@ -19,10 +19,12 @@ const ContainersPage = (props) => {
 
   return (
     <>
-      <div className="h1 m-2 font-weight-bold">Containers</div>
+      <div>
+        <div className="h1 m-2 font-weight-bold">Containers</div>
+      </div>
       <ContainersNav baseurl={url} />
       <Switch>
-        <Route path={`${url}/`}>
+        <Route exact path={`${url}/`}>
           <Systems />
         </Route>
         <Route path={`${url}/non-system`}>
