@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@CrossOrigin("*")
+//@CrossOrigin("*")
 @Api(value = "docker containers management")
 @RequiredArgsConstructor
 @RequestMapping("/containers")

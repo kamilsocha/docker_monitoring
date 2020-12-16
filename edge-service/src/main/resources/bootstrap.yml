@@ -18,6 +18,7 @@ server:
   port: 8080
 
 movie_client: ${MOVIE_CLIENT}
+service: ${SERVICE}
 
 eureka:
   instance:

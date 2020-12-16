@@ -11,7 +11,7 @@ const ContainersNav = ({ baseurl }) => {
           <Nav.Link
             as={NavLink}
             exact={true}
-            to={`${baseurl}`}
+            to={`${baseurl}/systems`}
             className="mc-nav-link text-dark font-weight-bold"
             activeClassName="mc-active"
           >

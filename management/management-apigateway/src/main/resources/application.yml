@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: management-apigateway
+
+server:
+  port: 7080
+
+zuul:
+  routes:
+    api:
+      url: "http://localhost:8001"
+    app:
+      url: "http://localhost:3000"
+    redirect:
+      path: "redirect/**"
+      url: "http://localhost:7080"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      show-details: always
+
+info:
+  app:
+    name: ${spring.application.name}
+    description: Netflix Zuul API Gateway Server for management of docker microservices system.
+    version: 0.1.0
+  developer:
+    name: Kamil Socha
+    email: kamisoc782@student.polsl.pl
+
+---
+spring:
+  profiles: docker
+
+server:
+  port: 8080
+
+zuul:
+  routes:
+    api:
+      url: http://${API_URI}
+    app:
+      url: http://${APP_URI}

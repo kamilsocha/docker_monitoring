@@ -23,34 +23,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7b57ef5-9192-4ce8-9205-d940d3428d29" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../edge-service/src/main/java/pl/polsl/student/edgeservice/filters/SimpleCorsFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/rating-service-docker.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/rating-service-docker.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/filters/RedirectFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/zuul-proxy-docker.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/zuul-proxy-docker.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/zuul-proxy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/zuul-proxy.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker-compose-prod/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-test/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker-compose-test/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../docker-compose-test/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker-compose-test/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../edge-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../edge-service/src/main/resources/bootstrap.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/axios-orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/axios-orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/ContainersNav/ContainersNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/ContainersNav/ContainersNav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/ContainersTable/ContainersTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/ContainersTable/ContainersTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/ContainersTable/ContainersTableRow.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/ContainersTable/ContainersTableRow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Systems/SystemInstance.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Systems/SystemInstance.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Systems/Systems.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Systems/Systems.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Menu/menuStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Menu/menuStyles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/constants/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/constants/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/navigation/Routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/navigation/Routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Auth/AuthPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Auth/AuthPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Auth/authPage.style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Auth/authPage.style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Containers/ContainersPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Containers/ContainersPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/MainPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/store/actions/containers.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/store/actions/containers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/store/reducers/containers.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/store/reducers/containers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6df75fd6-e661-4197-a44e-c900f4436be7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6df75fd6-e661-4197-a44e-c900f4436be7.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6df75fd6-e661-4197-a44e-c900f4436be7/storage_v2/_src_/database/dockerapidb.-M2rfQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6df75fd6-e661-4197-a44e-c900f4436be7/storage_v2/_src_/database/dockerapidb.-M2rfQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/configuration/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/configuration/WebSecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/controllers/ContainerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/controllers/ContainerController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../movie-service/src/main/java/pl/polsl/student/movieservice/controllers/MovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../movie-service/src/main/java/pl/polsl/student/movieservice/controllers/MovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/configuration/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/configuration/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/controllers/ContainerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/controllers/ContainerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/ManagementApigatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/ManagementApigatewayApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movie-service/src/main/java/pl/polsl/student/movieservice/MovieServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../movie-service/src/main/java/pl/polsl/student/movieservice/MovieServiceApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../movies-api-client/.env.production" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/.env.production" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../movies-api-client/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../movies-api-client/src/axios-orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/src/axios-orders.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../rating-service/src/main/java/pl/polsl/student/ratingservice/controllers/RatingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../rating-service/src/main/java/pl/polsl/student/ratingservice/controllers/RatingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../user-movies-catalog-service/src/main/java/pl/polsl/student/usermoviescatalogservice/controllers/UserMovieCatalogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../user-movies-catalog-service/src/main/java/pl/polsl/student/usermoviescatalogservice/controllers/UserMovieCatalogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../user-service/src/main/java/pl/polsl/student/userservice/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../user-service/src/main/java/pl/polsl/student/userservice/controllers/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +79,16 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+    <projectState path="$PROJECT_DIR$/../management-apigateway">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -88,7 +116,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../management-apigateway" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -98,12 +126,42 @@
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
-  <component name="RunManager" selected="Spring Boot.JavaDockerApiBrokerApplication">
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="pl.polsl.student.managementapigateway.filters" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.WindowsConfiguration">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="JavaDockerApiBrokerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="java-docker-api-broker.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="pl.polsl.student.javadockerapibroker.JavaDockerApiBrokerApplication" />
       <option name="ACTIVE_PROFILES" value="development" />
       <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ManagementApigatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="management-apigateway.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="pl.polsl.student.managementapigateway.ManagementApigatewayApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -161,6 +219,7 @@
     </configuration>
     <list>
       <item itemvalue="Docker.Discovery" />
+      <item itemvalue="Spring Boot.ManagementApigatewayApplication" />
       <item itemvalue="Spring Boot.JavaDockerApiBrokerApplication" />
       <item itemvalue="Spring Boot.WindowsConfiguration" />
     </list>
@@ -200,6 +259,7 @@
       <workItem from="1607985219491" duration="1160000" />
       <workItem from="1608018895003" duration="1627000" />
       <workItem from="1608049718870" duration="2497000" />
+      <workItem from="1608109046318" duration="8212000" />
     </task>
     <servers />
   </component>
@@ -230,102 +290,110 @@
     <state x="310" y="14" width="1089" height="789" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1606078887385" />
     <state x="310" y="14" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1606174338442" />
     <state x="2117" y="24" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608053677843" />
-    <state x="3044" y="426" key="#com.intellij.ide.util.MemberChooser" timestamp="1606909750865">
+    <state x="3044" y="426" key="#com.intellij.ide.util.MemberChooser" timestamp="1608135572778">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
-    <state x="3044" y="426" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1606909750865" />
+    <state x="3044" y="426" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608135572778" />
     <state x="498" y="214" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1606078749735">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="498" y="214" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1606078749735" />
-    <state width="2516" height="589" key="GridCell.Tab.0.bottom" timestamp="1608057782232">
-      <screen x="1600" y="0" width="2560" height="1440" />
+    <state x="3019" y="429" key="FileChooserDialogImpl" timestamp="1608126324812">
+      <screen x="1998" y="0" width="2482" height="1440" />
+    </state>
+    <state x="3019" y="429" key="FileChooserDialogImpl/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608126324812" />
+    <state width="1686" height="616" key="GridCell.Tab.0.bottom" timestamp="1608137351994">
+      <screen x="1998" y="0" width="2482" height="1440" />
     </state>
     <state width="2455" height="601" key="GridCell.Tab.0.bottom/0.0.1536.824/1982.0.2498.1440@1982.0.2498.1440" timestamp="1607705502766" />
     <state width="1493" height="345" key="GridCell.Tab.0.bottom/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1606905839834" />
-    <state width="2439" height="503" key="GridCell.Tab.0.bottom/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1607972787323" />
-    <state width="1493" height="258" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607990719937" />
+    <state width="1686" height="616" key="GridCell.Tab.0.bottom/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608137351994" />
+    <state width="1493" height="215" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1608079657968" />
     <state width="2516" height="589" key="GridCell.Tab.0.bottom/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608057782232" />
-    <state width="2516" height="589" key="GridCell.Tab.0.center" timestamp="1608057782232">
-      <screen x="1600" y="0" width="2560" height="1440" />
+    <state width="1686" height="616" key="GridCell.Tab.0.center" timestamp="1608137351993">
+      <screen x="1998" y="0" width="2482" height="1440" />
     </state>
     <state width="2455" height="601" key="GridCell.Tab.0.center/0.0.1536.824/1982.0.2498.1440@1982.0.2498.1440" timestamp="1607705502766" />
     <state width="1493" height="345" key="GridCell.Tab.0.center/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1606905839834" />
-    <state width="2439" height="503" key="GridCell.Tab.0.center/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1607972787323" />
-    <state width="1493" height="258" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607990719937" />
+    <state width="1686" height="616" key="GridCell.Tab.0.center/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608137351993" />
+    <state width="1493" height="215" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1608079657967" />
     <state width="2516" height="589" key="GridCell.Tab.0.center/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608057782232" />
-    <state width="2516" height="589" key="GridCell.Tab.0.left" timestamp="1608057782232">
-      <screen x="1600" y="0" width="2560" height="1440" />
+    <state width="1686" height="616" key="GridCell.Tab.0.left" timestamp="1608137351993">
+      <screen x="1998" y="0" width="2482" height="1440" />
     </state>
     <state width="2455" height="601" key="GridCell.Tab.0.left/0.0.1536.824/1982.0.2498.1440@1982.0.2498.1440" timestamp="1607705502766" />
     <state width="1493" height="345" key="GridCell.Tab.0.left/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1606905839834" />
-    <state width="2439" height="503" key="GridCell.Tab.0.left/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1607972787322" />
-    <state width="1493" height="258" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607990719937" />
+    <state width="1686" height="616" key="GridCell.Tab.0.left/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608137351993" />
+    <state width="1493" height="215" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1608079657967" />
     <state width="2516" height="589" key="GridCell.Tab.0.left/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608057782232" />
-    <state width="2516" height="589" key="GridCell.Tab.0.right" timestamp="1608057782232">
-      <screen x="1600" y="0" width="2560" height="1440" />
+    <state width="1686" height="616" key="GridCell.Tab.0.right" timestamp="1608137351993">
+      <screen x="1998" y="0" width="2482" height="1440" />
     </state>
     <state width="2455" height="601" key="GridCell.Tab.0.right/0.0.1536.824/1982.0.2498.1440@1982.0.2498.1440" timestamp="1607705502766" />
     <state width="1493" height="345" key="GridCell.Tab.0.right/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1606905839834" />
-    <state width="2439" height="503" key="GridCell.Tab.0.right/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1607972787323" />
-    <state width="1493" height="258" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607990719937" />
+    <state width="1686" height="616" key="GridCell.Tab.0.right/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608137351993" />
+    <state width="1493" height="215" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1608079657968" />
     <state width="2516" height="589" key="GridCell.Tab.0.right/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608057782232" />
-    <state width="2516" height="589" key="GridCell.Tab.1.bottom" timestamp="1608057782233">
-      <screen x="1600" y="0" width="2560" height="1440" />
+    <state width="1686" height="616" key="GridCell.Tab.1.bottom" timestamp="1608137351994">
+      <screen x="1998" y="0" width="2482" height="1440" />
     </state>
     <state width="2455" height="601" key="GridCell.Tab.1.bottom/0.0.1536.824/1982.0.2498.1440@1982.0.2498.1440" timestamp="1607705502767" />
     <state width="1493" height="345" key="GridCell.Tab.1.bottom/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1606905839834" />
-    <state width="2439" height="503" key="GridCell.Tab.1.bottom/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1607972787323" />
-    <state width="1493" height="258" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607990719938" />
+    <state width="1686" height="616" key="GridCell.Tab.1.bottom/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608137351994" />
+    <state width="1493" height="215" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1608079657968" />
     <state width="2516" height="589" key="GridCell.Tab.1.bottom/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608057782233" />
-    <state width="2516" height="589" key="GridCell.Tab.1.center" timestamp="1608057782233">
-      <screen x="1600" y="0" width="2560" height="1440" />
+    <state width="1686" height="616" key="GridCell.Tab.1.center" timestamp="1608137351994">
+      <screen x="1998" y="0" width="2482" height="1440" />
     </state>
     <state width="2455" height="601" key="GridCell.Tab.1.center/0.0.1536.824/1982.0.2498.1440@1982.0.2498.1440" timestamp="1607705502766" />
     <state width="1493" height="345" key="GridCell.Tab.1.center/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1606905839834" />
-    <state width="2439" height="503" key="GridCell.Tab.1.center/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1607972787323" />
-    <state width="1493" height="258" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1607990719938" />
+    <state width="1686" height="616" key="GridCell.Tab.1.center/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608137351994" />
+    <state width="1493" height="215" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1608079657968" />
     <state width="2516" height="589" key="GridCell.Tab.1.center/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608057782233" />
-    <state width="2516" height="589" key="GridCell.Tab.1.left" timestamp="1608057782233">
-      <screen x="1600" y="0" width="2560" height="1440" />
+    <state width="1686" height="616" key="GridCell.Tab.1.left" timestamp="1608137351994">
+      <screen x="1998" y="0" width="2482" height="1440" />
     </state>
     <state width="2455" height="601" key="GridCell.Tab.1.left/0.0.1536.824/1982.0.2498.1440@1982.0.2498.1440" timestamp="1607705502766" />
     <state width="1493" height="345" key="GridCell.Tab.1.left/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1606905839834" />
-    <state width="2439" height="503" key="GridCell.Tab.1.left/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1607972787323" />
-    <state width="1493" height="258" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1607990719937" />
+    <state width="1686" height="616" key="GridCell.Tab.1.left/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608137351994" />
+    <state width="1493" height="215" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1608079657968" />
     <state width="2516" height="589" key="GridCell.Tab.1.left/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608057782233" />
-    <state width="2516" height="589" key="GridCell.Tab.1.right" timestamp="1608057782233">
-      <screen x="1600" y="0" width="2560" height="1440" />
+    <state width="1686" height="616" key="GridCell.Tab.1.right" timestamp="1608137351994">
+      <screen x="1998" y="0" width="2482" height="1440" />
     </state>
     <state width="2455" height="601" key="GridCell.Tab.1.right/0.0.1536.824/1982.0.2498.1440@1982.0.2498.1440" timestamp="1607705502766" />
     <state width="1493" height="345" key="GridCell.Tab.1.right/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1606905839834" />
-    <state width="2439" height="503" key="GridCell.Tab.1.right/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1607972787323" />
-    <state width="1493" height="258" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1607990719938" />
+    <state width="1686" height="616" key="GridCell.Tab.1.right/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608137351994" />
+    <state width="1493" height="215" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1608079657968" />
     <state width="2516" height="589" key="GridCell.Tab.1.right/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608057782233" />
-    <state width="2516" height="489" key="GridCell.Tab.2.bottom" timestamp="1608053618961">
-      <screen x="1600" y="0" width="2560" height="1440" />
+    <state width="1686" height="616" key="GridCell.Tab.2.bottom" timestamp="1608137351994">
+      <screen x="1998" y="0" width="2482" height="1440" />
     </state>
-    <state width="2439" height="615" key="GridCell.Tab.2.bottom/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1606933183969" />
+    <state width="1686" height="616" key="GridCell.Tab.2.bottom/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608137351994" />
     <state width="1493" height="319" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607820771130" />
     <state width="2516" height="489" key="GridCell.Tab.2.bottom/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608053618961" />
-    <state width="2516" height="489" key="GridCell.Tab.2.center" timestamp="1608053618960">
-      <screen x="1600" y="0" width="2560" height="1440" />
+    <state width="1686" height="616" key="GridCell.Tab.2.center" timestamp="1608137351994">
+      <screen x="1998" y="0" width="2482" height="1440" />
     </state>
-    <state width="2439" height="615" key="GridCell.Tab.2.center/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1606933183969" />
+    <state width="1686" height="616" key="GridCell.Tab.2.center/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608137351994" />
     <state width="1493" height="319" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1607820771130" />
     <state width="2516" height="489" key="GridCell.Tab.2.center/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608053618960" />
-    <state width="2516" height="489" key="GridCell.Tab.2.left" timestamp="1608053618960">
-      <screen x="1600" y="0" width="2560" height="1440" />
+    <state width="1686" height="616" key="GridCell.Tab.2.left" timestamp="1608137351994">
+      <screen x="1998" y="0" width="2482" height="1440" />
     </state>
-    <state width="2439" height="615" key="GridCell.Tab.2.left/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1606933183969" />
+    <state width="1686" height="616" key="GridCell.Tab.2.left/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608137351994" />
     <state width="1493" height="319" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1607820771130" />
     <state width="2516" height="489" key="GridCell.Tab.2.left/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608053618960" />
-    <state width="2516" height="489" key="GridCell.Tab.2.right" timestamp="1608053618960">
-      <screen x="1600" y="0" width="2560" height="1440" />
+    <state width="1686" height="616" key="GridCell.Tab.2.right" timestamp="1608137351994">
+      <screen x="1998" y="0" width="2482" height="1440" />
     </state>
-    <state width="2439" height="615" key="GridCell.Tab.2.right/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1606933183969" />
+    <state width="1686" height="616" key="GridCell.Tab.2.right/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608137351994" />
     <state width="1493" height="319" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1607820771130" />
     <state width="2516" height="489" key="GridCell.Tab.2.right/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608053618960" />
+    <state x="2904" y="424" key="NewModule_or_Project.wizard" timestamp="1608126327962">
+      <screen x="1998" y="0" width="2482" height="1440" />
+    </state>
+    <state x="2904" y="424" key="NewModule_or_Project.wizard/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608126327962" />
     <state x="2740" y="365" key="SettingsEditor" timestamp="1607590663538">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
@@ -344,6 +412,15 @@
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1606262371955" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/filters/RedirectFilter.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
         <watch expression="response" />

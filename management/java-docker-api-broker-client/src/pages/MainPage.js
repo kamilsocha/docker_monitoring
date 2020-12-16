@@ -1,5 +1,5 @@
 import React from "react"
-import { Container, Row, Col } from "react-bootstrap"
+import { Row, Col } from "react-bootstrap"
 import Menu from "../components/Menu/Menu"
 import Routes from "../navigation/Routes"
 

@@ -18,13 +18,10 @@ zuul:
     ui:
       url: "http://localhost:8080/index.html"
     nginx:
-      #      url: "http://movieclient:80/nginx"
       url: http://${movie_client}/nginx
-      # url: "http://localhost:80/nginx"
-#      stripPrefix: false
-#      sensitiveHeaders:
-
-#  add-host-header: true
+    test-docker:
+      path: "/test-docker/**"
+      url: "http://${service}"
 
 ribbon:
   ConnectTimeout: 1000

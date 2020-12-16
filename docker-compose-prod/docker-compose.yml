@@ -3,10 +3,14 @@ version: "3.2"
 networks:
   back:
   front:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 10.5.0.0/16
+    # linux
+    # driver: bridge
+    # driver: nat
+    # ipam:
+    #   config:
+    #     - subnet: 10.5.0.0/16
+  # management:
+  #   external: true
 
 volumes:
   moviedb:
@@ -29,12 +33,12 @@ services:
       pl.polsl.student.systembelongto.name: "domain1system"
 
       pl.polsl.student.type: "infra"
-      pl.polsl.student.type.infra: "discovery"
+      pl.polsl.student.type.infra.subtype: "discovery"
 
     deploy:
       resources:
         limits:
-          cpus: "0.50"
+          # cpus: "0.50"
           memory: 350M
 
   config-server:
@@ -60,12 +64,12 @@ services:
       pl.polsl.student.systembelongto.name: "domain1system"
 
       pl.polsl.student.type: "infra"
-      pl.polsl.student.type.infra: "config"
+      pl.polsl.student.type.infra.subtype: "config"
 
     deploy:
       resources:
         limits:
-          cpus: "0.50"
+          # cpus: "0.50"
           memory: 350M
 
   apigateway:
@@ -80,9 +84,11 @@ services:
       - CONFIG_SERVER_USER=${CONFIG_SERVER_USR}
       - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
       - MOVIE_CLIENT=movieclient:80
+      - SERVICE=movies:8080
     networks:
       front:
-        ipv4_address: 10.5.0.5
+        # linux
+        # ipv4_address: 10.5.0.5
       back:
     depends_on:
       - discovery
@@ -91,32 +97,37 @@ services:
       pl.polsl.student.systembelongto.name: "domain1system"
 
       pl.polsl.student.type: "infra"
-      pl.polsl.student.type.infra: "apigateway"
+      pl.polsl.student.type.infra.subtype: "apigateway"
 
     deploy:
       resources:
         limits:
-          cpus: "0.50"
+          # cpus: "0.50"
           memory: 350M
 
   movieclient:
-    image: sochakamil/movies-api-client
+    image: sochakamil/movies-api-client-windows
     build: ../movies-api-client
     container_name: movieclient
     networks:
       front:
-        ipv4_address: 10.5.0.6
+        # linux
+        # ipv4_address: 10.5.0.6
+    # windows
+    ports:
+      - "80:80"
+    #
     deploy:
       resources:
         limits:
-          cpus: "0.50"
+          # cpus: "0.50"
           memory: 1000M
     labels:
       pl.polsl.student.name: "movies-api-client"
       pl.polsl.student.systembelongto.name: "domain1system"
 
       pl.polsl.student.type: "dom"
-      pl.polsl.student.type.dom: "ui"
+      pl.polsl.student.type.dom.subtype: "ui"
 
   userCatalog:
     image: sochakamil/user-movies-catalog-service
@@ -137,12 +148,12 @@ services:
       pl.polsl.student.systembelongto.name: "domain1system"
 
       pl.polsl.student.type: "dom"
-      pl.polsl.student.type.dom: "ms"
+      pl.polsl.student.type.dom.subtype: "ms"
 
     deploy:
       resources:
         limits:
-          cpus: "0.50"
+          # cpus: "0.50"
           memory: 350M
 
   movies:
@@ -171,12 +182,12 @@ services:
       pl.polsl.student.systembelongto.name: "domain1system"
 
       pl.polsl.student.type: "dom"
-      pl.polsl.student.type.dom: "ms"
+      pl.polsl.student.type.dom.subtype: "ms"
 
     deploy:
       resources:
         limits:
-          cpus: "0.50"
+          # cpus: "0.50"
           memory: 350M
 
   ratings:
@@ -203,12 +214,12 @@ services:
       pl.polsl.student.systembelongto.name: "domain1system"
 
       pl.polsl.student.type: "dom"
-      pl.polsl.student.type.dom: "ms"
+      pl.polsl.student.type.dom.subtype: "ms"
 
     deploy:
       resources:
         limits:
-          cpus: "0.50"
+          # cpus: "0.50"
           memory: 350M
 
   users:
@@ -235,12 +246,12 @@ services:
       pl.polsl.student.systembelongto.name: "domain1system"
 
       pl.polsl.student.type: "dom"
-      pl.polsl.student.type.dom: "ms"
+      pl.polsl.student.type.dom.subtype: "ms"
 
     deploy:
       resources:
         limits:
-          cpus: "0.50"
+          # cpus: "0.50"
           memory: 350M
 
   converter:
@@ -262,12 +273,12 @@ services:
       pl.polsl.student.systembelongto.name: "domain1system"
 
       pl.polsl.student.type: "dom"
-      pl.polsl.student.type.dom: "ms"
+      pl.polsl.student.type.dom.subtype: "ms"
 
     deploy:
       resources:
         limits:
-          cpus: "0.50"
+          # cpus: "0.50"
           memory: 350M
 
   movieDb:
@@ -287,14 +298,14 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.50"
+          # cpus: "0.50"
           memory: 1000M
     labels:
       pl.polsl.student.name: "postgres-movie-database"
       pl.polsl.student.systembelongto.name: "domain1system"
 
       pl.polsl.student.type: "dom"
-      pl.polsl.student.type.dom: "db"
+      pl.polsl.student.type.dom.subtype: "db"
 
   ratingDb:
     image: postgres:alpine
@@ -313,14 +324,14 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.50"
+          # cpus: "0.50"
           memory: 1000M
     labels:
       pl.polsl.student.name: "postgres-rating-database"
       pl.polsl.student.systembelongto.name: "domain1system"
 
       pl.polsl.student.type: "dom"
-      pl.polsl.student.type.dom: "db"
+      pl.polsl.student.type.dom.subtype: "db"
 
   userDb:
     image: postgres:alpine
@@ -339,11 +350,11 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.50"
+          # cpus: "0.50"
           memory: 1000M
     labels:
       pl.polsl.student.name: "postgres-user-database"
       pl.polsl.student.systembelongto.name: "domain1system"
 
       pl.polsl.student.type: "dom"
-      pl.polsl.student.type.dom: "db"
+      pl.polsl.student.type.dom.subtype: "db"

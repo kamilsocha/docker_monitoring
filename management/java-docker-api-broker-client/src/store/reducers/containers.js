@@ -7,6 +7,7 @@ import {
 import { distinguishSystems, updateObject } from "../utils"
 
 const initialState = {
+  selectedContainer: null,
   allContainers: [],
   noSystemContainers: [],
   systems: [],
@@ -35,7 +36,7 @@ const fetchContainersSuccess = (state, action) => {
     state.systemLabelName
   )
   return updateObject(state, {
-    allContainer: action.payload,
+    allContainers: action.payload,
     noSystemContainers,
     systems,
     loading: false,

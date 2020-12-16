@@ -29,7 +29,7 @@ services:
       pl.polsl.student.systembelongto.name: "test1system"
 
       pl.polsl.student.type: "infra"
-      pl.polsl.student.type.infra: "discovery"
+      pl.polsl.student.type.infra.subtype: "discovery"
 
     deploy:
       resources:
@@ -58,7 +58,7 @@ services:
       pl.polsl.student.systembelongto.name: "test1system"
 
       pl.polsl.student.type: "infra"
-      pl.polsl.student.type.infra: "config"
+      pl.polsl.student.type.infra.subtype: "config"
 
     deploy:
       resources:
@@ -88,7 +88,7 @@ services:
       pl.polsl.student.systembelongto.name: "test1system"
 
       pl.polsl.student.type: "infra"
-      pl.polsl.student.type.infra: "apigateway"
+      pl.polsl.student.type.infra.subtype: "apigateway"
 
     deploy:
       resources:
@@ -107,7 +107,7 @@ services:
       pl.polsl.student.systembelongto.name: "test1system"
 
       pl.polsl.student.type: "dom"
-      pl.polsl.student.type.dom: "ui"
+      pl.polsl.student.type.dom.subtype: "ui"
 
   userCatalog:
     image: sochakamil/user-movies-catalog-service
@@ -128,7 +128,7 @@ services:
       pl.polsl.student.systembelongto.name: "test1system"
 
       pl.polsl.student.type: "dom"
-      pl.polsl.student.type.dom: "ms"
+      pl.polsl.student.type.dom.subtype: "ms"
 
     deploy:
       resources:
@@ -161,7 +161,7 @@ services:
       pl.polsl.student.systembelongto.name: "test1system"
 
       pl.polsl.student.type: "dom"
-      pl.polsl.student.type.dom: "ms"
+      pl.polsl.student.type.dom.subtype: "ms"
 
     deploy:
       resources:
@@ -192,7 +192,7 @@ services:
       pl.polsl.student.systembelongto.name: "test1system"
 
       pl.polsl.student.type: "dom"
-      pl.polsl.student.type.dom: "ms"
+      pl.polsl.student.type.dom.subtype: "ms"
 
     deploy:
       resources:
@@ -222,7 +222,7 @@ services:
       pl.polsl.student.systembelongto.name: "test1system"
 
       pl.polsl.student.type: "dom"
-      pl.polsl.student.type.dom: "ms"
+      pl.polsl.student.type.dom.subtype: "ms"
 
     deploy:
       resources:
@@ -247,7 +247,7 @@ services:
       pl.polsl.student.systembelongto.name: "test1system"
 
       pl.polsl.student.type: "dom"
-      pl.polsl.student.type.dom: "ms"
+      pl.polsl.student.type.dom.subtype: "ms"
 
     deploy:
       resources:
@@ -277,7 +277,7 @@ services:
       pl.polsl.student.systembelongto.name: "test1system"
 
       pl.polsl.student.type: "dom"
-      pl.polsl.student.type.dom: "db"
+      pl.polsl.student.type.dom.subtype: "db"
 
   ratingDb:
     image: postgres:alpine
@@ -302,7 +302,7 @@ services:
       pl.polsl.student.systembelongto.name: "test1system"
 
       pl.polsl.student.type: "dom"
-      pl.polsl.student.type.dom: "db"
+      pl.polsl.student.type.dom.subtype: "db"
 
   userDb:
     image: postgres:alpine
@@ -327,4 +327,4 @@ services:
       pl.polsl.student.systembelongto.name: "test1system"
 
       pl.polsl.student.type: "dom"
-      pl.polsl.student.type.dom: "db"
+      pl.polsl.student.type.dom.subtype: "db"

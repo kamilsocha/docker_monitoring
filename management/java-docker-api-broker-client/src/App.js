@@ -28,7 +28,6 @@ const App = () => {
   }
 
   return isAuthenticated ? <MainPage /> : <AuthPage />
-  // return <MainPage />
 }
 
 export default App

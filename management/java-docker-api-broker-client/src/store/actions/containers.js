@@ -36,6 +36,7 @@ export const fetchContainers = () => {
       })
     const data = response?.data
     if (data) {
+      console.log("containers", data)
       dispatch(fetchContainersSuccess(data))
     }
   }

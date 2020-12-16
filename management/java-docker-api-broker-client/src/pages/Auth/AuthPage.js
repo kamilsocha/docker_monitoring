@@ -15,15 +15,17 @@ const AuthPage = () => {
   }
 
   return (
-    <Container>
-      <Row style={{ minHeight: "100vh" }}>
-        <Col xs={{ span: 6, offset: 3 }} className="align-self-center">
-          <>
-            {authRedirect}
-            <SignInFormContainer />
-          </>
-        </Col>
-      </Row>
+    <Container fluid className="bg-auth">
+      <Container>
+        <Row style={{ minHeight: "100vh" }}>
+          <Col xs={{ span: 6, offset: 3 }} className="align-self-center">
+            <>
+              {authRedirect}
+              <SignInFormContainer />
+            </>
+          </Col>
+        </Row>
+      </Container>
     </Container>
   )
 }
