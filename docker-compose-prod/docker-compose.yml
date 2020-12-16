@@ -9,8 +9,8 @@ networks:
     # ipam:
     #   config:
     #     - subnet: 10.5.0.0/16
-  # management:
-  #   external: true
+  management:
+    external: true
 
 volumes:
   moviedb:
@@ -21,13 +21,13 @@ services:
   discovery:
     image: sochakamil/discovery-server
     build: ../discovery-server/
-    container_name: discovery
     restart: always
     ports:
       - "8761:8761"
     env_file: ./.env
     networks:
       - back
+      - management
     labels:
       pl.polsl.student.name: "eureka-discovery-server"
       pl.polsl.student.systembelongto.name: "domain1system"
@@ -53,6 +53,7 @@ services:
 
     networks:
       - back
+      - management
     depends_on:
       - discovery
     volumes:
@@ -90,6 +91,7 @@ services:
         # linux
         # ipv4_address: 10.5.0.5
       back:
+      management:
     depends_on:
       - discovery
     labels:
@@ -113,7 +115,8 @@ services:
       front:
         # linux
         # ipv4_address: 10.5.0.6
-    # windows
+      # windows
+      management:
     ports:
       - "80:80"
     #
@@ -140,6 +143,7 @@ services:
       - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
     networks:
       - back
+      - management
     depends_on:
       - discovery
       - config-server
@@ -171,6 +175,7 @@ services:
       - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
     networks:
       - back
+      - management
     depends_on:
       - discovery
       - config-server
@@ -205,6 +210,7 @@ services:
       - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
     networks:
       - back
+      - management
     depends_on:
       - discovery
       - config-server
@@ -226,7 +232,6 @@ services:
     image: sochakamil/user-service
     build: ../user-service
     restart: always
-    container_name: users
     env_file: ./.env
     environment:
       - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
@@ -238,6 +243,7 @@ services:
       - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
     networks:
       - back
+      - management
     depends_on:
       - discovery
       - userDb
@@ -258,7 +264,6 @@ services:
     image: sochakamil/converter-service
     build: ../converter-service
     restart: always
-    container_name: converter
     env_file: ./.env
     environment:
       - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
@@ -266,6 +271,7 @@ services:
       - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
     networks:
       - back
+      - management
     depends_on:
       - discovery
     labels:

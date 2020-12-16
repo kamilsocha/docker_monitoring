@@ -3,6 +3,7 @@ package pl.polsl.student.movieservice.controllers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -26,6 +27,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 //@CrossOrigin("*")
+@Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/movies")
 @RestController
@@ -36,6 +38,12 @@ public class MovieController {
     private final PosterStorageServiceImpl posterStorageService;
 
     private final ObjectMapper objectMapper = new ObjectMapper();
+
+    @GetMapping("/home")
+    public String home() {
+        log.warn("processing request...");
+        return "movie-service";
+    }
 
     @ApiOperation(value = "Find all movies.")
     @GetMapping("/all")

@@ -3,10 +3,12 @@ version: "3.2"
 networks:
   back:
   front:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 10.6.0.0/16
+  #   driver: bridge
+  #   ipam:
+  #     config:
+  #       - subnet: 10.6.0.0/16
+  management:
+    external: true
 
 volumes:
   moviedb:
@@ -14,16 +16,16 @@ volumes:
   userdb:
 
 services:
-  discovery:
+  discoverytest:
     image: sochakamil/discovery-server
     build: ../discovery-server/
-    container_name: discoverytest
     restart: always
     ports:
       - "9761:8761"
     env_file: ./.env
     networks:
       - back
+      - management
     labels:
       pl.polsl.student.name: "eureka-discovery-server"
       pl.polsl.student.systembelongto.name: "test1system"
@@ -47,8 +49,9 @@ services:
       - SPRING_SECURITY_USER_PASSWORD=${CONFIG_SERVER_PWD}
     networks:
       - back
+      - management
     depends_on:
-      - discovery
+      - discoverytest
     volumes:
       - type: bind
         source: ../config-server/src/main/resources/configs
@@ -77,12 +80,14 @@ services:
       - CONFIG_SERVER_USER=${CONFIG_SERVER_USR}
       - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
       - MOVIE_CLIENT=movieclienttest:80
+      - SERVICE=movies:8080
     networks:
       front:
-        ipv4_address: 10.6.0.5
+        # ipv4_address: 10.6.0.5
       back:
+      management:
     depends_on:
-      - discovery
+      - discoverytest
     labels:
       pl.polsl.student.name: "zuul-proxy-server"
       pl.polsl.student.systembelongto.name: "test1system"
@@ -101,7 +106,8 @@ services:
     container_name: movieclienttest
     networks:
       front:
-        ipv4_address: 10.6.0.6
+        # ipv4_address: 10.6.0.6
+      management:
     labels:
       pl.polsl.student.name: "movies-api-client"
       pl.polsl.student.systembelongto.name: "test1system"
@@ -120,8 +126,9 @@ services:
       - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
     networks:
       - back
+      - management
     depends_on:
-      - discovery
+      - discoverytest
       - config-server
     labels:
       pl.polsl.student.name: "user-movies-catalog-service"
@@ -150,8 +157,9 @@ services:
       - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
     networks:
       - back
+      - management
     depends_on:
-      - discovery
+      - discoverytest
       - config-server
       - movieDb
     volumes:
@@ -183,8 +191,9 @@ services:
       - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
     networks:
       - back
+      - management
     depends_on:
-      - discovery
+      - discoverytest
       - config-server
       - ratingDb
     labels:
@@ -214,8 +223,9 @@ services:
       - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
     networks:
       - back
+      - management
     depends_on:
-      - discovery
+      - discoverytest
       - userDb
     labels:
       pl.polsl.student.name: "user-service"
@@ -240,8 +250,9 @@ services:
       - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
     networks:
       - back
+      - management
     depends_on:
-      - discovery
+      - discoverytest
     labels:
       pl.polsl.student.name: "converter-service"
       pl.polsl.student.systembelongto.name: "test1system"
@@ -268,6 +279,7 @@ services:
       - PGDATA=/var/lib/postgresql/data
     networks:
       - back
+      - management
     deploy:
       resources:
         limits:
@@ -293,6 +305,7 @@ services:
       - PGDATA=/var/lib/postgresql/data
     networks:
       - back
+      - management
     deploy:
       resources:
         limits:
@@ -318,6 +331,7 @@ services:
       - PGDATA=/var/lib/postgresql/data
     networks:
       - back
+      - management
     deploy:
       resources:
         limits:
