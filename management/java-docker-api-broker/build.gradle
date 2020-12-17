@@ -22,25 +22,20 @@ dependencies {
 	// standard
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-hateoas'
+	// security
+	implementation 'org.springframework.boot:spring-boot-starter-security'
 	// webflux
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
 	// validation
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'javax.validation:validation-api:2.0.1.Final'
-	// security
-	implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation 'io.jsonwebtoken:jjwt-api:0.11.2'
-	implementation 'io.jsonwebtoken:jjwt-impl:0.11.2'
-	implementation 'io.jsonwebtoken:jjwt-jackson:0.11.2'
 	// java docker api client
 	implementation 'com.github.docker-java:docker-java:3.2.5'
 	// swagger
 	implementation 'io.springfox:springfox-boot-starter:3.0.0'
 	// metrics
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-	// db
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	runtimeOnly 'org.postgresql:postgresql'
+	// helpers
 	annotationProcessor 'org.projectlombok:lombok'
 	compileOnly 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'

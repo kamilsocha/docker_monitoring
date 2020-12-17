@@ -1,21 +1,59 @@
 spring:
   application:
     name: management-apigateway
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+  datasource:
+    url: jdbc:postgresql://localhost:5432/dockerapidb
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      minimum-idle: 0
+      maximum-pool-size: 15
+      connection-timeout: 10000
+      idle-timeout: 300000
+      max-lifetime: 600000
+      initialization-fail-timeout: -1
+      validation-timeout: 1000
+    continue-on-error: true
+  jpa:
+    open-in-view: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: create
+
+application:
+  security:
+    jwt:
+      prefix: "Bearer "
+      secret: N0NuokWWb5XjMP+V3XLfyLkaSArwxNm17VeAvv7+y4+Y/DmxBLenvwOPO404lfl6UfyyEGgQ02ETDEPRMwV/+Q==
+      access:
+        header: Authorization
+        expiration: 120
+      refresh:
+        header: RefreshToken
+        expiration: 14400
 
 server:
   port: 7080
 
+api:
+  username: ${MANAGEMENT_USERNAME:user}
+  password: ${MANAGEMENT_PASSWORD:password}
+
 zuul:
   routes:
-#    api:
-#      url: "http://localhost:8001"
+
+    api:
+      url: "http://localhost:8001"
+      sensitive-headers:
     app:
       url: "http://localhost:3000"
     redirect:
       path: "/redirect/**"
       url: "http://localhost:7080"
-
-
 
 management:
   endpoints:
@@ -50,18 +88,4 @@ zuul:
       url: http://${API_URI}
     app:
       url: http://${APP_URI}
-#    redirect:
-#      url: http://localhost:8080/redirect
-#    docker-compose-prod_movies_1:
-#      path: "/mov/**"
-#      url: http://${SERVICE}
-#    a:
-#      url: http://docker-compose-prod_movies_1
-#    b:
-#      url: http://movies:8080
-#    c:
-#      url: http://movies
-#    discovery:
-#      url: http://discovery
-#    d:
-#      url: http://discovery:8761
+

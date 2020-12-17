@@ -11,9 +11,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 @Slf4j
 @Configuration
@@ -53,10 +50,6 @@ public class DockerClientConfiguration {
     @Bean
     public DockerClient dockerClient() throws IOException {
         log.warn("path: " + certPath);
-//        Path path = Path.of(certPath);
-//        if(!Files.exists(path)) {
-//            certPath="";
-//        }
 
         DefaultDockerClientConfig.Builder config = DefaultDockerClientConfig.createDefaultConfigBuilder();
         if(!protocol.equals("") && !hostAddress.equals("") && !hostPort.equals("")) {
