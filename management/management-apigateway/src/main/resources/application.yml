@@ -7,13 +7,14 @@ server:
 
 zuul:
   routes:
-    api:
-      url: "http://localhost:8001"
+#    api:
+#      url: "http://localhost:8001"
     app:
       url: "http://localhost:3000"
     redirect:
-      path: "redirect/**"
+      path: "/redirect/**"
       url: "http://localhost:7080"
+
 
 
 management:
@@ -49,16 +50,18 @@ zuul:
       url: http://${API_URI}
     app:
       url: http://${APP_URI}
-    docker-compose-prod_movies_1:
-      path: "/mov/**"
-      url: http://${SERVICE}
-    a:
-      url: http://docker-compose-prod_movies_1
-    b:
-      url: http://movies:8080
-    c:
-      url: http://movies
-    discovery:
-      url: http://discovery
-    d:
-      url: http://discovery:8761
+#    redirect:
+#      url: http://localhost:8080/redirect
+#    docker-compose-prod_movies_1:
+#      path: "/mov/**"
+#      url: http://${SERVICE}
+#    a:
+#      url: http://docker-compose-prod_movies_1
+#    b:
+#      url: http://movies:8080
+#    c:
+#      url: http://movies
+#    discovery:
+#      url: http://discovery
+#    d:
+#      url: http://discovery:8761

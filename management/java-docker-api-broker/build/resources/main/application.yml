@@ -84,17 +84,14 @@ info:
 
 dockerclient:
   host:
-    protocol: ${PROTOCOL:tcp://}
-    address: ${HOST_ADDRESS:kamil-ubuntu}
-    port: ${HOST_PORT:2376}
+    protocol: ${PROTOCOL:}
+    address: ${HOST_ADDRESS:}
+    port: ${HOST_PORT:""}
   cert:
-    verify: ${CERT_VERIFY:true}
-#    path: ${CERT_PATH:classpath:/certs}
-#    path: classpath:/resources/certs
-    path: /home/kamil/.docker/
-#    path:
+    verify: ${CERT_VERIFY:false}
+    path: ${CERT_PATH:}
   api:
-    version: ${API_VERSION:1.40}
+    version: ${API_VERSION:}
   registry:
     uri: ${REGISTRY_URI:}
     username: ${REGISTRY_USERNAME:}
@@ -110,3 +107,5 @@ spring:
     url: jdbc:postgresql://${DB_SERVER}:5432/${POSTGRES_DB}
     username: ${POSTGRES_USER}
     password: ${POSTGRES_PASSWORD}
+server:
+  port: 8080

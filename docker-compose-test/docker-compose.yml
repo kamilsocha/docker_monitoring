@@ -80,7 +80,7 @@ services:
       - CONFIG_SERVER_USER=${CONFIG_SERVER_USR}
       - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
       - MOVIE_CLIENT=movieclienttest:80
-      - SERVICE=movies:8080
+      - SERVICE=movies:8080zuu
     networks:
       front:
         # ipv4_address: 10.6.0.5

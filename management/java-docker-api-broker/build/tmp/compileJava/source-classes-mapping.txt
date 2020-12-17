@@ -63,8 +63,8 @@ pl/polsl/student/javadockerapibroker/enums/BootstrapLabel.java
  pl.polsl.student.javadockerapibroker.enums.BootstrapLabel
 pl/polsl/student/javadockerapibroker/security/JwtAuthorizationFilter.java
  pl.polsl.student.javadockerapibroker.security.JwtAuthorizationFilter
-pl/polsl/student/javadockerapibroker/configuration/DockerClientConfiguration.java
- pl.polsl.student.javadockerapibroker.configuration.DockerClientConfiguration
+pl/polsl/student/javadockerapibroker/configuration/WebSecurityConfig.java
+ pl.polsl.student.javadockerapibroker.configuration.WebSecurityConfig
 pl/polsl/student/javadockerapibroker/dto/CreateNetworkDto.java
  pl.polsl.student.javadockerapibroker.dto.CreateNetworkDto
 pl/polsl/student/javadockerapibroker/controllers/VolumeController.java
@@ -99,5 +99,5 @@ pl/polsl/student/javadockerapibroker/services/VolumeService.java
  pl.polsl.student.javadockerapibroker.services.VolumeService
 pl/polsl/student/javadockerapibroker/services/impl/VolumeServiceImpl.java
  pl.polsl.student.javadockerapibroker.services.impl.VolumeServiceImpl
-pl/polsl/student/javadockerapibroker/configuration/WebSecurityConfig.java
- pl.polsl.student.javadockerapibroker.configuration.WebSecurityConfig
+pl/polsl/student/javadockerapibroker/configuration/DockerClientConfiguration.java
+ pl.polsl.student.javadockerapibroker.configuration.DockerClientConfiguration

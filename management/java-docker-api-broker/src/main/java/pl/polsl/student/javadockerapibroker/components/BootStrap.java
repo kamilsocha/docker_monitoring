@@ -12,18 +12,18 @@ import pl.polsl.student.javadockerapibroker.services.bootstrapservices.BootStrap
 @Component
 public class BootStrap {
 
-    private final BootStrapService bootStrapService;
-
-    @EventListener(ApplicationReadyEvent.class)
-    public void init() {
-        try {
-            log.info("BootStrap start...");
-            bootStrapService.boot();
-            log.info("BootStrap success...");
-        } catch (Exception e) {
-            log.error("Bootstrap failed due to: " + e);
-            e.printStackTrace();
-            throw e;
-        }
-    }
+//    private final BootStrapService bootStrapService;
+//
+//    @EventListener(ApplicationReadyEvent.class)
+//    public void init() {
+//        try {
+//            log.info("BootStrap start...");
+//            bootStrapService.boot();
+//            log.info("BootStrap success...");
+//        } catch (Exception e) {
+//            log.error("Bootstrap failed due to: " + e);
+//            e.printStackTrace();
+//            throw e;
+//        }
+//    }
 }

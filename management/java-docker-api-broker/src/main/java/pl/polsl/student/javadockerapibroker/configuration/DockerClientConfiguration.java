@@ -38,32 +38,44 @@ public class DockerClientConfiguration {
     @Value("${dockerclient.api.version}")
     private String apiVersion;
 
-//    @Value("${dockerclient.registry.uri}")
-//    private String registryURI;
-//
-//    @Value("${dockerclient.registry.username}")
-//    private String registryUsername;
-//
-//    @Value("${dockerclient.registry.password}")
-//    private String registryPassword;
-//
-//    @Value("${dockerclient.registry.email}")
-//    private String registryEmail;
+    @Value("${dockerclient.registry.uri}")
+    private String registryURI;
+
+    @Value("${dockerclient.registry.username}")
+    private String registryUsername;
+
+    @Value("${dockerclient.registry.password}")
+    private String registryPassword;
+
+    @Value("${dockerclient.registry.email}")
+    private String registryEmail;
 
     @Bean
     public DockerClient dockerClient() throws IOException {
         log.warn("path: " + certPath);
-        DefaultDockerClientConfig config = DefaultDockerClientConfig
-                                            .createDefaultConfigBuilder()
-                                            .withDockerHost(protocol + hostAddress + ":" + hostPort)
-                                            .withDockerTlsVerify(certVerify)
-                                            .withDockerCertPath(certPath)
-                                            .withApiVersion(RemoteApiVersion.parseConfig(apiVersion))
-//                                            .withRegistryUrl(registryURI)
-//                                            .withRegistryUsername(registryUsername)
-//                                            .withRegistryPassword(registryPassword)
-//                                            .withRegistryEmail(registryEmail)
-                                            .build();
-        return DockerClientBuilder.getInstance(config).build();
+//        Path path = Path.of(certPath);
+//        if(!Files.exists(path)) {
+//            certPath="";
+//        }
+
+        DefaultDockerClientConfig.Builder config = DefaultDockerClientConfig.createDefaultConfigBuilder();
+        if(!protocol.equals("") && !hostAddress.equals("") && !hostPort.equals("")) {
+            config.withDockerHost(protocol + hostAddress + ":" + hostPort);
+        }
+        if(certVerify) {
+            config.withDockerTlsVerify(true);
+            config.withDockerCertPath(certPath);
+        }
+        if(!apiVersion.equals("")) {
+            config.withApiVersion(RemoteApiVersion.parseConfig(apiVersion));
+        }
+        if(!registryURI.equals("")) {
+            config.withRegistryUrl(registryURI)
+                    .withRegistryUsername(registryUsername)
+                    .withRegistryPassword(registryPassword)
+                    .withRegistryEmail(registryEmail);
+        }
+
+        return DockerClientBuilder.getInstance(config.build()).build();
     }
 }

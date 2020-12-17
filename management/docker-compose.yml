@@ -8,28 +8,48 @@ networks:
     name: management
 
 services:
-  apigateway:
-    image: sochakamil/management-gateway
-    container_name: managementGateway
-    environment:
-      - SERVICE=docker-compose-prod_movies_1:8080
-    networks:
-      management:
-    ports:
-      - "7080:8080"
+  # apigateway:
+  #   image: sochakamil/management-gateway
+  #   container_name: managementGateway
+  #   environment:
+  #     - SERVICE=docker-compose-prod_movies_1:8080
+  #   networks:
+  #     management:
+  #   ports:
+  #     - "7080:8080"
+  # labels:
+  #   pl.polsl.student.name: "management-gateway"
+  #   pl.polsl.student.systembelongto: "management"
+
+  #   pl.polsl.student.type: "infra"
+  #   pl.polsl.student.type.dom.subtype: "apigateway"
 
   managementApi:
     image: sochakamil/management-api
+    volumes:
+      # - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/local/bin/docker:/var/run/docker.sock
     env_file: ./.env
     environment:
       - DB_SERVER=managementDb
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=${POSTGRES_MANAGEMENT_DB}
+      - CERT_VERIFY=false
     networks:
       management:
     depends_on:
       - managementDb
+
+    ports:
+      - "8080:8080"
+
+    labels:
+      pl.polsl.student.name: "management-api"
+      pl.polsl.student.systembelongto: "management"
+
+      pl.polsl.student.type: "infra"
+      pl.polsl.student.type.dom.subtype: "ms"
 
   managementDb:
     image: postgres:alpine
@@ -45,5 +65,15 @@ services:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - PGDATA=/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          memory: 1000M
+    labels:
+      pl.polsl.student.name: "management-database"
+      pl.polsl.student.systembelongto: "management"
+
+      pl.polsl.student.type: "infra"
+      pl.polsl.student.type.dom.subtype: "db"
 
   # managementApp:

@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.PRE_TYPE;
+import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.SEND_FORWARD_FILTER_ORDER;
 
 @Component
 public class RedirectFilter extends ZuulFilter {
@@ -21,13 +22,13 @@ public class RedirectFilter extends ZuulFilter {
 
     @Override
     public int filterOrder() {
-        return 0;
+
+//        return 0;
+        return SEND_FORWARD_FILTER_ORDER;
     }
 
     @Override
     public boolean shouldFilter() {
-        String requestUri = RequestContext.getCurrentContext().getRequest().getRequestURI();
-//        return requestUri.matches("/redirect");
         return true;
     }
 
@@ -35,6 +36,8 @@ public class RedirectFilter extends ZuulFilter {
     public Object run() throws ZuulException {
         logger.debug("Running zuul redirect pre filter.");
         RequestContext ctx = RequestContext.getCurrentContext();
+//        ctx.set("requestURI", "");
+
 
         return null;
     }
