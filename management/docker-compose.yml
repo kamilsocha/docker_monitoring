@@ -26,15 +26,20 @@ services:
 
   managementApi:
     image: sochakamil/management-api
+    # when using default connection over docker socket
     volumes:
-      # - /var/run/docker.sock:/var/run/docker.sock
-      - /usr/local/bin/docker:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock # working on both linux and windows
     env_file: ./.env
     environment:
       - DB_SERVER=managementDb
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=${POSTGRES_MANAGEMENT_DB}
+      # working configuration to connect over tcp on windows
+      # - PROTOCOL=tcp://
+      # - HOST_ADDRESS=172.17.0.1
+      # - HOST_ADDRESS=host.docker.internal windows
+      # - HOST_PORT=2375
       - CERT_VERIFY=false
     networks:
       management:

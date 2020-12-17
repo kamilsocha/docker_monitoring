@@ -86,7 +86,7 @@ dockerclient:
   host:
     protocol: ${PROTOCOL:}
     address: ${HOST_ADDRESS:}
-    port: ${HOST_PORT:""}
+    port: ${HOST_PORT:}
   cert:
     verify: ${CERT_VERIFY:false}
     path: ${CERT_PATH:}
