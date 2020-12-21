@@ -12,6 +12,7 @@ networks:
 services:
   apigateway:
     image: sochakamil/management-gateway
+    build: ./management-apigateway
     container_name: managementGateway
     env_file: ./.env
     environment:
@@ -54,6 +55,7 @@ services:
 
   managementapi:
     image: sochakamil/management-api
+    build: ./java-docker-api-broker
     # when using default connection over docker socket
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock # working on both linux and windows
