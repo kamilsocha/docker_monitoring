@@ -9,6 +9,8 @@ Sposób uruchomienia
    docker-compose --compatibility up
 
 Aplikacja monitorująca systemy na localhost:7080
+ścieżki: actuator/routes
+gui: /app
 przykładowy użytkownik:
 email: user@user.com
 hasło: user
