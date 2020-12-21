@@ -23,6 +23,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Value("${security.password}")
     private String password;
 
+    private static final String[] AUTH_WHITELIST = {
+            "/login",
+            // swagger
+            "/v2/api-docs",
+            "/swagger-resources/**",
+            "/configuration/**",
+            "/swagger-ui/",
+            "/webjars/**",
+            "/actuator/**"
+    };
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
@@ -38,7 +49,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-//                .antMatchers("/images/**").permitAll()
+                .antMatchers(AUTH_WHITELIST).permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic();

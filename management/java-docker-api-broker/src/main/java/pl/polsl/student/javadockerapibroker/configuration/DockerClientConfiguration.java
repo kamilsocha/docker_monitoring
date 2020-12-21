@@ -17,14 +17,8 @@ import java.io.IOException;
 @PropertySource("classpath:application.yml")
 public class DockerClientConfiguration {
 
-    @Value("${dockerclient.host.protocol}")
-    private String protocol;
-
-    @Value("${dockerclient.host.address}")
-    private String hostAddress;
-
-    @Value("${dockerclient.host.port}")
-    private String hostPort;
+    @Value("${dockerclient.dockerhost}")
+    private String dockerhost;
 
     @Value("${dockerclient.cert.verify}")
     private Boolean certVerify;
@@ -52,8 +46,8 @@ public class DockerClientConfiguration {
         log.warn("path: " + certPath);
 
         DefaultDockerClientConfig.Builder config = DefaultDockerClientConfig.createDefaultConfigBuilder();
-        if(!protocol.equals("") && !hostAddress.equals("") && !hostPort.equals("")) {
-            config.withDockerHost(protocol + hostAddress + ":" + hostPort);
+        if(!dockerhost.equals("")) {
+            config.withDockerHost(dockerhost);
         }
         if(certVerify) {
             config.withDockerTlsVerify(true);

@@ -28,7 +28,7 @@ public class DockerInfoServiceImpl implements DockerInfoService{
 
     @Override
     public List<Event> findEvents() {
-//        return dockerClient.eventsCmd().exec();
+//        return dockerClient.eventsCmd().exec(callback);
         return null;
     }
 

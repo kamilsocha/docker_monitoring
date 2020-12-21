@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import pl.polsl.student.javadockerapibroker.dto.ContainerCreateDto;
 import pl.polsl.student.javadockerapibroker.exceptions.ContainerCreationException;
 import pl.polsl.student.javadockerapibroker.services.ContainerService;
-import reactor.core.publisher.Flux;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,37 +41,51 @@ public class ContainerServiceImpl implements ContainerService {
     }
 
     @Override
-    public List<Container> findAllContainers(Boolean showSize, Boolean showAll) {//, List<String> statusFilters) {
+    public List<Container> findAllContainers(Boolean showSize, Boolean showAll) {
         return dockerClient.listContainersCmd()
                 .withShowSize(showSize)
                 .withShowAll(showAll)
-//                .withStatusFilter(statusFilters != null ? statusFilters : new ArrayList<>() {})
                 .exec();
     }
 
     @Override
     public CreateContainerResponse createContainer(ContainerCreateDto dto) {
-        HostConfig hostConfig = new HostConfig();
-//        hostConfig.setBinds(Bind.parse(String.valueOf(binds)));
-        hostConfig.setBinds(dto.getBinds().stream()
-                .map(Bind::parse).toArray(Bind[]::new));
-//        hostConfig.withPortBindings(PortBinding.parse(String.valueOf(portBindings)));
-        List<PortBinding> portBindingList = dto.getPortBindings().stream()
-                .map(PortBinding::parse)
-                .collect(Collectors.toCollection(ArrayList::new));
-        hostConfig.withPortBindings(portBindingList);
-        var response = dockerClient.createContainerCmd(dto.getImage())
-                .withCmd(dto.getCmd()) // String...
-                .withName(dto.getName())
-                .withHostName(dto.getHostName())
-                .withEnv(dto.getEnv()) // String...
-                .withHostConfig(hostConfig)
-                .exec();
+
+        var createContainerCmd = dockerClient.createContainerCmd(dto.getImage());
+
+        if(!dto.getName().equals("")) {
+            createContainerCmd.withName(dto.getName());
+        }
+        if(!dto.getHostName().equals("")) {
+            createContainerCmd.withName(dto.getHostName());
+        }
+        if(dto.getEnv().size() != 0) {
+            createContainerCmd.withEnv(dto.getEnv().toArray(String[]::new));
+        }
+        if(dto.getBinds().size() != 0 || dto.getPortBindings().size() != 0) {
+            HostConfig hostConfig = new HostConfig();
+            hostConfig.setBinds(dto.getBinds().stream()
+                    .map(Bind::parse).toArray(Bind[]::new));
+            List<PortBinding> portBindingList = dto.getPortBindings().stream()
+                    .map(PortBinding::parse)
+                    .collect(Collectors.toCollection(ArrayList::new));
+            hostConfig.withPortBindings(portBindingList);
+            createContainerCmd.withHostConfig(hostConfig);
+        }
+
+        if(dto.getLabels().size() != 0) {
+            createContainerCmd.withLabels(dto.getLabels());
+        }
+
+        var response = createContainerCmd.exec();
+
         if(response == null) {
             throw new ContainerCreationException("Container creation failed! Probably container with specified name already exists.");
         }
         return response;
     }
+
+
 
     @Override
     public void startContainer(String id) {
@@ -87,6 +100,11 @@ public class ContainerServiceImpl implements ContainerService {
     @Override
     public void killContainer(String id) {
         dockerClient.killContainerCmd(id).exec();
+    }
+
+    @Override
+    public void restartContainer(String id) {
+        dockerClient.restartContainerCmd(id).exec();
     }
 
     @Override
@@ -138,4 +156,5 @@ public class ContainerServiceImpl implements ContainerService {
         lastLogTime = (int) (System.currentTimeMillis() / 1000) + timeout;
         return res;
     }
+
 }

@@ -18,7 +18,7 @@ const ContainersTableRow = ({ container }) => {
       <td>
         {Ports.map((p, index) => (
           <span key={index}>
-            {p.PublicPort ? `${p.PublicPort}:${p.PrivatePort}` : "-"}
+            {p.PublicPort ? `${p.PublicPort}:${p.PrivatePort}` : "-"};
           </span>
         ))}
       </td>

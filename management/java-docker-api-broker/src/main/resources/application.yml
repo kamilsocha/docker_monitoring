@@ -1,6 +1,9 @@
 spring:
   application:
     name: java-docker-api-broker
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
 
 security:
   username: ${MANAGEMENT_USERNAME:user}
@@ -50,10 +53,7 @@ info:
         path: Path to certs, classpath:/certs
 
 dockerclient:
-  host:
-    protocol: ${PROTOCOL:}
-    address: ${HOST_ADDRESS:}
-    port: ${HOST_PORT:}
+  dockerhost: ${DOCKER_HOST:tcp://localhost:2375}
   cert:
     verify: ${CERT_VERIFY:false}
     path: ${CERT_PATH:}
@@ -70,9 +70,6 @@ spring:
   config:
     activate:
       on-profile: docker
-  datasource:
-    url: jdbc:postgresql://${DB_SERVER}:5432/${POSTGRES_DB}
-    username: ${POSTGRES_USER}
-    password: ${POSTGRES_PASSWORD}
+
 server:
   port: 8080

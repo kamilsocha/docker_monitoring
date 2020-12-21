@@ -1,4 +1,4 @@
-import axios from "../../axios-orders"
+import axios, { authHeader } from "../../axios-orders"
 
 export const FETCH_CONTAINERS_START = "FETCH_CONTAINERS_START"
 export const FETCH_CONTAINERS_FAIL = "FETCH_CONTAINERS_FAIL"
@@ -29,6 +29,7 @@ export const fetchContainers = () => {
           showSize: true,
           showAll: true,
         },
+        headers: authHeader(),
       })
       .catch((err) => {
         console.log("error fetching containers", err)
@@ -36,7 +37,6 @@ export const fetchContainers = () => {
       })
     const data = response?.data
     if (data) {
-      console.log("containers", data)
       dispatch(fetchContainersSuccess(data))
     }
   }

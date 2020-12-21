@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.Map;
 
 @ApiModel("Parameters used to create a container.")
 @Getter
@@ -36,4 +37,7 @@ public class ContainerCreateDto {
 
     @ApiModelProperty(value = "A list of volume bindings for the container.", example = "userdb:/var/lib/postgresql/data:rw")
     private List<String> binds;
+
+    @ApiModelProperty(value = "User labels describing container.", example = "pl.polsl.student.systembelongto.name=management")
+    private Map<String, String> labels;
 }

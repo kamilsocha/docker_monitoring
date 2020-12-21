@@ -8,7 +8,7 @@ export const updateObject = (oldObject, updatedProperties) => {
 const findLabelFullName = (containers, systemLabelName) => {
   let systemLabelFullName = ""
   for (const c of containers) {
-    systemLabelFullName = Object.keys(c.Labels).find((l) =>
+    systemLabelFullName = Object.keys(c?.Labels).find((l) =>
       l.includes(systemLabelName)
     )
     if (systemLabelFullName !== undefined && systemLabelFullName !== null) break
@@ -47,5 +47,6 @@ export const distinguishSystems = (containers, systemLabelName) => {
     noSystemContainers: containers.filter(
       (c) => c.Labels[systemLabelFullName] === undefined
     ),
+    systemLabelFullName,
   }
 }

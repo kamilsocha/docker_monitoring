@@ -9,20 +9,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
-import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 import pl.polsl.student.javadockerapibroker.dto.ContainerCreateDto;
 import pl.polsl.student.javadockerapibroker.services.impl.ContainerServiceImpl;
 import reactor.core.publisher.Flux;
 
 import java.time.Duration;
-import java.time.LocalTime;
-import java.util.Date;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 //@CrossOrigin("*")
 @Api(value = "docker containers management")
@@ -76,21 +69,28 @@ public class ContainerController {
     @PutMapping(value = "/{id}/start")
     public ResponseEntity<?> start(@PathVariable String id) {
         containerService.startContainer(id);
-        return null;
+        return ResponseEntity.ok().build();
     }
 
     @ApiOperation(value = "Stop a container.")
     @PutMapping(value = "/{id}/stop")
     public ResponseEntity<?> stop(@PathVariable String id) {
         containerService.stopContainer(id);
-        return null;
+        return ResponseEntity.ok().build();
     }
 
     @ApiOperation(value = "Kill a container.")
     @PutMapping(value = "/{id}/kill")
     public ResponseEntity<?> kill(@PathVariable String id) {
         containerService.killContainer(id);
-        return null;
+        return ResponseEntity.ok().build();
+    }
+
+    @ApiOperation(value = "Restart a container.")
+    @PutMapping(value = "/{id}/restart")
+    public ResponseEntity<?> restart(@PathVariable String id) {
+        containerService.restartContainer(id);
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/{id}/logs")

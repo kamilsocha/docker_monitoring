@@ -8,8 +8,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.polsl.student.managementapigateway.domain.User;
 import pl.polsl.student.managementapigateway.dtos.PasswordPatchDto;
+import pl.polsl.student.managementapigateway.dtos.UserPostDto;
 import pl.polsl.student.managementapigateway.services.impl.UserServiceImpl;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Api(value = "users management")
@@ -36,10 +38,24 @@ public class UserController {
                 .body(user);
     }
 
+    @ApiOperation("Create user.")
+    @PostMapping
+    public ResponseEntity<User> create(@Valid @RequestBody UserPostDto dto) {
+        User user = userService.createUser(dto);
+        final HttpStatus status = user == null ? HttpStatus.BAD_REQUEST : HttpStatus.CREATED;
+        return ResponseEntity
+                .status(status)
+                .body(user);
+    }
+
     @ApiOperation(value = "Modify user password.")
-    @PatchMapping
-    public ResponseEntity<User> modify(@RequestBody PasswordPatchDto passwordPatchDto) {
-        return null;
+    @PatchMapping("/{id}")
+    public ResponseEntity<User> modify(@PathVariable Long id, @Valid @RequestBody PasswordPatchDto passwordPatchDto) {
+        User user = userService.modifyPassword(id, passwordPatchDto);
+        HttpStatus status = user == null ? HttpStatus.BAD_REQUEST : HttpStatus.OK;
+        return ResponseEntity
+                .status(status)
+                .body(user);
     }
 
     @ApiOperation(value = "Delete one user.")

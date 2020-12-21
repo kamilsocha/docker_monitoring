@@ -1,10 +1,20 @@
 import axios from "axios"
 
+export const apiUri = process.env.REACT_APP_API_URL
+
 const instance = axios.create({
-  // baseURL: "http://localhost:8001",
-  baseURL: "http://localhost:7080/api",
+  baseURL: `${apiUri}/api`,
   timeout: 5000,
 })
+
+export const authHeader = () => {
+  const accessToken = localStorage.getItem("token")
+  if (accessToken) {
+    return { Authorization: `${accessToken}` }
+  } else {
+    return {}
+  }
+}
 
 export const parseParams = (params) => {
   const keys = Object.keys(params)

@@ -14,6 +14,7 @@ const initialState = {
   loading: false,
   error: null,
   systemLabelName: "systembelongto",
+  systemLabelFullName: "",
 }
 
 const fetchContainersStart = (state, action) => {
@@ -31,15 +32,17 @@ const fetchContainersFail = (state, action) => {
 }
 
 const fetchContainersSuccess = (state, action) => {
-  const { systems, noSystemContainers } = distinguishSystems(
-    action.payload,
-    state.systemLabelName
-  )
+  const {
+    systems,
+    noSystemContainers,
+    systemLabelFullName,
+  } = distinguishSystems(action.payload, state.systemLabelName)
   return updateObject(state, {
     allContainers: action.payload,
     noSystemContainers,
     systems,
     loading: false,
+    systemLabelFullName,
   })
 }
 

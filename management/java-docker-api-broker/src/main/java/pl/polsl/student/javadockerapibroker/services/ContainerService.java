@@ -9,11 +9,13 @@ import java.util.List;
 public interface ContainerService {
 
     Container findOneContainer(String id);
-    List<Container> findAllContainers(Boolean showSize, Boolean showAll);//, List<String> statusFilters);
+    List<Container> findAllContainers(Boolean showSize, Boolean showAll);
     CreateContainerResponse createContainer(ContainerCreateDto containerCreateDto);
+
     void startContainer(String id);
     void stopContainer(String id);
     void killContainer(String id);
+    void restartContainer(String id);
     void removeContainer(String id);
     InspectContainerResponse inspectContainer(String id);
     //

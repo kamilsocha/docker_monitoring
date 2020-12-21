@@ -2,6 +2,7 @@ package pl.polsl.student.javadockerapibroker.dto;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,6 +13,7 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class CreateNetworkDto {
 
     @ApiModelProperty(value = "Name of the network.", required = true, example = "backend")

@@ -57,6 +57,7 @@ public class SwaggerConfig {
     @Bean
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2)
+//                .host("localhost:9081")
                 .select()
                 .apis(RequestHandlerSelectors.basePackage(BASE_PACKAGE))
                 .build()

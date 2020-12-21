@@ -37,23 +37,37 @@ application:
         expiration: 14400
 
 server:
-  port: 7080
+  port: 7081
+  forward-headers-strategy: framework
 
 api:
   username: ${MANAGEMENT_USERNAME:user}
   password: ${MANAGEMENT_PASSWORD:password}
 
+admin:
+  email: ${ADMIN_EMAIL:admin@admin.com}
+  password: ${ADMIN_PASSWORD:admin}
+
 zuul:
   routes:
-
     api:
       url: "http://localhost:8001"
-      sensitive-headers:
     app:
       url: "http://localhost:3000"
     redirect:
       path: "/redirect/**"
       url: "http://localhost:7080"
+
+swagger:
+  title: ${spring.application.name}
+  description: Zuul API Gateway for docker management system.
+  license: License
+  licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 0.1
+  contact:
+    name: Kamil Socha
+    url:
+    email: kamisoc782@student.polsl.pl
 
 management:
   endpoints:
@@ -78,6 +92,10 @@ info:
 ---
 spring:
   profiles: docker
+  datasource:
+    url: jdbc:postgresql://${DB_SERVER}:5432/${POSTGRES_DB}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
 
 server:
   port: 8080
@@ -86,6 +104,13 @@ zuul:
   routes:
     api:
       url: http://${API_URI}
+      sensitive-headers:
     app:
       url: http://${APP_URI}
-
+      sensitive-headers:
+    prometheus:
+      url: http://${PROMETHEUS}
+      sensitive-headers:
+    grafana:
+      url: http://${GRAFANA}
+      sensitive-headers:

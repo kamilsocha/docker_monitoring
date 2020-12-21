@@ -2,6 +2,7 @@ package pl.polsl.student.managementapigateway.services.bootstrapservices;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,12 @@ public class DevelopmentBootStrapService extends BootStrapService {
 
     private final RoleRepository roleRepository;
 
+    @Value("${admin.email}")
+    private String adminEmail;
+
+    @Value("${admin.password}")
+    private String adminPassword;
+
     @Override
     protected void writeDefaults() {
         super.writeDefaults();
@@ -47,9 +54,9 @@ public class DevelopmentBootStrapService extends BootStrapService {
     private void createDevelopUsers() {
         log.info("Creating default development user accounts...");
         User userAdmin = new User();
-        userAdmin.setEmail("admin@admin.com");
+        userAdmin.setEmail(adminEmail);
         userAdmin.setIsActive(true);
-        userAdmin.setPassword(passwordEncoder.encode("admin"));
+        userAdmin.setPassword(passwordEncoder.encode(adminPassword));
         LinkedHashSet<Role> authoritiesAdmin = new LinkedHashSet<>();
         authoritiesAdmin.add(roleRepository.findFirstByName("ROLE_ADMIN"));
         userAdmin.setRoles(authoritiesAdmin);

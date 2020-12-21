@@ -21,13 +21,12 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	// eureka discovery server
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'
-	// cloud config client
-//	implementation 'org.springframework.cloud:spring-cloud-starter-config'
 	// swagger
 	implementation 'io.springfox:springfox-boot-starter:3.0.0'
 	// metrics
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
+	implementation 'org.apache.commons:commons-lang3:3.10'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}

@@ -23,6 +23,7 @@ public class ZuulDynamicRoutingService {
     }
 
     public void removeRoute(String name) {
+        name = "/systems/" + name;
         if(hasRoute(name)) {
             zuulProperties.getRoutes().remove(name);
             zuulHandlerMapping.setDirty(true);
@@ -31,7 +32,7 @@ public class ZuulDynamicRoutingService {
 
     private void createOrUpdateRoute(String name, String url) {
 
-        ZuulProperties.ZuulRoute zuulRoute = new ZuulProperties.ZuulRoute("/" + name + "/**", url);
+        ZuulProperties.ZuulRoute zuulRoute = new ZuulProperties.ZuulRoute("/systems/" + name + "/**", url);
         if(hasRoute(name)) {
             zuulProperties.getRoutes().replace(name, zuulRoute);
         } else {

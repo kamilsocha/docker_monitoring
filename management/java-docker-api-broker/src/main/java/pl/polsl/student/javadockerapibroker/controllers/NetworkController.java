@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pl.polsl.student.javadockerapibroker.dto.ConnectContainerToNetworkDto;
 import pl.polsl.student.javadockerapibroker.dto.CreateNetworkDto;
 import pl.polsl.student.javadockerapibroker.services.impl.NetworkServiceImpl;
 
@@ -40,12 +41,21 @@ public class NetworkController {
 
     @ApiOperation(value = "Create network.")
     @PostMapping
-    public ResponseEntity<CreateNetworkResponse> create(CreateNetworkDto createNetworkDto) {
+    public ResponseEntity<CreateNetworkResponse> create(@RequestBody CreateNetworkDto createNetworkDto) {
         var res = networkService.createNetwork(createNetworkDto);
         var status = res == null ? HttpStatus.INTERNAL_SERVER_ERROR : HttpStatus.CREATED;
         return ResponseEntity
                 .status(status)
                 .body(res);
+    }
+
+    @ApiOperation(value = "Connect container to network.")
+    @PostMapping("/connect")
+    public ResponseEntity<?> connect(@RequestBody ConnectContainerToNetworkDto connectContainerToNetworkDto) {
+        networkService.connectContainerToNetwork(connectContainerToNetworkDto);
+        return ResponseEntity
+                .ok()
+                .build();
     }
 
     @ApiOperation(value = "Remove network.", notes = "Remove network using its name or id.")

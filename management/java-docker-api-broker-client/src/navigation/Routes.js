@@ -5,6 +5,7 @@ import HomePage from "../pages/Home/HomePage"
 import ContainersPage from "../pages/Containers/ContainersPage"
 import ImagesPage from "../pages/Images/ImagesPage"
 import VolumesPage from "../pages/Volumes/VolumesPage"
+import ZuulRoutesManagementPage from "../pages/ZuulRoutes/ZuulRoutesManagementPage"
 
 const Routes = () => {
   return (
@@ -22,6 +23,9 @@ const Routes = () => {
       </Route>
       <Route path="/volumes">
         <VolumesPage />
+      </Route>
+      <Route path="/zuul-routes">
+        <ZuulRoutesManagementPage />
       </Route>
       <Route path="/logout">
         <Logout />

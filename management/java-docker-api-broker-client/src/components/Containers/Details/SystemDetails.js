@@ -1,7 +1,12 @@
 import React from "react"
 import { Card, ListGroup, Row, Col } from "react-bootstrap"
 import { useSelector } from "react-redux"
-import { serviceTypes, serviceFullSubtype } from "../../../constants/constants"
+import {
+  serviceTypes,
+  serviceFullSubtype,
+  actuatorServiceSubtypes,
+  containerStates,
+} from "../../../constants/constants"
 import SystemContainerLinks from "./SystemContainerLinks"
 import { findLabelValue, findServiceName, findSubtype, findType } from "./utils"
 
@@ -14,8 +19,7 @@ const SystemDetails = ({ container }) => {
   const serviceName = findServiceName(container, systemLabel)
   const serviceType = findType(container)
   const serviceSubtype = findSubtype(container, serviceType)
-  // console.log("info", system, serviceName, serviceType, serviceSubtype)
-  console.log("container", container)
+
   return (
     <Card className="my-2">
       <Card.Header className="h4 font-weight-bolder">
@@ -58,10 +62,21 @@ const SystemDetails = ({ container }) => {
           </ListGroup.Item>
         </div>
       </ListGroup>
-      <Card.Body>
-        <Card.Title className="font-weight-bold">Links</Card.Title>
-        <SystemContainerLinks serviceName={serviceName} />
-      </Card.Body>
+      {container.State === containerStates.RUNNING &&
+        actuatorServiceSubtypes.includes(serviceSubtype) && (
+          <Card.Body>
+            <Card.Title className="font-weight-bold">Links</Card.Title>
+            <SystemContainerLinks
+              serviceName={container.Names[0]}
+              serviceType={serviceType}
+              serviceSubtype={serviceSubtype}
+              IPAddress={
+                container.NetworkSettings.Networks.management.IPAddress
+              }
+              Port={container.Ports[0]?.PrivatePort}
+            />
+          </Card.Body>
+        )}
     </Card>
   )
 }

@@ -2,6 +2,7 @@ import React from "react"
 import { NavLink } from "react-router-dom"
 import { Image, Nav, Navbar } from "react-bootstrap"
 import {
+  faBezierCurve,
   faBoxOpen,
   faDatabase,
   faHome,
@@ -44,6 +45,11 @@ const Menu = () => {
         <Nav.Item>
           <Nav.Link as={NavLink} to="/volumes" activeClassName="m-active">
             <MenuItem text="Volumes" icon={faDatabase} />
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link as={NavLink} to="/zuul-routes" activeClassName="m-active">
+            <MenuItem text="Zuul Routes" icon={faBezierCurve} />
           </Nav.Link>
         </Nav.Item>
         <Nav.Link as={NavLink} to="/logout">

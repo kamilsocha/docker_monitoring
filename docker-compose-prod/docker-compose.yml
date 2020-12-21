@@ -3,7 +3,7 @@ version: "3.2"
 networks:
   back:
   front:
-    # linux
+    ## linux
     # driver: bridge
     # driver: nat
     # ipam:
@@ -38,7 +38,6 @@ services:
     deploy:
       resources:
         limits:
-          # cpus: "0.50"
           memory: 350M
 
   config-server:
@@ -70,7 +69,6 @@ services:
     deploy:
       resources:
         limits:
-          # cpus: "0.50"
           memory: 350M
 
   apigateway:
@@ -88,7 +86,7 @@ services:
       - SERVICE=movies:8080
     networks:
       front:
-        # linux
+        ## linux
         # ipv4_address: 10.5.0.5
       back:
       management:
@@ -104,7 +102,6 @@ services:
     deploy:
       resources:
         limits:
-          # cpus: "0.50"
           memory: 350M
 
   movieclient:
@@ -112,18 +109,17 @@ services:
     build: ../movies-api-client
     container_name: movieclient
     networks:
-      front:
-        # linux
-        # ipv4_address: 10.5.0.6
-      # windows
       management:
+      front:
+        ## linux
+        # ipv4_address: 10.5.0.6
+    ## windows
     ports:
       - "80:80"
     #
     deploy:
       resources:
         limits:
-          # cpus: "0.50"
           memory: 1000M
     labels:
       pl.polsl.student.name: "movies-api-client"
@@ -157,7 +153,6 @@ services:
     deploy:
       resources:
         limits:
-          # cpus: "0.50"
           memory: 350M
 
   movies:
@@ -192,7 +187,6 @@ services:
     deploy:
       resources:
         limits:
-          # cpus: "0.50"
           memory: 350M
 
   ratings:
@@ -225,7 +219,6 @@ services:
     deploy:
       resources:
         limits:
-          # cpus: "0.50"
           memory: 350M
 
   users:
@@ -257,7 +250,6 @@ services:
     deploy:
       resources:
         limits:
-          # cpus: "0.50"
           memory: 350M
 
   converter:
@@ -284,7 +276,6 @@ services:
     deploy:
       resources:
         limits:
-          # cpus: "0.50"
           memory: 350M
 
   movieDb:
@@ -304,7 +295,6 @@ services:
     deploy:
       resources:
         limits:
-          # cpus: "0.50"
           memory: 1000M
     labels:
       pl.polsl.student.name: "postgres-movie-database"
@@ -330,7 +320,6 @@ services:
     deploy:
       resources:
         limits:
-          # cpus: "0.50"
           memory: 1000M
     labels:
       pl.polsl.student.name: "postgres-rating-database"
@@ -356,7 +345,6 @@ services:
     deploy:
       resources:
         limits:
-          # cpus: "0.50"
           memory: 1000M
     labels:
       pl.polsl.student.name: "postgres-user-database"
