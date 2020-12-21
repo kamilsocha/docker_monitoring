@@ -38,6 +38,16 @@ const ContainersNav = ({ baseurl }) => {
             All
           </Nav.Link>
         </Nav.Item>
+        <Nav.Item>
+          <Nav.Link
+            as={NavLink}
+            to={`${baseurl}/create`}
+            className="mc-nav-link text-dark font-weight-bold"
+            activeClassName="mc-active"
+          >
+            Create
+          </Nav.Link>
+        </Nav.Item>
       </Nav>
     </div>
   )

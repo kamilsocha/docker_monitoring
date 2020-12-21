@@ -1,0 +1,116 @@
+spring:
+  application:
+    name: management-apigateway
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+  datasource:
+    url: jdbc:postgresql://localhost:5432/dockerapidb
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      minimum-idle: 0
+      maximum-pool-size: 15
+      connection-timeout: 10000
+      idle-timeout: 300000
+      max-lifetime: 600000
+      initialization-fail-timeout: -1
+      validation-timeout: 1000
+    continue-on-error: true
+  jpa:
+    open-in-view: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: create
+
+application:
+  security:
+    jwt:
+      prefix: "Bearer "
+      secret: N0NuokWWb5XjMP+V3XLfyLkaSArwxNm17VeAvv7+y4+Y/DmxBLenvwOPO404lfl6UfyyEGgQ02ETDEPRMwV/+Q==
+      access:
+        header: Authorization
+        expiration: 120
+      refresh:
+        header: RefreshToken
+        expiration: 14400
+
+server:
+  port: 7081
+  forward-headers-strategy: framework
+
+api:
+  username: ${MANAGEMENT_USERNAME:user}
+  password: ${MANAGEMENT_PASSWORD:password}
+
+admin:
+  email: ${ADMIN_EMAIL:admin@admin.com}
+  password: ${ADMIN_PASSWORD:admin}
+
+zuul:
+  routes:
+    api:
+      url: "http://localhost:8001"
+    app:
+      url: "http://localhost:3000"
+    redirect:
+      path: "/redirect/**"
+      url: "http://localhost:7080"
+
+swagger:
+  title: ${spring.application.name}
+  description: Zuul API Gateway for docker management system.
+  license: License
+  licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 0.1
+  contact:
+    name: Kamil Socha
+    url:
+    email: kamisoc782@student.polsl.pl
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      show-details: always
+
+info:
+  app:
+    name: ${spring.application.name}
+    description: Netflix Zuul API Gateway Server for management of docker microservices system.
+    version: 0.1.0
+  developer:
+    name: Kamil Socha
+    email: kamisoc782@student.polsl.pl
+
+---
+spring:
+  profiles: docker
+  datasource:
+    url: jdbc:postgresql://${DB_SERVER}:5432/${POSTGRES_DB}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+
+server:
+  port: 8080
+
+zuul:
+  routes:
+    api:
+      url: http://${API_URI}
+      sensitive-headers:
+    app:
+      url: http://${APP_URI}
+      sensitive-headers:
+    prometheus:
+      url: http://${PROMETHEUS}
+      sensitive-headers:
+    grafana:
+      url: http://${GRAFANA}
+      sensitive-headers:

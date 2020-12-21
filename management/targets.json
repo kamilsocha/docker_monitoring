@@ -10,6 +10,6 @@
       "job": "movie-service",
       "__metrics_path__": "/actuator/prometheus"
     },
-    "targets": ["192.168.112.14:8080"]
+    "targets": ["172.22.0.15:8080"]
   }
 ]

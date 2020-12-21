@@ -12,6 +12,7 @@ import { useCallback } from "react"
 import { Button, Spinner } from "react-bootstrap"
 import { faSync } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import CreateContainer from "../../components/Containers/CreateContainer/CreateContainer"
 
 const ContainersPage = () => {
   const { url } = useRouteMatch()
@@ -51,6 +52,9 @@ const ContainersPage = () => {
           </Route>
           <Route path={`${url}/all`}>
             <AllContainers />
+          </Route>
+          <Route path={`${url}/create`}>
+            <CreateContainer />
           </Route>
           <Route path={`${url}/:Id`}>
             <ContainerDetailsBoard />

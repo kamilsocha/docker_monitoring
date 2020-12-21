@@ -13,11 +13,9 @@ const Routes = () => {
       <Route exact path="/">
         <HomePage />
       </Route>
-
       <Route path="/containers">
         <ContainersPage />
       </Route>
-
       <Route path="/images">
         <ImagesPage />
       </Route>

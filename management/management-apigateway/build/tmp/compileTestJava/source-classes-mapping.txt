@@ -1,0 +1,2 @@
+pl/polsl/student/managementapigateway/ManagementApigatewayApplicationTests.java
+ pl.polsl.student.managementapigateway.ManagementApigatewayApplicationTests
