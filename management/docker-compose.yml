@@ -13,10 +13,9 @@ services:
   apigateway:
     image: sochakamil/management-gateway
     build: ./management-apigateway
-    container_name: managementGateway
+    container_name: managementgateway
     env_file: ./.env
     environment:
-      - SERVICE=docker-compose-prod_movies_1:8080
       - DB_SERVER=managementDb
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
@@ -25,10 +24,15 @@ services:
       - APP_URI=managementapp:80
       - PROMETHEUS=prometheus:9090
       - GRAFANA=grafana:3000
+      - CONFIG_FILE_PATH=/systemsConfig.json
     networks:
       management:
+    volumes:
+      - type: bind
+        source: ./systemsConfig.json
+        target: /systemsConfig.json
     ports:
-      - "7080:8080"
+      - "8080:8080"
     depends_on:
       - managementDb
     labels:
@@ -36,22 +40,23 @@ services:
       pl.polsl.student.systembelongto.name: "management"
 
       pl.polsl.student.type: "infra"
+      pl.polsl.student.type.infra: "ms"
       pl.polsl.student.type.infra.subtype: "apigateway"
 
   managementapp:
     image: sochakamil/management-app
     build: ./java-docker-api-broker-client
-    container_name: managementapp
+    # container_name: managementapp
     networks:
       management:
-    ports:
-      - "90:80"
+    # ports:
+    #   - "80:80"
     labels:
       pl.polsl.student.name: "docker-management-client"
       pl.polsl.student.systembelongto.name: "management"
 
-      pl.polsl.student.type: "dom"
-      pl.polsl.student.type.dom.subtype: "ui"
+      pl.polsl.student.type: "infra"
+      pl.polsl.student.type.infra: "gui"
 
   managementapi:
     image: sochakamil/management-api
@@ -75,7 +80,8 @@ services:
       pl.polsl.student.systembelongto.name: "management"
 
       pl.polsl.student.type: "infra"
-      pl.polsl.student.type.infra.subtype: "ms"
+      pl.polsl.student.type.infra: "ms"
+      pl.polsl.student.type.infra.subtype: "other(none)"
 
   managementDb:
     image: postgres:alpine
@@ -100,39 +106,39 @@ services:
       pl.polsl.student.systembelongto.name: "management"
 
       pl.polsl.student.type: "infra"
-      pl.polsl.student.type.infra.subtype: "db"
+      pl.polsl.student.type.infra: "db"
 
-  prometheus:
-    image: prom/prometheus:latest
-    volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml
-      - type: bind
-        source: ./targets.json
-        target: /etc/prometheus/targets.json
-      - prometheus_data:/prometheus
-    command:
-      - "--config.file=/etc/prometheus/prometheus.yml"
-    networks:
-      management:
-    ports:
-      - "9090:9090"
+  # prometheus:
+  #   image: prom/prometheus:latest
+  #   volumes:
+  #     - ./prometheus.yml:/etc/prometheus/prometheus.yml
+  #     - type: bind
+  #       source: ./targets.json
+  #       target: /etc/prometheus/targets.json
+  #     - prometheus_data:/prometheus
+  #   command:
+  #     - "--config.file=/etc/prometheus/prometheus.yml"
+  #   networks:
+  #     management:
+  #   ports:
+  #     - "9090:9090"
 
-  node-exporter:
-    image: prom/node-exporter
-    networks:
-      management:
-    ports:
-      - "9100:9100"
+  # node-exporter:
+  #   image: prom/node-exporter
+  #   networks:
+  #     management:
+  #   ports:
+  #     - "9100:9100"
 
-  grafana:
-    image: grafana/grafana:latest
-    networks:
-      management:
-    ports:
-      - "5000:3000"
-    environment:
-      - GF_SECURITY_ADMIN_PASSWORD=pass
-    volumes:
-      - ./grafana.ini:/etc/grafana/grafana.ini
-      # - ./datasource.yaml:/etc/grafana/provisioning/datasources/datasource.yaml
-      - grafana_data:/var/lib/grafana
+  # grafana:
+  #   image: grafana/grafana:latest
+  #   networks:
+  #     management:
+  #   ports:
+  #     - "5000:3000"
+  #   environment:
+  #     - GF_SECURITY_ADMIN_PASSWORD=pass
+  #   volumes:
+  #     - ./grafana.ini:/etc/grafana/grafana.ini
+  #     # - ./datasource.yaml:/etc/grafana/provisioning/datasources/datasource.yaml
+  #     - grafana_data:/var/lib/grafana

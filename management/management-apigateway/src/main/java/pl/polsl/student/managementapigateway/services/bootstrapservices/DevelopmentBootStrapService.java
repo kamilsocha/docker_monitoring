@@ -14,7 +14,6 @@ import pl.polsl.student.managementapigateway.repositories.RoleRepository;
 import pl.polsl.student.managementapigateway.services.UserService;
 
 import java.util.Arrays;
-import java.util.LinkedHashSet;
 
 @Slf4j
 @Profile("development")
@@ -57,20 +56,21 @@ public class DevelopmentBootStrapService extends BootStrapService {
         userAdmin.setEmail(adminEmail);
         userAdmin.setIsActive(true);
         userAdmin.setPassword(passwordEncoder.encode(adminPassword));
-        LinkedHashSet<Role> authoritiesAdmin = new LinkedHashSet<>();
-        authoritiesAdmin.add(roleRepository.findFirstByName("ROLE_ADMIN"));
-        userAdmin.setRoles(authoritiesAdmin);
+//        LinkedHashSet<Role> authoritiesAdmin = new LinkedHashSet<>();
+//        authoritiesAdmin.add(roleRepository.findFirstByName("ROLE_ADMIN"));
+//        userAdmin.setRoles(authoritiesAdmin);
+        userAdmin.setRole(roleRepository.findFirstByName("ROLE_ADMIN"));
 
-        User user = new User();
-        user.setEmail("user@user.com");
-        user.setIsActive(true);
-        user.setPassword(passwordEncoder.encode("user"));
-        LinkedHashSet<Role> authoritiesUser = new LinkedHashSet<>();
-        authoritiesUser.add(roleRepository.findFirstByName("ROLE_USER"));
-        user.setRoles(authoritiesUser);
+//        User user = new User();
+//        user.setEmail("user@user.com");
+//        user.setIsActive(true);
+//        user.setPassword(passwordEncoder.encode("user"));
+//        LinkedHashSet<Role> authoritiesUser = new LinkedHashSet<>();
+//        authoritiesUser.add(roleRepository.findFirstByName("ROLE_USER"));
+//        user.setRoles(authoritiesUser);
         try {
             userService.addUser(userAdmin);
-            userService.addUser(user);
+//            userService.addUser(user);
             log.info("Users created.");
         } catch (EmailAlreadyTakenException e) {
             log.info("User with specified e-mail already present. Skipping...");

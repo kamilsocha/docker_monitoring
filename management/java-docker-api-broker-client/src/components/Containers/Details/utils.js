@@ -12,14 +12,14 @@ export const findServiceName = (container, systemLabel) => {
   ]
 }
 
-export const findType = (container) => {
+export const findType = (container, typeLabel) => {
   return container.Labels[
-    Object.keys(container.Labels).find((l) => l.includes("type"))
+    Object.keys(container.Labels).find((l) => l.endsWith(typeLabel))
   ]
 }
 
-export const findSubtype = (container, type) => {
+export const findSubtype = (container, subtypeLabel) => {
   return container.Labels[
-    Object.keys(container.Labels).find((l) => l.includes(`${type}.subtype`))
+    Object.keys(container.Labels).find((l) => l.endsWith(subtypeLabel))
   ]
 }

@@ -3,6 +3,8 @@ import { Button, Card, Col, Row, Spinner } from "react-bootstrap"
 import { placeholderImage } from "../../constants/constants"
 import Rating from "./Rating"
 
+import { apiUri } from "../../axios-orders"
+
 import "./movieDetails.style.css"
 
 const MovieDetails = ({
@@ -33,7 +35,7 @@ const MovieDetails = ({
         <Row>
           <Col md={4} className="">
             <Card.Img
-              src={movie.posterUri}
+              src={`${apiUri}/movie-service/${movie.posterUri}`}
               alt={placeholderImage}
               className="card-image shadow"
             />

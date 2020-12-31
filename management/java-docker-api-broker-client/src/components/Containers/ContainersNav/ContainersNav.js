@@ -38,7 +38,7 @@ const ContainersNav = ({ baseurl }) => {
             All
           </Nav.Link>
         </Nav.Item>
-        <Nav.Item>
+        {/* <Nav.Item>
           <Nav.Link
             as={NavLink}
             to={`${baseurl}/create`}
@@ -47,7 +47,7 @@ const ContainersNav = ({ baseurl }) => {
           >
             Create
           </Nav.Link>
-        </Nav.Item>
+        </Nav.Item> */}
       </Nav>
     </div>
   )

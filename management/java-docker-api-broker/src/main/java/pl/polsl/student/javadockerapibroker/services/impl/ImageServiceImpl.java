@@ -39,10 +39,17 @@ public class ImageServiceImpl implements ImageService {
 
     @Override
     public List<Image> findAllImages(Boolean showAll, Boolean dangling) {
-        return dockerClient.listImagesCmd()
-                .withShowAll(showAll)
-                .withDanglingFilter(dangling)
-                .exec();
+
+        var listImagesCmd = dockerClient.listImagesCmd();
+
+        if(showAll) {
+            listImagesCmd.withShowAll(true);
+        }
+        if(dangling) {
+            listImagesCmd.withDanglingFilter(true);
+        }
+
+        return listImagesCmd.exec();
     }
 
     @Override

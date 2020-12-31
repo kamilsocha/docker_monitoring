@@ -15,7 +15,7 @@ const SignInFormContainer = () => {
   }
 
   return (
-    <Card className="shadow">
+    <Card className="shadow mx-auto" style={{ maxWidth: "600px" }}>
       <Card.Body>
         <Card.Title className="text-center h3 font-weight-bolder">
           Sign In

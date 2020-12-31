@@ -17,9 +17,12 @@ const App = () => {
 
   if (isLoading) {
     return (
-      <Container className="h-100">
-        <Row className="h-100">
-          <Col md={{ span: 2, offset: 5 }} className="align-self-center">
+      <Container style={{ minHeight: "100vh" }}>
+        <Row style={{ minHeight: "100vh" }}>
+          <Col
+            md={{ span: 2, offset: 5 }}
+            className="align-self-center text-center"
+          >
             <Spinner animation="border" variant="dark" />
           </Col>
         </Row>

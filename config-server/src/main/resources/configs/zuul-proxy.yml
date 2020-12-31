@@ -19,11 +19,8 @@ zuul:
     converter-service:
       path: "/converter-service/**"
       serviceId: converter-service
-    ui:
-      url: "http://localhost:8080/index.html"
-    nginx:
-      url: "http://localhost:80/nginx"
-#  add-host-header: true
+    app:
+      url: "http://localhost:3000"
 
 ribbon:
   ConnectTimeout: 1000

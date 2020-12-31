@@ -1,4 +1,6 @@
 import React, { useState } from "react"
+import { useSelector } from "react-redux"
+import { Link, useLocation } from "react-router-dom"
 import { ButtonGroup, Button, Card, Spinner } from "react-bootstrap"
 
 import {
@@ -11,11 +13,14 @@ import {
 
 import ButtonWithRouter from "./ButtonWithRouter"
 
-import { containerStates } from "../../../constants/constants"
 import { faSync } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const ContainerActions = ({ container, onContainerFetch, fetchIsLoading }) => {
+  const location = useLocation()
+  const containerStates = useSelector(
+    (state) => state.containersReducer.containerStates
+  )
   const [isLoading, setIsLoading] = useState({
     startIsLoading: false,
     stopIsLoading: false,
@@ -64,14 +69,14 @@ const ContainerActions = ({ container, onContainerFetch, fetchIsLoading }) => {
   }
 
   const handleContainerRemove = async () => {
-    return await removeContainer(container.Id).catch((err) => console.log(err))
+    removeContainer(container.Id).catch((err) => console.log(err))
   }
 
   return (
     <Card className="my-2">
       <Card.Header className="h4 font-weight-bolder">
         <span className="mr-3">Actions</span>
-        {container.Names[0]}
+        {container.Names[0].replace("/", "")}
       </Card.Header>
       <ButtonGroup>
         <Button
@@ -159,6 +164,12 @@ const ContainerActions = ({ container, onContainerFetch, fetchIsLoading }) => {
             "Remove"
           )}
         </ButtonWithRouter>
+        <Button variant="link">
+          <Link to={`${location.pathname}/inspect`}>Inspect</Link>
+        </Button>
+        <Button variant="link">
+          <Link to={`${location.pathname}/logs`}>Logs</Link>
+        </Button>
         <Button variant="secondary" onClick={onContainerFetch}>
           {fetchIsLoading ? (
             <Spinner

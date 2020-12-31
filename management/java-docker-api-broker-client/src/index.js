@@ -10,23 +10,42 @@ import thunkMiddleware from "redux-thunk"
 import { applyMiddleware, combineReducers, compose, createStore } from "redux"
 import { authReducer } from "./store/reducers/auth"
 import { containersReducer } from "./store/reducers/containers"
+import { configReducer } from "./store/reducers/config"
+
+import { persistStore, persistReducer } from "redux-persist"
+import storage from "redux-persist/lib/storage"
+
+import { PersistGate } from "redux-persist/integration/react"
+
+const persistConfig = {
+  key: "root",
+  blacklist: ["auth", "containersReducer"],
+  storage,
+}
 
 const rootReducer = combineReducers({
   auth: authReducer,
   containersReducer,
+  configReducer,
 })
 
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+
 const store = createStore(
-  rootReducer,
+  persistedReducer,
   compose(applyMiddleware(thunkMiddleware))
 )
+
+const persistor = persistStore(store)
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename="/app">
-        <App />
-      </BrowserRouter>
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter basename="/app">
+          <App />
+        </BrowserRouter>
+      </PersistGate>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

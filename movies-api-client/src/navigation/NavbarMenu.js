@@ -19,7 +19,6 @@ const NavbarMenu = (props) => {
       expand="lg"
       className={{ ...props.classes }}
     >
-      <Navbar.Brand href="#home">LOGO</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">

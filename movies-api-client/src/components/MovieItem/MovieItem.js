@@ -5,8 +5,10 @@ import RateMovieHint from "../RateMovieHint/RateMovieHint"
 
 import { OverlayTrigger, Popover } from "react-bootstrap"
 
+import { apiUri } from "../../axios-orders"
+
 const MovieItem = ({ item }) => {
-  const { name, description, director, posterUri } = item
+  const { name, posterUri } = item
 
   const popover = (
     <Popover>
@@ -24,7 +26,7 @@ const MovieItem = ({ item }) => {
             overlay={popover}
           >
             <img
-              src={posterUri}
+              src={`${apiUri}/movie-service/${posterUri}`}
               alt={placeholderImage}
               className="movie-item"
             />

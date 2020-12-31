@@ -39,12 +39,6 @@ public class MovieController {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    @GetMapping("/home")
-    public String home() {
-        log.warn("processing request...");
-        return "movie-service";
-    }
-
     @ApiOperation(value = "Find all movies.")
     @GetMapping("/all")
     public Page<Movie> findAll(@RequestParam(name = "unpaged", required = false) boolean unpaged, @PageableDefault(sort = "id")Pageable pageable) {
@@ -66,7 +60,6 @@ public class MovieController {
     @GetMapping
     public List<Movie> findAllButSpecified(@RequestParam Long[] idsToFilterOut) {
         return idsToFilterOut.length != 0 ? movieService.findAllButSpecified(idsToFilterOut) : movieService.findAll(Pageable.unpaged()).stream().collect(Collectors.toList());
-//        return movieService.findAllButSpecified(idsToFilterOut);
     }
 
     @ApiOperation(value = "Retrieve details of specific movie.")
@@ -86,7 +79,8 @@ public class MovieController {
 
         String filename = posterStorageService.store(file);
         String fileDownloadUri = ServletUriComponentsBuilder
-                .fromCurrentContextPath()
+//                .fromCurrentContextPath()
+                .fromPath("")
                 .path("/movies/posters/")
                 .path(filename).toUriString();
 

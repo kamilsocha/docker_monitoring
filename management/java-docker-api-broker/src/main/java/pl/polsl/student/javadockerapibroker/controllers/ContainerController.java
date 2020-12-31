@@ -94,9 +94,9 @@ public class ContainerController {
     }
 
     @GetMapping("/{id}/logs")
-    public ResponseEntity<List<String>> log(@PathVariable String id) {
+    public ResponseEntity<List<String>> log(@PathVariable String id, @RequestParam(required = false) String since) {
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(containerService.logContainer(id));
+            return ResponseEntity.status(HttpStatus.OK).body(containerService.logContainer(id, since));
         } catch (InterruptedException e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
@@ -142,5 +142,4 @@ public class ContainerController {
                 .map(sequence -> containerService.logContainerContinuously(id, timeout));
     }
 
-    // Snapshot a container
 }

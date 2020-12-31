@@ -20,7 +20,11 @@ const InfoComponent = () => {
   }, [])
 
   if (isLoading) {
-    return <Spinner />
+    return (
+      <div className="text-center">
+        <Spinner animation="border" />
+      </div>
+    )
   }
 
   if (error) {
@@ -43,26 +47,51 @@ const InfoComponent = () => {
             General
           </ListGroup.Item>
           {Object.keys(info).map((k, index) => {
-            if (Array.isArray(info[k])) {
+            if (k === "DriverStatus") {
               return (
                 <ListGroup.Item key={index}>
                   <Row>
-                    <Col xs="auto" className="font-weight-bold border-right">
+                    <Col xs="auto" className="font-weight-bold">
                       {k}
                     </Col>
                     <Col xs="auto">
-                      <ArrayProp parenttIndex={index} array={info[k]} />
+                      {info[k].map((el, index) => (
+                        <div key={`ds${index}`}>
+                          <span className="font-weight-bold">{el[0]}: </span>
+                          <span>{el[1]}</span>
+                        </div>
+                      ))}
+                    </Col>
+                  </Row>
+                </ListGroup.Item>
+              )
+            } else if (Array.isArray(info[k])) {
+              return (
+                <ListGroup.Item key={index}>
+                  <Row>
+                    <Col xs="auto" className="font-weight-bold">
+                      {k}
+                    </Col>
+                    <Col xs="auto">
+                      <ArrayProp parentIndex={index} array={info[k]} />
                     </Col>
                   </Row>
                 </ListGroup.Item>
               )
             } else if (typeof info[k] === "object" && info[k] !== null) {
-              return <ObjectProp key={index} name={k} object={info[k]} />
+              return (
+                <ObjectProp
+                  key={index}
+                  parentIndex={index}
+                  name={k}
+                  object={info[k]}
+                />
+              )
             } else if (info[k] !== null && info[k].toString() !== "") {
               return (
                 <ListGroup.Item key={index}>
                   <Row>
-                    <Col xs="auto" className="font-weight-bold border-right">
+                    <Col xs="auto" className="font-weight-bold">
                       {k}
                     </Col>
                     <Col xs="auto">{info[k].toString()}</Col>

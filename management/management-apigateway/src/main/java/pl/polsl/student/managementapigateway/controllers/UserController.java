@@ -5,9 +5,11 @@ import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pl.polsl.student.managementapigateway.domain.User;
 import pl.polsl.student.managementapigateway.dtos.PasswordPatchDto;
+import pl.polsl.student.managementapigateway.dtos.UserGetDto;
 import pl.polsl.student.managementapigateway.dtos.UserPostDto;
 import pl.polsl.student.managementapigateway.services.impl.UserServiceImpl;
 
@@ -23,12 +25,20 @@ public class UserController {
     private final UserServiceImpl userService;
 
     @ApiOperation(value = "Find all users.")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping
     public List<User> findAll() {
         return userService.findAllUsers();
     }
 
+    @ApiOperation(value = "Get current user.")
+    @GetMapping("/current")
+    public UserGetDto findCurrent() {
+        return userService.findCurrentUser();
+    }
+
     @ApiOperation(value = "Find one user.")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping(value = "/{id}")
     public ResponseEntity<User> findOne(@PathVariable Long id) {
         User user = userService.findUser(id);
@@ -39,6 +49,7 @@ public class UserController {
     }
 
     @ApiOperation("Create user.")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping
     public ResponseEntity<User> create(@Valid @RequestBody UserPostDto dto) {
         User user = userService.createUser(dto);
@@ -59,8 +70,10 @@ public class UserController {
     }
 
     @ApiOperation(value = "Delete one user.")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
-        return null;
+        userService.deleteUser(id);
+        return ResponseEntity.ok().build();
     }
 }

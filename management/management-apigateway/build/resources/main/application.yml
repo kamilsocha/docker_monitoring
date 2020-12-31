@@ -36,6 +36,8 @@ application:
         header: RefreshToken
         expiration: 14400
 
+config-file: ${CONFIG_FILE_PATH:"./systemsConfig.json"}
+
 server:
   port: 7081
   forward-headers-strategy: framework

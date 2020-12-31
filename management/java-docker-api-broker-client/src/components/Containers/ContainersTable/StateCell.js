@@ -1,8 +1,10 @@
 import React from "react"
-
-import { containerStates } from "../../../constants/constants"
+import { useSelector } from "react-redux"
 
 const StateCell = ({ State }) => {
+  const containerStates = useSelector(
+    (state) => state.containersReducer.containerStates
+  )
   let c = ""
   switch (State) {
     case containerStates.RUNNING:
@@ -11,7 +13,13 @@ const StateCell = ({ State }) => {
     case containerStates.CREATED:
       c = "bg-primary"
       break
+    case containerStates.RESTARTING:
+      c = "bg-warn"
+      break
     case containerStates.STOPPED:
+      c = "bg-warn"
+      break
+    case containerStates.PAUSED:
       c = "bg-warn"
       break
     case containerStates.EXITED:

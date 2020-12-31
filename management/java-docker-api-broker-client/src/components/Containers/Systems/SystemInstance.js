@@ -1,16 +1,21 @@
 import React from "react"
-import { Container } from "react-bootstrap"
-import ContainersTable from "../ContainersTable/ContainersTable"
+import SystemContainersTable from "../ContainersTable/SystemsContainersTable"
 
 const SystemInstance = ({ system }) => {
-  const { name, containers } = system
+  const { name, domainContainers, infraContainers } = system
   return (
-    <Container fluid>
-      <div className="h5 p-2 font-weight-bold shadow rounded bg-light">
+    <div className="shadow rounded bg-light">
+      <div
+        className="h3 p-2 font-weight-bold rounded"
+        style={{ backgroundColor: "#cacfd00" }}
+      >
         {name}
       </div>
-      <ContainersTable containers={containers} />
-    </Container>
+      <SystemContainersTable
+        domainContainers={domainContainers}
+        infraContainers={infraContainers}
+      />
+    </div>
   )
 }
 

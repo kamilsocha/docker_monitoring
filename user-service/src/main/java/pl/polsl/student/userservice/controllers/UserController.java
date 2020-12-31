@@ -2,6 +2,7 @@ package pl.polsl.student.userservice.controllers;
 
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -12,13 +13,15 @@ import pl.polsl.student.userservice.services.UserServiceImpl;
 
 import java.util.LinkedHashSet;
 
-// @CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("/users")
 @RestController
 public class UserController {
 
     private final UserServiceImpl userService;
+
+    @Value("${testuser.email}")
+    private String testUserEmail;
 
     @ApiOperation(value = "Find all users")
     @GetMapping
@@ -40,6 +43,12 @@ public class UserController {
     @ApiOperation(value = "Find user by email.")
     @GetMapping("/email/{email}")
     public ResponseEntity<User> findOneByEmail(@PathVariable String email) {
+
+        if(email.equals(testUserEmail)) {
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(userService.findTestUser());
+        }
 
         User user = userService.findByEmail(email);
         HttpStatus status = user == null ? HttpStatus.NOT_FOUND : HttpStatus.OK;

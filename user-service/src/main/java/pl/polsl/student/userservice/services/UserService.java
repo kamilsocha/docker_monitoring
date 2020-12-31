@@ -9,6 +9,7 @@ public interface UserService {
 
     LinkedHashSet<User> findAll();
     User findById(Long id);
+    User findTestUser();
     User findByEmail(String email);
     User createUser(UserPostDto userPostDto);
 }

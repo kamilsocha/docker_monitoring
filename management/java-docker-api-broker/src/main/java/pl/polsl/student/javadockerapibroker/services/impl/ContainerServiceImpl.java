@@ -7,10 +7,13 @@ import com.github.dockerjava.api.command.InspectContainerResponse;
 import com.github.dockerjava.api.command.LogContainerCmd;
 import com.github.dockerjava.api.model.*;
 import org.springframework.stereotype.Service;
+import pl.polsl.student.javadockerapibroker.components.DateFormatter;
 import pl.polsl.student.javadockerapibroker.dto.ContainerCreateDto;
 import pl.polsl.student.javadockerapibroker.exceptions.ContainerCreationException;
 import pl.polsl.student.javadockerapibroker.services.ContainerService;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -21,11 +24,13 @@ public class ContainerServiceImpl implements ContainerService {
 
     private final DockerClient dockerClient;
     private int lastLogTime;
+    private final DateFormatter dateFormatter;
 
 
-    public ContainerServiceImpl(DockerClient dockerClient) {
+    public ContainerServiceImpl(DockerClient dockerClient, DateFormatter dateFormatter) {
         this.dockerClient = dockerClient;
         this.lastLogTime = (int)(System.currentTimeMillis() / 1000);
+        this.dateFormatter = dateFormatter;
     }
 
     @Override
@@ -109,7 +114,10 @@ public class ContainerServiceImpl implements ContainerService {
 
     @Override
     public void removeContainer(String id) {
-        dockerClient.removeContainerCmd(id).exec();
+
+        dockerClient.removeContainerCmd(id)
+//                .withForce(true)
+                .exec();
     }
 
     @Override
@@ -117,13 +125,20 @@ public class ContainerServiceImpl implements ContainerService {
         return dockerClient.inspectContainerCmd(id).exec();
     }
 
-    public List<String> logContainer(String id) throws InterruptedException {
+    public List<String> logContainer(String id, String since) throws InterruptedException {
+
         final List<String> logs = new ArrayList<>();
         LogContainerCmd logContainerCmd = dockerClient.logContainerCmd(id)
                 .withStdOut(true)
                 .withStdErr(true)
-                .withSince(lastLogTime)
                 .withTimestamps(true);
+
+        if(since != null) {
+            LocalDateTime sinceDate = dateFormatter.parseDayTime(since);
+            Long sinceLong = sinceDate.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
+            int sinceInt = sinceLong.intValue() / 1000;
+            logContainerCmd.withSince(sinceInt);
+        }
 
         logContainerCmd.exec(new ResultCallback.Adapter<>() {
             @Override
@@ -131,7 +146,7 @@ public class ContainerServiceImpl implements ContainerService {
                 logs.add(object.toString());
             }
         }).awaitCompletion();
-        lastLogTime = (int) (System.currentTimeMillis() / 1000) + 5; // at least 5 seconds gap between logs
+//        lastLogTime = (int) (System.currentTimeMillis() / 1000) + 5; // at least 5 seconds gap between logs
         return logs;
     }
 

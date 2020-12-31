@@ -1,8 +1,10 @@
 import React from "react"
-
-import { containerStates } from "../../../constants/constants"
+import { useSelector } from "react-redux"
 
 const StateField = ({ State }) => {
+  const containerStates = useSelector(
+    (state) => state.containersReducer.containerStates
+  )
   let c = ""
   switch (State) {
     case containerStates.RUNNING:

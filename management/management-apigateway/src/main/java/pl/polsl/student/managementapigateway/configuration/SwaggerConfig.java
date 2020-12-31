@@ -17,7 +17,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @PropertySource("classpath:application.yml")
 public class SwaggerConfig {
 
-    private static final String BASE_PACKAGE = "pl.polsl.student.javadockerapibroker";
+    private static final String BASE_PACKAGE = "pl.polsl.student.managementapigateway";
 
     @Value("${swagger.title}")
     private String title;

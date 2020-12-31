@@ -14,6 +14,9 @@ spring:
         enabled: true
         service-id: config-server
 
+testuser:
+  email: test@test.com
+
 server:
   port: 9061
 

@@ -1,6 +1,7 @@
 package pl.polsl.student.javadockerapibroker.controllers;
 
 import com.github.dockerjava.api.command.CreateImageResponse;
+import com.github.dockerjava.api.command.InspectImageResponse;
 import com.github.dockerjava.api.model.Image;
 import com.github.dockerjava.api.model.SearchItem;
 import io.swagger.annotations.Api;
@@ -14,7 +15,6 @@ import pl.polsl.student.javadockerapibroker.services.impl.ImageServiceImpl;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @Api(value = "docker images management")
@@ -40,6 +40,16 @@ public class ImageController {
     public List<Image> findAll(@RequestParam(name = "showAll", required = false, defaultValue = "false") Boolean showAll,
                                @RequestParam(name = "dangling", required = false, defaultValue = "false") Boolean dangling) {
         return imageService.findAllImages(showAll, dangling);
+    }
+
+    @ApiOperation(value = "Inspect image.")
+    @GetMapping("/inspect/{id}")
+    public ResponseEntity<InspectImageResponse> inspect(@PathVariable String id) {
+        var image = imageService.inspectImage(id);
+        HttpStatus status = image == null ? HttpStatus.NOT_FOUND : HttpStatus.OK;
+        return ResponseEntity
+                .status(status)
+                .body(image);
     }
 
     @ApiOperation(value = "Search for image in registry.", response = List.class)

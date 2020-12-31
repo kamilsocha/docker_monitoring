@@ -4,6 +4,7 @@ import {
   AUTH_SUCCESS,
   AUTH_LOGOUT,
   AUTH_REDIRECT_PATH,
+  FETCH_USER_DATA_SUCCESS,
 } from "../actions/auth"
 import { updateObject } from "../utils"
 
@@ -14,6 +15,8 @@ const initialState = {
   error: null,
   loading: false,
   authRedirectPath: "/",
+  email: "",
+  role: "",
 }
 
 const setAuthRedirectPath = (state, action) => {
@@ -52,6 +55,13 @@ const authLogout = (state, action) => {
   })
 }
 
+const fetchUserDataSuccess = (state, action) => {
+  return updateObject(state, {
+    email: action.payload.email,
+    role: action.payload.role,
+  })
+}
+
 export function authReducer(state = initialState, action) {
   switch (action.type) {
     case AUTH_START:
@@ -64,6 +74,8 @@ export function authReducer(state = initialState, action) {
       return authLogout(state, action)
     case AUTH_REDIRECT_PATH:
       return setAuthRedirectPath(state, action)
+    case FETCH_USER_DATA_SUCCESS:
+      return fetchUserDataSuccess(state, action)
     default:
       return state
   }

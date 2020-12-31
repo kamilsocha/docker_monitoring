@@ -1,7 +1,7 @@
 import axios from "axios"
+import { authHeader } from "../../axios-orders"
 import moment from "moment"
-
-const apiUri = `${process.env.REACT_APP_API_URL}`
+import { fetchConfig } from "./config"
 
 export const AUTH_START = "AUTH_START"
 export const AUTH_FAIL = "AUTH_FAIL"
@@ -9,6 +9,8 @@ export const AUTH_SUCCESS = "AUTH_SUCCESS"
 export const AUTH_LOGOUT = "AUTH_LOGOUT"
 export const AUTH_REDIRECT_PATH = "AUTH_REDIRECT_PATH"
 export const AUTH_CHECK_STATE = "AUTH_CHECK_STATE"
+
+export const FETCH_USER_DATA_SUCCESS = "FETCH_USER_DATA_SUCCESS"
 
 export const authCheckState = () => {
   return (dispatch) => {
@@ -28,6 +30,8 @@ export const authCheckState = () => {
         dispatch(
           checkAuthTimeout(Math.abs(expirationDate.diff(moment(), "seconds")))
         )
+        dispatch(fetchUserData(token))
+        dispatch(fetchConfig())
       }
     }
   }
@@ -74,12 +78,39 @@ export const checkAuthTimeout = (timeout) => {
   }
 }
 
+const fetchUserDataSuccess = (email, role) => {
+  return {
+    type: FETCH_USER_DATA_SUCCESS,
+    payload: { email, role },
+  }
+}
+
+export const fetchUserData = (accessToken) => {
+  let header
+  if (accessToken) {
+    header = { Authorization: accessToken }
+  } else {
+    header = authHeader()
+  }
+  return async (dispatch) => {
+    const response = await axios.get("/users/current", {
+      // const response = await axios.get("http://localhost:8080/users/current", {
+      headers: header,
+    })
+
+    if (response?.status === 200) {
+      const { email, role } = response.data
+      dispatch(fetchUserDataSuccess(email, role))
+    }
+  }
+}
+
 export const auth = (email, password) => {
   return async (dispatch) => {
     dispatch(authStart())
-    console.log("start auth")
     const response = await axios
-      .post(`${apiUri}/login`, { username: email, password })
+      .post(`/login`, { username: email, password })
+      // .post(`http://localhost:8080/login`, { username: email, password })
       .catch((err) => {
         dispatch(authFail(err))
       })
@@ -91,10 +122,11 @@ export const auth = (email, password) => {
       let start = moment()
       let end = moment(authData.accessTokenExpiration, "YYYY-MM-DD HH:mm:ss")
       const expiryTime = end.diff(start, "seconds")
-      console.log("token", authData.accessToken)
       localStorage.setItem("token", authData.accessToken)
       localStorage.setItem("expirationDate", authData.accessTokenExpiration)
+      dispatch(fetchUserData(authData.accessToken))
       dispatch(authSuccess(authData.token))
+      dispatch(fetchConfig())
       dispatch(checkAuthTimeout(expiryTime))
     }
   }

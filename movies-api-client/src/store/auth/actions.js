@@ -9,10 +9,6 @@ export const AUTH_CHECK_STATE = "AUTH_CHECK_STATE"
 
 const authValidity = 3600 * 10
 
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms))
-}
-
 export const authCheckState = () => {
   return (dispatch) => {
     dispatch(authStart())
@@ -94,7 +90,7 @@ export const auth = (email, password, isSignIn) => {
   return async (dispatch) => {
     dispatch(authStart())
     const response = await axios
-      .get(`user-service/users/email/${email}`)
+      .get(`/user-service/users/email/${email}`)
       .catch((err) => {
         dispatch(authFail(err))
       })

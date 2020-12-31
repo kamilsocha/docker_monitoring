@@ -26,7 +26,7 @@ const ContainerDetails = ({ container }) => {
               <Col xs="3" className="font-weight-bold border-right">
                 Name
               </Col>
-              <Col xs="9">{Names[0]}</Col>
+              <Col xs="9">{Names[0].replace("/", "")}</Col>
             </Row>
           </ListGroup.Item>
           <ListGroup.Item>

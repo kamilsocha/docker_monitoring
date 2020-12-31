@@ -1,15 +1,27 @@
-import React from "react"
-import { Container } from "react-bootstrap"
+import React, { useEffect } from "react"
+import { useDispatch } from "react-redux"
 import InfoComponent from "../../components/Home/InfoComponent"
 import VersionComponent from "../../components/Home/VersionComponent"
+import Page from "../../components/common/Page"
+import PageTitle from "../../components/common/PageTitle"
+import PageContent from "../../components/common/PageContent"
+
+import * as configActions from "../../store/actions/config"
 
 const HomePage = () => {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(configActions.fetchConfig())
+  }, [dispatch])
   return (
-    <Container fluid>
-      <div className="h1 m-2 font-weight-bold">Host System Information</div>
-      <InfoComponent />
-      <VersionComponent />
-    </Container>
+    <Page fluid="true">
+      <PageTitle title="Host System Information"></PageTitle>
+      <PageContent>
+        <InfoComponent />
+        <VersionComponent />
+      </PageContent>
+    </Page>
   )
 }
 

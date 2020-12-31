@@ -24,6 +24,9 @@ public class UserServiceImpl implements UserService {
     @Value("${server.port}")
     private Integer port;
 
+    @Value("${testuser.email}")
+    private String testUserEmail;
+
     private final UserRepository userRepository;
 
     private final ObjectMapper objectMapper = new ObjectMapper();
@@ -38,6 +41,19 @@ public class UserServiceImpl implements UserService {
     public User findById(Long id) {
         log.warn("Processing request... Find by user id: " + id + "... Port: " + port);
         return userRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public User findTestUser() {
+        Optional<User> testUser = userRepository.findByEmail(testUserEmail);
+        if(testUser.isPresent()) {
+            return testUser.get();
+        }
+        User newUser = new User();
+        newUser.setEmail(testUserEmail);
+        newUser.setFirstName("testFirstName");
+        newUser.setLastName("testLastName");
+        return userRepository.save(newUser);
     }
 
     @Override

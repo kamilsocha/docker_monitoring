@@ -1,8 +1,9 @@
 import axios from "axios"
 
+export const apiUri = process.env.REACT_APP_API_URL
+
 const instance = axios.create({
-  baseURL: "http://localhost:8080/",
-  // baseURL: "http://apigateway:8080/",
+  baseURL: `${apiUri}`,
   timeout: 5000,
 })
 

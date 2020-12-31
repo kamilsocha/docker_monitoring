@@ -1,5 +1,4 @@
 import React from "react"
-import { Container } from "react-bootstrap"
 import { useSelector } from "react-redux"
 import ContainersTable from "../ContainersTable/ContainersTable"
 
@@ -8,10 +7,8 @@ const NoSystemContainers = () => {
     (state) => state.containersReducer.noSystemContainers
   )
   return (
-    <div className="m-3">
-      <Container fluid>
-        {containers && <ContainersTable containers={containers} />}
-      </Container>
+    <div className="my-3">
+      {containers && <ContainersTable containers={containers} />}
     </div>
   )
 }

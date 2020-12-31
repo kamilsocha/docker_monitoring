@@ -10,12 +10,6 @@ import { allMoviesReducer } from "./store/allMovies/reducer"
 import "./index.css"
 import App from "./App"
 import reportWebVitals from "./reportWebVitals"
-import { createBrowserHistory } from "history"
-
-const history = createBrowserHistory({
-  // basename: process.env.PUBLIC_URL,
-  basename: "/nginx",
-})
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -34,9 +28,7 @@ const store = createStore(
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename="/nginx">
-        {/* <BrowserRouter history={history}> */}
-        {/* <BrowserRouter> */}
+      <BrowserRouter basename="/app">
         <App />
       </BrowserRouter>
     </Provider>

@@ -1,31 +1,35 @@
 zuul:
+  ribbon:
+    eager-load:
+      enabled: true
   routes:
     user-movies-catalog-service:
-      path: "/user-movies-catalog-service/**"
+      path: "/api/user-movies-catalog-service/**"
       serviceId: user-movies-catalog-service
+      sensitive-headers:
     movie-service:
-      path: "/movie-service/**"
+      path: "/api/movie-service/**"
       serviceId: movie-service
+      sensitive-headers:
     rating-service:
-      path: "/rating-service/**"
+      path: "/api/rating-service/**"
       serviceId: rating-service
+      sensitive-headers:
     user-service:
-      path: "/user-service/**"
+      path: "/api/user-service/**"
       serviceId: user-service
+      sensitive-headers:
     converter-service:
-      path: "/converter-service/**"
+      path: "/api/converter-service/**"
       serviceId: converter-service
-    ui:
-      url: "http://localhost:8080/index.html"
-    nginx:
-      url: http://${movie_client}/nginx
-    test-docker:
-      path: "/test-docker/**"
-      url: "http://${service}"
+      sensitive-headers:
+    app:
+      url: http://${movie_client}
+      sensitive-headers:
 
 ribbon:
-  ConnectTimeout: 1000
-  ReadTimeout: 1000
+  ConnectTimeout: 3000
+  ReadTimeout: 3000
 
 hystrix:
   command:

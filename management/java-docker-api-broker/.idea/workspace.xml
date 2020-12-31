@@ -23,11 +23,191 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7b57ef5-9192-4ce8-9205-d940d3428d29" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/components/DateFormatter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/configuration/SystemsConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/controllers/ConfigurationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/domain/LabelKeys.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/domain/LabelValues.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/dtos/UserGetDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/services/ConfigurationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/services/impl/ConfigurationServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../management-apigateway/systemsConfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/user-service-docker.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/user-service-docker.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/zuul-proxy-docker.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/zuul-proxy-docker.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/zuul-proxy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/zuul-proxy.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../discovery-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../discovery-server/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../discovery-server/src/main/resources/bootstrap.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker-compose-prod/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker-compose-prod/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1607890606265_baby_driver.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1607891150935_baby_driver.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1607891155876_risky.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1607891159133_the_conversation.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1607891161634_the_godfather.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1607891164048_the_godfatherII.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1607891166793_gladiator.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1607891169467_the_shawshank_redemption.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1608044382798_baby_driver.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1608044395826_risky.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1608044406021_the_conversation.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1608044416532_the_godfather.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1608044426492_the_godfatherII.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1608044436038_gladiator.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1608044466116_the_shawshank_redemption.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-test/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker-compose-test/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-test/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker-compose-test/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/.env.production" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/.env.production" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/axios-orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/axios-orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Auth/SignInFormContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Auth/SignInFormContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/AllContainers/AllContainers.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/AllContainers/AllContainers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/ContainersNav/ContainersNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/ContainersNav/ContainersNav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/ContainersTable/ContainersTableRow.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/ContainersTable/ContainersTableRow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/ContainersTable/StateCell.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/ContainersTable/StateCell.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/CreateContainer/CreateContainerForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/CreateContainer/CreateContainerForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Details/ContainerActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Details/ContainerActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Details/ContainerDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Details/ContainerDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Details/ContainerDetailsBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Details/ContainerDetailsBoard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Details/StateField.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Details/StateField.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Details/SystemContainerLinks.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Details/SystemContainerLinks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Details/SystemDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Details/SystemDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Details/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Details/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/NoSystemContainers/NoSystemContainers.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/NoSystemContainers/NoSystemContainers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Systems/SystemInstance.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Systems/SystemInstance.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Systems/SystemLabelName.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Systems/Systems.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Systems/Systems.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Home/InfoComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Home/InfoComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Home/VersionComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Home/VersionComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Menu/Menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Menu/Menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Menu/MenuItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Menu/MenuItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Menu/menuStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Menu/menuStyles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/ZuulRoutes/ZuulRouteItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/ZuulRoutes/ZuulRouteItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/common/ArrayProp.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/common/ArrayProp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/common/ObjectProp.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/common/ObjectProp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/constants/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/constants/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/navigation/Routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/navigation/Routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Auth/AuthPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Auth/AuthPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Containers/ContainersPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Containers/ContainersPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Home/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Home/HomePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Images/ImagesPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Images/ImagesPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/MainPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Volumes/VolumesPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Volumes/VolumesPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/ZuulRoutes/ZuulRoutesManagementPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/ZuulRoutes/ZuulRoutesManagementPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/services/containerService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/services/containerService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/services/createRoutesService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/services/createRoutesService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/store/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/store/actions/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/store/actions/containers.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/store/actions/containers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/store/reducers/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/store/reducers/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/store/reducers/containers.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/store/reducers/containers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/store/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/store/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6df75fd6-e661-4197-a44e-c900f4436be7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6df75fd6-e661-4197-a44e-c900f4436be7.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6df75fd6-e661-4197-a44e-c900f4436be7/storage_v2/_src_/database/dockerapidb.-M2rfQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6df75fd6-e661-4197-a44e-c900f4436be7/storage_v2/_src_/database/dockerapidb.-M2rfQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/configuration/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/configuration/WebSecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/controllers/ContainerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/controllers/ContainerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/controllers/ImageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/controllers/ImageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/ContainerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/ContainerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/impl/ContainerServiceImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/impl/ContainerServiceImpl$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/impl/ContainerServiceImpl$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/impl/ContainerServiceImpl$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/impl/ContainerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/impl/ContainerServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/impl/ImageServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/impl/ImageServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/impl/VolumeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/impl/VolumeServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/java-docker-api-broker-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/java-docker-api-broker-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/pl.polsl.student.javadockerapibroker.JavaDockerApiBrokerApplicationTests.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/pl.polsl.student.javadockerapibroker.JavaDockerApiBrokerApplicationTests.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/pl.polsl.student.javadockerapibroker.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/pl.polsl.student.javadockerapibroker.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-pl.polsl.student.javadockerapibroker.JavaDockerApiBrokerApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-pl.polsl.student.javadockerapibroker.JavaDockerApiBrokerApplicationTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/configuration/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/configuration/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/controllers/ContainerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/controllers/ContainerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/controllers/ImageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/controllers/ImageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/services/ContainerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/services/ContainerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/services/impl/ContainerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/services/impl/ContainerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/services/impl/ImageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/services/impl/ImageServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/services/impl/VolumeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/services/impl/VolumeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/.gradle/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/configuration/SwaggerConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/configuration/SwaggerConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/configuration/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/configuration/WebSecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/controllers/RouteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/controllers/RouteController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/controllers/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/domain/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/services/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/services/bootstrapservices/DevelopmentBootStrapService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/services/bootstrapservices/DevelopmentBootStrapService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/services/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/services/impl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/libs/management-apigateway-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/libs/management-apigateway-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/reports/tests/test/classes/pl.polsl.student.managementapigateway.ManagementApigatewayApplicationTests.html" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/reports/tests/test/classes/pl.polsl.student.managementapigateway.ManagementApigatewayApplicationTests.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/reports/tests/test/packages/pl.polsl.student.managementapigateway.html" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/reports/tests/test/packages/pl.polsl.student.managementapigateway.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/resources/main/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/resources/main/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/test-results/test/TEST-pl.polsl.student.managementapigateway.ManagementApigatewayApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/test-results/test/TEST-pl.polsl.student.managementapigateway.ManagementApigatewayApplicationTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/test-results/test/binary/output.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/test-results/test/binary/output.bin.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/configuration/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/configuration/SwaggerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/configuration/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/configuration/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/controllers/RouteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/controllers/RouteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/services/bootstrapservices/DevelopmentBootStrapService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/services/bootstrapservices/DevelopmentBootStrapService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/services/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/services/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movie-service/src/main/java/pl/polsl/student/movieservice/controllers/MovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../movie-service/src/main/java/pl/polsl/student/movieservice/controllers/MovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movies-api-client/.env.production" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/.env.production" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movies-api-client/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movies-api-client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movies-api-client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movies-api-client/src/axios-orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/src/axios-orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movies-api-client/src/components/CatalogItem/CatalogItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/src/components/CatalogItem/CatalogItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movies-api-client/src/components/MovieDetails/MovieDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/src/components/MovieDetails/MovieDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movies-api-client/src/components/MovieItem/MovieItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/src/components/MovieItem/MovieItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movies-api-client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movies-api-client/src/navigation/NavbarMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/src/navigation/NavbarMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movies-api-client/src/store/allMovies/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/src/store/allMovies/actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movies-api-client/src/store/auth/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/src/store/auth/actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movies-api-client/src/store/movieCatalog/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/src/store/movieCatalog/actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../user-service/src/main/java/pl/polsl/student/userservice/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../user-service/src/main/java/pl/polsl/student/userservice/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../user-service/src/main/java/pl/polsl/student/userservice/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../user-service/src/main/java/pl/polsl/student/userservice/repositories/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../user-service/src/main/java/pl/polsl/student/userservice/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../user-service/src/main/java/pl/polsl/student/userservice/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../user-service/src/main/java/pl/polsl/student/userservice/services/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../user-service/src/main/java/pl/polsl/student/userservice/services/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../user-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../user-service/src/main/resources/bootstrap.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +233,10 @@
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="java-docker-api-broker" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="management-apigateway" type="f1a62948:ProjectNode" />
               </path>
             </expand>
@@ -65,6 +249,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -101,13 +286,16 @@
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="spring.boot" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\repo\praca dyplomowa\backend-full\microservices\management\management-apigateway" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="pl.polsl.student.managementapigateway.configuration" />
       <recent name="pl.polsl.student.managementapigateway.controllers" />
@@ -128,20 +316,54 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.JavaDockerApiBrokerApplication">
+  <component name="RunManager" selected="Spring Boot.ManagementApigatewayApplication">
     <configuration name="JavaDockerApiBrokerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="java-docker-api-broker.main" />
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="pl.polsl.student.javadockerapibroker.JavaDockerApiBrokerApplication" />
       <option name="ALTERNATIVE_JRE_PATH" />
+      <additionalParameters>
+        <param>
+          <option name="enabled" value="true" />
+          <option name="name" value="config-file" />
+          <option name="value" value="C:\systemsConfig.json" />
+        </param>
+      </additionalParameters>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="ManagementApigatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="management-apigateway.main" />
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="pl.polsl.student.managementapigateway.ManagementApigatewayApplication" />
       <option name="ACTIVE_PROFILES" value="development" />
       <option name="ALTERNATIVE_JRE_PATH" />
+      <additionalParameters>
+        <param>
+          <option name="enabled" value="true" />
+          <option name="name" value="config-file" />
+          <option name="value" value="C:\systemsConfig.json" />
+        </param>
+      </additionalParameters>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -256,7 +478,15 @@
       <workItem from="1608398787651" duration="10119000" />
       <workItem from="1608478192942" duration="6636000" />
       <workItem from="1608484961467" duration="10891000" />
-      <workItem from="1608541282918" duration="6295000" />
+      <workItem from="1608541282918" duration="6382000" />
+      <workItem from="1608634144925" duration="3072000" />
+      <workItem from="1608735891531" duration="3645000" />
+      <workItem from="1608997722259" duration="9210000" />
+      <workItem from="1609069816409" duration="1294000" />
+      <workItem from="1609078708627" duration="15246000" />
+      <workItem from="1609150419576" duration="19906000" />
+      <workItem from="1609321058934" duration="3412000" />
+      <workItem from="1609415999857" duration="558000" />
     </task>
     <servers />
   </component>
@@ -289,17 +519,17 @@
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
     <state x="3007" y="430" key="#DockerRemoteWithCert/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608213822900" />
-    <state x="2117" y="24" width="1467" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608225365678">
-      <screen x="1600" y="0" width="2560" height="1440" />
-    </state>
-    <state x="310" y="14" width="1089" height="789" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1606078887385" />
-    <state x="2499" y="24" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608154720319" />
-    <state x="310" y="14" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1606174338442" />
-    <state x="2117" y="24" width="1467" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608225365678" />
-    <state x="3044" y="426" width="994" height="587" key="#com.intellij.ide.util.MemberChooser" timestamp="1608499960904">
+    <state x="2499" y="24" width="1092" height="766" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609256204281">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
-    <state x="3044" y="426" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608499960904" />
+    <state x="310" y="14" width="1089" height="789" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1606078887385" />
+    <state x="2499" y="24" width="1092" height="766" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609256204281" />
+    <state x="310" y="14" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1606174338442" />
+    <state x="2117" y="24" width="1467" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608225365678" />
+    <state x="3044" y="426" width="994" height="587" key="#com.intellij.ide.util.MemberChooser" timestamp="1609264178658">
+      <screen x="1998" y="0" width="2482" height="1440" />
+    </state>
+    <state x="3044" y="426" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609264178658" />
     <state x="647" y="244" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1608328211752" />
     <state x="2679" y="426" width="994" height="587" key="#com.intellij.ide.util.MemberChooser/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608232385062" />
     <state x="498" y="214" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1606078749735">
@@ -314,111 +544,123 @@
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
     <state x="3019" y="429" key="FileChooserDialogImpl/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608126324812" />
-    <state width="1686" height="308" key="GridCell.Tab.0.bottom" timestamp="1608512252868">
+    <state width="1686" height="736" key="GridCell.Tab.0.bottom" timestamp="1609284809910">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
+    <state width="1024" height="319" key="GridCell.Tab.0.bottom/0.0.1536.824/1982.0.2498.1440@0.0.1536.824" timestamp="1608660326721" />
     <state width="2455" height="601" key="GridCell.Tab.0.bottom/0.0.1536.824/1982.0.2498.1440@1982.0.2498.1440" timestamp="1607705502766" />
     <state width="1024" height="250" key="GridCell.Tab.0.bottom/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1608208364602" />
-    <state width="1686" height="308" key="GridCell.Tab.0.bottom/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608512252868" />
+    <state width="1686" height="736" key="GridCell.Tab.0.bottom/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609284809910" />
     <state width="1024" height="252" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1608426172304" />
     <state width="1739" height="504" key="GridCell.Tab.0.bottom/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608235886382" />
-    <state width="1686" height="308" key="GridCell.Tab.0.center" timestamp="1608512252868">
+    <state width="1686" height="736" key="GridCell.Tab.0.center" timestamp="1609284809910">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
+    <state width="1024" height="319" key="GridCell.Tab.0.center/0.0.1536.824/1982.0.2498.1440@0.0.1536.824" timestamp="1608660326721" />
     <state width="2455" height="601" key="GridCell.Tab.0.center/0.0.1536.824/1982.0.2498.1440@1982.0.2498.1440" timestamp="1607705502766" />
     <state width="1024" height="250" key="GridCell.Tab.0.center/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1608208364602" />
-    <state width="1686" height="308" key="GridCell.Tab.0.center/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608512252868" />
+    <state width="1686" height="736" key="GridCell.Tab.0.center/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609284809910" />
     <state width="1024" height="252" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1608426172304" />
     <state width="1739" height="504" key="GridCell.Tab.0.center/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608235886382" />
-    <state width="1686" height="308" key="GridCell.Tab.0.left" timestamp="1608512252868">
+    <state width="1686" height="736" key="GridCell.Tab.0.left" timestamp="1609284809910">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
+    <state width="1024" height="319" key="GridCell.Tab.0.left/0.0.1536.824/1982.0.2498.1440@0.0.1536.824" timestamp="1608660326720" />
     <state width="2455" height="601" key="GridCell.Tab.0.left/0.0.1536.824/1982.0.2498.1440@1982.0.2498.1440" timestamp="1607705502766" />
     <state width="1024" height="250" key="GridCell.Tab.0.left/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1608208364602" />
-    <state width="1686" height="308" key="GridCell.Tab.0.left/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608512252868" />
+    <state width="1686" height="736" key="GridCell.Tab.0.left/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609284809910" />
     <state width="1024" height="252" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1608426172304" />
     <state width="1739" height="504" key="GridCell.Tab.0.left/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608235886382" />
-    <state width="1686" height="308" key="GridCell.Tab.0.right" timestamp="1608512252868">
+    <state width="1686" height="736" key="GridCell.Tab.0.right" timestamp="1609284809910">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
+    <state width="1024" height="319" key="GridCell.Tab.0.right/0.0.1536.824/1982.0.2498.1440@0.0.1536.824" timestamp="1608660326721" />
     <state width="2455" height="601" key="GridCell.Tab.0.right/0.0.1536.824/1982.0.2498.1440@1982.0.2498.1440" timestamp="1607705502766" />
     <state width="1024" height="250" key="GridCell.Tab.0.right/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1608208364602" />
-    <state width="1686" height="308" key="GridCell.Tab.0.right/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608512252868" />
+    <state width="1686" height="736" key="GridCell.Tab.0.right/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609284809910" />
     <state width="1024" height="252" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1608426172304" />
     <state width="1739" height="504" key="GridCell.Tab.0.right/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608235886382" />
-    <state width="1686" height="308" key="GridCell.Tab.1.bottom" timestamp="1608512252868">
+    <state width="1686" height="736" key="GridCell.Tab.1.bottom" timestamp="1609284809911">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
+    <state width="1024" height="319" key="GridCell.Tab.1.bottom/0.0.1536.824/1982.0.2498.1440@0.0.1536.824" timestamp="1608660326722" />
     <state width="2455" height="601" key="GridCell.Tab.1.bottom/0.0.1536.824/1982.0.2498.1440@1982.0.2498.1440" timestamp="1607705502767" />
     <state width="1024" height="250" key="GridCell.Tab.1.bottom/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1608208364603" />
-    <state width="1686" height="308" key="GridCell.Tab.1.bottom/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608512252868" />
+    <state width="1686" height="736" key="GridCell.Tab.1.bottom/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609284809911" />
     <state width="1024" height="252" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1608426172304" />
     <state width="1739" height="504" key="GridCell.Tab.1.bottom/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608235886382" />
-    <state width="1686" height="308" key="GridCell.Tab.1.center" timestamp="1608512252868">
+    <state width="1686" height="736" key="GridCell.Tab.1.center" timestamp="1609284809911">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
+    <state width="1024" height="319" key="GridCell.Tab.1.center/0.0.1536.824/1982.0.2498.1440@0.0.1536.824" timestamp="1608660326721" />
     <state width="2455" height="601" key="GridCell.Tab.1.center/0.0.1536.824/1982.0.2498.1440@1982.0.2498.1440" timestamp="1607705502766" />
     <state width="1024" height="250" key="GridCell.Tab.1.center/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1608208364602" />
-    <state width="1686" height="308" key="GridCell.Tab.1.center/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608512252868" />
+    <state width="1686" height="736" key="GridCell.Tab.1.center/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609284809911" />
     <state width="1024" height="252" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1608426172304" />
     <state width="1739" height="504" key="GridCell.Tab.1.center/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608235886382" />
-    <state width="1686" height="308" key="GridCell.Tab.1.left" timestamp="1608512252868">
+    <state width="1686" height="736" key="GridCell.Tab.1.left" timestamp="1609284809911">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
+    <state width="1024" height="319" key="GridCell.Tab.1.left/0.0.1536.824/1982.0.2498.1440@0.0.1536.824" timestamp="1608660326721" />
     <state width="2455" height="601" key="GridCell.Tab.1.left/0.0.1536.824/1982.0.2498.1440@1982.0.2498.1440" timestamp="1607705502766" />
     <state width="1024" height="250" key="GridCell.Tab.1.left/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1608208364602" />
-    <state width="1686" height="308" key="GridCell.Tab.1.left/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608512252868" />
+    <state width="1686" height="736" key="GridCell.Tab.1.left/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609284809911" />
     <state width="1024" height="252" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1608426172304" />
     <state width="1739" height="504" key="GridCell.Tab.1.left/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608235886382" />
-    <state width="1686" height="308" key="GridCell.Tab.1.right" timestamp="1608512252868">
+    <state width="1686" height="736" key="GridCell.Tab.1.right" timestamp="1609284809911">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
+    <state width="1024" height="319" key="GridCell.Tab.1.right/0.0.1536.824/1982.0.2498.1440@0.0.1536.824" timestamp="1608660326722" />
     <state width="2455" height="601" key="GridCell.Tab.1.right/0.0.1536.824/1982.0.2498.1440@1982.0.2498.1440" timestamp="1607705502766" />
     <state width="1024" height="250" key="GridCell.Tab.1.right/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1608208364603" />
-    <state width="1686" height="308" key="GridCell.Tab.1.right/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608512252868" />
+    <state width="1686" height="736" key="GridCell.Tab.1.right/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609284809911" />
     <state width="1024" height="252" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1608426172304" />
     <state width="1739" height="504" key="GridCell.Tab.1.right/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608235886382" />
-    <state width="1686" height="308" key="GridCell.Tab.2.bottom" timestamp="1608512252869">
+    <state width="1686" height="736" key="GridCell.Tab.2.bottom" timestamp="1609284809912">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
-    <state width="1686" height="308" key="GridCell.Tab.2.bottom/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608512252869" />
+    <state width="1024" height="319" key="GridCell.Tab.2.bottom/0.0.1536.824/1982.0.2498.1440@0.0.1536.824" timestamp="1608638381842" />
+    <state width="1686" height="736" key="GridCell.Tab.2.bottom/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609284809912" />
     <state width="1024" height="285" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1608328511663" />
     <state width="1739" height="504" key="GridCell.Tab.2.bottom/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608235838982" />
-    <state width="1686" height="308" key="GridCell.Tab.2.center" timestamp="1608512252869">
+    <state width="1686" height="736" key="GridCell.Tab.2.center" timestamp="1609284809912">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
-    <state width="1686" height="308" key="GridCell.Tab.2.center/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608512252869" />
+    <state width="1024" height="319" key="GridCell.Tab.2.center/0.0.1536.824/1982.0.2498.1440@0.0.1536.824" timestamp="1608638381842" />
+    <state width="1686" height="736" key="GridCell.Tab.2.center/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609284809912" />
     <state width="1024" height="285" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1608328511663" />
     <state width="1739" height="504" key="GridCell.Tab.2.center/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608235838982" />
-    <state width="1686" height="308" key="GridCell.Tab.2.left" timestamp="1608512252868">
+    <state width="1686" height="736" key="GridCell.Tab.2.left" timestamp="1609284809911">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
-    <state width="1686" height="308" key="GridCell.Tab.2.left/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608512252868" />
+    <state width="1024" height="319" key="GridCell.Tab.2.left/0.0.1536.824/1982.0.2498.1440@0.0.1536.824" timestamp="1608638381842" />
+    <state width="1686" height="736" key="GridCell.Tab.2.left/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609284809911" />
     <state width="1024" height="285" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1608328511663" />
     <state width="1739" height="504" key="GridCell.Tab.2.left/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608235838982" />
-    <state width="1686" height="308" key="GridCell.Tab.2.right" timestamp="1608512252869">
+    <state width="1686" height="736" key="GridCell.Tab.2.right" timestamp="1609284809912">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
-    <state width="1686" height="308" key="GridCell.Tab.2.right/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608512252869" />
+    <state width="1024" height="319" key="GridCell.Tab.2.right/0.0.1536.824/1982.0.2498.1440@0.0.1536.824" timestamp="1608638381842" />
+    <state width="1686" height="736" key="GridCell.Tab.2.right/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609284809912" />
     <state width="1024" height="285" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1608328511663" />
     <state width="1739" height="504" key="GridCell.Tab.2.right/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608235838982" />
     <state x="2904" y="424" key="NewModule_or_Project.wizard" timestamp="1608126327962">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
     <state x="2904" y="424" key="NewModule_or_Project.wizard/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608126327962" />
-    <state x="1973" y="139" width="1756" height="1089" key="SettingsEditor" timestamp="1608224862855">
-      <screen x="1600" y="0" width="2560" height="1440" />
+    <state x="2310" y="178" width="1756" height="1089" key="SettingsEditor" timestamp="1609102209193">
+      <screen x="1998" y="0" width="2482" height="1440" />
     </state>
-    <state x="2740" y="365" key="SettingsEditor/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1607590663538" />
+    <state x="2310" y="178" key="SettingsEditor/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609102209193" />
     <state x="1973" y="139" width="1756" height="1089" key="SettingsEditor/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608224862855" />
     <state x="667" y="309" width="490" height="206" key="com.intellij.docker.deployment.ui.DockerPortBindingsField.v173.dialogSize" timestamp="1606520401706">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="667" y="309" width="490" height="206" key="com.intellij.docker.deployment.ui.DockerPortBindingsField.v173.dialogSize/0.0.1536.824@0.0.1536.824" timestamp="1606520401706" />
-    <state x="2685" y="327" key="run.anything.popup" timestamp="1608501087037">
+    <state x="2685" y="327" key="run.anything.popup" timestamp="1609031469295">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
-    <state x="2685" y="327" key="run.anything.popup/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608501087037" />
+    <state x="2685" y="327" key="run.anything.popup/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609031469295" />
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1606382800661" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1606262371955">
       <screen x="0" y="0" width="1536" height="824" />
@@ -439,9 +681,9 @@
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/services/impl/NetworkServiceImpl.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="14" />
+          <url>file://$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/services/impl/UserServiceImpl.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -19,5 +19,5 @@ public interface ContainerService {
     void removeContainer(String id);
     InspectContainerResponse inspectContainer(String id);
     //
-    List<String> logContainer(String id) throws InterruptedException;
+    List<String> logContainer(String id, String since) throws InterruptedException;
 }

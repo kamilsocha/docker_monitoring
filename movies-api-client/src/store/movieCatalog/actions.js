@@ -18,10 +18,6 @@ export const UPDATE_MOVIE_RATING_START = "UPDATE_MOVIE_RATING_START"
 export const UPDATE_MOVIE_RATING_SUCCESS = "UPDATE_MOVIE_RATING_SUCCESS"
 export const UPDATE_MOVIE_RATING_ERROR = "UPDATE_MOVIE_RATING_ERROR"
 
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms))
-}
-
 const fetchUserCatalogMoviesStart = () => {
   return { type: FETCH_USER_CATALOG_MOVIES_START }
 }
@@ -43,7 +39,7 @@ export const fetchUserCatalogMovies = () => {
     const userId = getState().auth.userId
 
     const resUserCatalog = await axios
-      .get(`user-movies-catalog-service/catalog/${userId}`)
+      .get(`/user-movies-catalog-service/catalog/${userId}`)
       .catch((err) => {
         console.log("error", err)
         dispatch(fetchUserCatalogMoviesFail(err))
@@ -52,9 +48,7 @@ export const fetchUserCatalogMovies = () => {
     console.log("catalog data", dataUserCatalog)
 
     if (dataUserCatalog) {
-      // sleep(2000).then(() =>
       dispatch(fetchUserCatalogMoviesSuccess(dataUserCatalog))
-      // )
     }
   }
 }
@@ -80,7 +74,7 @@ export const fetchUserAllMovies = () => {
     const userId = getState().auth.userId
 
     const resUserAll = await axios
-      .get(`user-movies-catalog-service/catalog/all/${userId}`)
+      .get(`/user-movies-catalog-service/catalog/all/${userId}`)
       .catch((err) => {
         console.log("error", err)
         dispatch(fetchUserAllMoviesFail(err))
@@ -88,9 +82,7 @@ export const fetchUserAllMovies = () => {
     const dataUserAll = resUserAll?.data
 
     if (dataUserAll) {
-      // sleep(2000).then(() =>
       dispatch(fetchUserAllMoviesSuccess(dataUserAll))
-      // )
     }
   }
 }
@@ -116,7 +108,7 @@ export const addMovieToUserCatalog = (movie, rating) => {
     dispatch(addMovieToUserCatalogStart())
     const userId = getState().auth.userId
     const result = await axios
-      .post("rating-service/ratings", {
+      .post("/rating-service/ratings", {
         userId,
         movieId: movie.id,
         rating,
@@ -148,7 +140,7 @@ export const updateMovieRating = (movie, rating) => {
   return async (dispatch) => {
     dispatch(updateMovieRatingStart())
     const result = await axios
-      .patch(`rating-service/ratings`, { ratingId: movie.ratingId, rating })
+      .patch(`/rating-service/ratings`, { ratingId: movie.ratingId, rating })
       .catch((err) => {
         console.log(err)
         dispatch(updateMovieRatingFail(err))

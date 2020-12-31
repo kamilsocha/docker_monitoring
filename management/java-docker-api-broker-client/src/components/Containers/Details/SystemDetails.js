@@ -1,24 +1,36 @@
 import React from "react"
 import { Card, ListGroup, Row, Col } from "react-bootstrap"
 import { useSelector } from "react-redux"
-import {
-  serviceTypes,
-  serviceFullSubtype,
-  actuatorServiceSubtypes,
-  containerStates,
-} from "../../../constants/constants"
 import SystemContainerLinks from "./SystemContainerLinks"
 import { findLabelValue, findServiceName, findSubtype, findType } from "./utils"
 
 const SystemDetails = ({ container }) => {
-  const systemLabel = useSelector(
-    (state) => state.containersReducer.systemLabelName
+  const microServiceLabel = useSelector(
+    (state) => state.configReducer.labelValues.microServiceSubtypeLabelValue
   )
 
-  const system = findLabelValue(container, systemLabel)
-  const serviceName = findServiceName(container, systemLabel)
-  const serviceType = findType(container)
-  const serviceSubtype = findSubtype(container, serviceType)
+  const containerStates = useSelector(
+    (state) => state.containersReducer.containerStates
+  )
+  const labelKeys = useSelector((state) => state.configReducer.labelKeys)
+  const labelValues = useSelector((state) => state.configReducer.labelValues)
+
+  const system = findLabelValue(container, labelKeys.systemNameLabelKey)
+  const serviceName = findServiceName(container, labelKeys.systemNameLabelKey)
+  const serviceType = findType(container, labelKeys.serviceTypeLabelKey)
+  const serviceSubtype = findSubtype(
+    container,
+    serviceType,
+    labelKeys.serviceSubtypeLabelKey
+  )
+
+  let infraMicroserviceSubtype
+  if (serviceType === labelValues.infraTypeLabelValue) {
+    infraMicroserviceSubtype = findLabelValue(
+      container,
+      `${serviceType}${labelKeys.serviceSubtypeLabelKey}`
+    )
+  }
 
   return (
     <Card className="my-2">
@@ -55,21 +67,30 @@ const SystemDetails = ({ container }) => {
           <ListGroup.Item>
             <Row>
               <Col xs="3" className="font-weight-bold border-right">
-                {serviceType === serviceTypes.INFRA ? "Subtype" : "Role"}
+                Subtype
               </Col>
-              <Col xs="9">{serviceFullSubtype[serviceSubtype]}</Col>
+              <Col xs="9">{serviceSubtype}</Col>
             </Row>
           </ListGroup.Item>
+          {infraMicroserviceSubtype && (
+            <ListGroup.Item>
+              <Row>
+                <Col xs="3" className="font-weight-bold border-right">
+                  Role
+                </Col>
+                <Col xs="9">{infraMicroserviceSubtype}</Col>
+              </Row>
+            </ListGroup.Item>
+          )}
         </div>
       </ListGroup>
       {container.State === containerStates.RUNNING &&
-        actuatorServiceSubtypes.includes(serviceSubtype) && (
+        serviceSubtype === microServiceLabel && (
           <Card.Body>
             <Card.Title className="font-weight-bold">Links</Card.Title>
             <SystemContainerLinks
               serviceName={container.Names[0]}
-              serviceType={serviceType}
-              serviceSubtype={serviceSubtype}
+              infraMicroServiceSubtype={infraMicroserviceSubtype}
               IPAddress={
                 container.NetworkSettings.Networks.management.IPAddress
               }

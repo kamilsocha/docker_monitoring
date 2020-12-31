@@ -16,12 +16,17 @@ const VersionComponent = () => {
       .catch((err) => setError(err))
       .then((data) => {
         setIsLoading(false)
+
         setVersion(data)
       })
   }, [])
 
   if (isLoading) {
-    return <Spinner />
+    return (
+      <div className="text-center">
+        <Spinner animation="border" />
+      </div>
+    )
   }
 
   if (error) {
@@ -48,7 +53,7 @@ const VersionComponent = () => {
               return (
                 <ListGroup.Item key={index}>
                   <Row>
-                    <Col xs="auto" className="font-weight-bold border-right">
+                    <Col xs="auto" className="font-weight-bold">
                       {k}
                     </Col>
                     <Col xs="auto">

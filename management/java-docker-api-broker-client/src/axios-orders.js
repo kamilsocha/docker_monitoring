@@ -3,7 +3,7 @@ import axios from "axios"
 export const apiUri = process.env.REACT_APP_API_URL
 
 const instance = axios.create({
-  baseURL: `${apiUri}/api`,
+  baseURL: `${apiUri}`,
   timeout: 5000,
 })
 

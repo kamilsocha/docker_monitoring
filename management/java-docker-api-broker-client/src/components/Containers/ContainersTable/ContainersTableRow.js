@@ -5,20 +5,20 @@ import StateCell from "./StateCell"
 const ContainersTableRow = ({ container }) => {
   const { Names, State, Id, Image, Created, Ports } = container
 
-  const createdDate = new Date(new Date().getTime() - Created)
+  const createdDate = new Date(Created * 1000)
 
   return (
     <tr>
       <td>
-        <Link to={`/containers/${Id}`}>{Names[0]}</Link>
+        <Link to={`/containers/${Id}`}>{Names[0].replace("/", "")}</Link>
       </td>
       <StateCell State={State} />
       <td>{Image}</td>
       <td>{createdDate.toLocaleString()}</td>
-      <td>
+      <td className="text-center">
         {Ports.map((p, index) => (
           <span key={index}>
-            {p.PublicPort ? `${p.PublicPort}:${p.PrivatePort}` : "-"};
+            {`${p.PublicPort ? `${p.PublicPort}:${p.PrivatePort};` : "-"}`}
           </span>
         ))}
       </td>

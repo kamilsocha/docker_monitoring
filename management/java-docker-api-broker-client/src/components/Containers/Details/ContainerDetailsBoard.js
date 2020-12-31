@@ -1,12 +1,12 @@
-import React, { useEffect, useCallback } from "react"
+import React, { useEffect, useCallback, useState } from "react"
 import { Container, Spinner } from "react-bootstrap"
 import { useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import SystemDetails from "./SystemDetails"
 import ContainerDetails from "./ContainerDetails"
+import BackButton from "../../common/BackButton"
 
-import axios, { authHeader } from "../../../axios-orders"
-import { useState } from "react"
+import { fetchContainer } from "../../../services/containerService"
 import ContainerActions from "./ContainerActions"
 
 const ContainerDetailsBoard = () => {
@@ -14,26 +14,28 @@ const ContainerDetailsBoard = () => {
   const [error, setError] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
   const systemLabel = useSelector(
-    (state) => state.containersReducer.systemLabelFullName
+    (state) => state.configReducer.labelKeys.systemNameLabelKey
   )
+
   const [container, setContainer] = useState(null)
 
-  const fetchContainer = useCallback(() => {
+  const getContainer = useCallback(() => {
     setIsLoading(true)
-    axios
-      .get(`/containers/${Id}`, { headers: authHeader() })
-      .catch((err) => setError(err.message))
-      .then((res) => {
-        if (!res?.data) {
-        }
-        setContainer(res.data)
+    setError(null)
+    fetchContainer(Id)
+      .catch((err) => {
+        setError(err.message)
+        setIsLoading(false)
+      })
+      .then((data) => {
+        setContainer(data)
         setIsLoading(false)
       })
   }, [Id])
 
   useEffect(() => {
-    fetchContainer()
-  }, [fetchContainer])
+    getContainer()
+  }, [getContainer])
 
   if (isLoading) {
     return (
@@ -53,16 +55,17 @@ const ContainerDetailsBoard = () => {
 
   return (
     <Container fluid className="my-3">
+      <BackButton />
       {container && (
         <>
           <ContainerActions
             container={container}
-            onContainerFetch={fetchContainer}
+            onContainerFetch={getContainer}
             fetchIsLoading={isLoading}
           />
-          {Object.keys(container.Labels).includes(systemLabel) && (
-            <SystemDetails container={container} />
-          )}
+          {Object.keys(container.Labels).find((l) =>
+            l.includes(systemLabel)
+          ) && <SystemDetails container={container} />}
           <ContainerDetails container={container} />
         </>
       )}

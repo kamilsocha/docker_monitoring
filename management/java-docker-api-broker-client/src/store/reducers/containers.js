@@ -2,7 +2,6 @@ import {
   FETCH_CONTAINERS_FAIL,
   FETCH_CONTAINERS_START,
   FETCH_CONTAINERS_SUCCESS,
-  CHANGE_LABEL_NAME,
 } from "../actions/containers"
 import { distinguishSystems, updateObject } from "../utils"
 
@@ -13,8 +12,14 @@ const initialState = {
   systems: [],
   loading: false,
   error: null,
-  systemLabelName: "systembelongto",
-  systemLabelFullName: "",
+  containerStates: {
+    CREATED: "created",
+    RUNNING: "running",
+    RESTARTING: "restarting",
+    STOPPED: "stopped",
+    PAUSED: "paused",
+    EXITED: "exited",
+  },
 }
 
 const fetchContainersStart = (state, action) => {
@@ -35,20 +40,18 @@ const fetchContainersSuccess = (state, action) => {
   const {
     systems,
     noSystemContainers,
-    systemLabelFullName,
-  } = distinguishSystems(action.payload, state.systemLabelName)
+    systemNameLabelFullKey,
+  } = distinguishSystems(
+    action.containers,
+    action.labelKeys,
+    action.labelValues
+  )
   return updateObject(state, {
-    allContainers: action.payload,
+    allContainers: action.containers,
     noSystemContainers,
     systems,
     loading: false,
-    systemLabelFullName,
-  })
-}
-
-const changeLabelName = (state, action) => {
-  return updateObject(state, {
-    systemLabelName: action.payload,
+    systemNameLabelFullKey,
   })
 }
 
@@ -60,8 +63,6 @@ export function containersReducer(state = initialState, action) {
       return fetchContainersFail(state, action)
     case FETCH_CONTAINERS_SUCCESS:
       return fetchContainersSuccess(state, action)
-    case CHANGE_LABEL_NAME:
-      return changeLabelName(state, action)
     default:
       return state
   }

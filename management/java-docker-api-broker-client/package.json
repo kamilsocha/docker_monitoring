@@ -1,5 +1,4 @@
 {
-  "homepage": ".",
   "name": "java-docker-api-broker-client",
   "version": "0.1.0",
   "private": true,
@@ -26,6 +25,7 @@
     "react-scripts": "4.0.1",
     "react-table": "^7.6.2",
     "redux": "^4.0.5",
+    "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
     "web-vitals": "^0.2.4",
     "yup": "^0.32.1"

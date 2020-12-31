@@ -1,0 +1,8 @@
+.m-div-container {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.m-div {
+  white-space: nowrap;
+}

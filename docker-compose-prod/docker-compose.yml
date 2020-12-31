@@ -3,12 +3,6 @@ version: "3.2"
 networks:
   back:
   front:
-    ## linux
-    # driver: bridge
-    # driver: nat
-    # ipam:
-    #   config:
-    #     - subnet: 10.5.0.0/16
   management:
     external: true
 
@@ -33,6 +27,7 @@ services:
       pl.polsl.student.systembelongto.name: "domain1system"
 
       pl.polsl.student.type: "infra"
+      pl.polsl.student.type.infra: "ms"
       pl.polsl.student.type.infra.subtype: "discovery"
 
     deploy:
@@ -64,6 +59,7 @@ services:
       pl.polsl.student.systembelongto.name: "domain1system"
 
       pl.polsl.student.type: "infra"
+      pl.polsl.student.type.infra: "ms"
       pl.polsl.student.type.infra.subtype: "config"
 
     deploy:
@@ -75,21 +71,18 @@ services:
     image: sochakamil/edge-server
     build: ../edge-service/
     restart: always
-    ports:
-      - "8080:8080"
     env_file: ./.env
     environment:
       - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
       - CONFIG_SERVER_USER=${CONFIG_SERVER_USR}
       - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
       - MOVIE_CLIENT=movieclient:80
-      - SERVICE=movies:8080
     networks:
       front:
-        ## linux
-        # ipv4_address: 10.5.0.5
       back:
       management:
+    ports:
+      - "7080:8080"
     depends_on:
       - discovery
     labels:
@@ -97,6 +90,7 @@ services:
       pl.polsl.student.systembelongto.name: "domain1system"
 
       pl.polsl.student.type: "infra"
+      pl.polsl.student.type.infra: "ms"
       pl.polsl.student.type.infra.subtype: "apigateway"
 
     deploy:
@@ -105,18 +99,11 @@ services:
           memory: 350M
 
   movieclient:
-    image: sochakamil/movies-api-client-windows
+    image: sochakamil/movies-api-client
     build: ../movies-api-client
-    container_name: movieclient
     networks:
       management:
       front:
-        ## linux
-        # ipv4_address: 10.5.0.6
-    ## windows
-    ports:
-      - "80:80"
-    #
     deploy:
       resources:
         limits:
@@ -126,7 +113,7 @@ services:
       pl.polsl.student.systembelongto.name: "domain1system"
 
       pl.polsl.student.type: "dom"
-      pl.polsl.student.type.dom.subtype: "ui"
+      pl.polsl.student.type.dom: "gui"
 
   userCatalog:
     image: sochakamil/user-movies-catalog-service
@@ -148,7 +135,7 @@ services:
       pl.polsl.student.systembelongto.name: "domain1system"
 
       pl.polsl.student.type: "dom"
-      pl.polsl.student.type.dom.subtype: "ms"
+      pl.polsl.student.type.dom: "ms"
 
     deploy:
       resources:
@@ -163,11 +150,12 @@ services:
     environment:
       - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
       - DB_SERVER=movieDb
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=1234
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=${POSTGRES_MOVIE_DB}
       - CONFIG_SERVER_USER=${CONFIG_SERVER_USR}
       - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=${ddl_auto}
     networks:
       - back
       - management
@@ -182,7 +170,7 @@ services:
       pl.polsl.student.systembelongto.name: "domain1system"
 
       pl.polsl.student.type: "dom"
-      pl.polsl.student.type.dom.subtype: "ms"
+      pl.polsl.student.type.dom: "ms"
 
     deploy:
       resources:
@@ -197,11 +185,12 @@ services:
     environment:
       - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
       - DB_SERVER=ratingDb
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=1234
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=${POSTGRES_RATING_DB}
       - CONFIG_SERVER_USER=${CONFIG_SERVER_USR}
       - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=${ddl_auto}
     networks:
       - back
       - management
@@ -214,7 +203,7 @@ services:
       pl.polsl.student.systembelongto.name: "domain1system"
 
       pl.polsl.student.type: "dom"
-      pl.polsl.student.type.dom.subtype: "ms"
+      pl.polsl.student.type.dom: "ms"
 
     deploy:
       resources:
@@ -234,6 +223,7 @@ services:
       - POSTGRES_DB=${POSTGRES_USER_DB}
       - CONFIG_SERVER_USER=${CONFIG_SERVER_USR}
       - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=${ddl_auto}
     networks:
       - back
       - management
@@ -245,7 +235,7 @@ services:
       pl.polsl.student.systembelongto.name: "domain1system"
 
       pl.polsl.student.type: "dom"
-      pl.polsl.student.type.dom.subtype: "ms"
+      pl.polsl.student.type.dom: "ms"
 
     deploy:
       resources:
@@ -271,7 +261,7 @@ services:
       pl.polsl.student.systembelongto.name: "domain1system"
 
       pl.polsl.student.type: "dom"
-      pl.polsl.student.type.dom.subtype: "ms"
+      pl.polsl.student.type.dom: "ms"
 
     deploy:
       resources:
@@ -284,6 +274,7 @@ services:
     container_name: movieDb
     volumes:
       - moviedb:/var/lib/postgresql/data:rw
+      - ./init_moviedb.sql:/docker-entrypoint-initdb.d/init.sql
     env_file: ./.env
     environment:
       - POSTGRES_DB=${POSTGRES_MOVIE_DB}
@@ -301,7 +292,7 @@ services:
       pl.polsl.student.systembelongto.name: "domain1system"
 
       pl.polsl.student.type: "dom"
-      pl.polsl.student.type.dom.subtype: "db"
+      pl.polsl.student.type.dom: "db"
 
   ratingDb:
     image: postgres:alpine
@@ -309,6 +300,7 @@ services:
     container_name: ratingDb
     volumes:
       - ratingdb:/var/lib/postgresql/data:rw
+      - ./init_ratingdb.sql:/docker-entrypoint-initdb.d/init.sql
     env_file: ./.env
     environment:
       - POSTGRES_DB=${POSTGRES_RATING_DB}
@@ -326,7 +318,7 @@ services:
       pl.polsl.student.systembelongto.name: "domain1system"
 
       pl.polsl.student.type: "dom"
-      pl.polsl.student.type.dom.subtype: "db"
+      pl.polsl.student.type.dom: "db"
 
   userDb:
     image: postgres:alpine
@@ -334,6 +326,7 @@ services:
     container_name: userDb
     volumes:
       - userdb:/var/lib/postgresql/data:rw
+      - ./init_userdb.sql:/docker-entrypoint-initdb.d/init.sql
     env_file: ./.env
     environment:
       - POSTGRES_DB=${POSTGRES_USER_DB}
@@ -351,4 +344,4 @@ services:
       pl.polsl.student.systembelongto.name: "domain1system"
 
       pl.polsl.student.type: "dom"
-      pl.polsl.student.type.dom.subtype: "db"
+      pl.polsl.student.type.dom: "db"

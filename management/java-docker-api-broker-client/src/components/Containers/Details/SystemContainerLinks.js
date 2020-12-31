@@ -1,5 +1,5 @@
-import React, { useEffect, useCallback } from "react"
-import { useState } from "react"
+import React, { useEffect, useCallback, useState } from "react"
+import { useSelector } from "react-redux"
 import {
   Button,
   Container,
@@ -14,14 +14,7 @@ import {
   shutdownService,
 } from "../../../services/createRoutesService"
 
-import {
-  allowedActuatorLinks,
-  swaggerRoutes,
-} from "../../../constants/constants"
-
-const apiUri = `${process.env.REACT_APP_API_URL}`
-
-const filter = (links) => {
+const filter = (links, allowedActuatorLinks) => {
   if (links) {
     return Object.keys(links)
       .filter((key) => allowedActuatorLinks.includes(key))
@@ -34,7 +27,18 @@ const filter = (links) => {
   }
 }
 
-const SystemContainerLinks = ({ serviceName, IPAddress, Port }) => {
+const SystemContainerLinks = ({
+  serviceName,
+  infraMicroServiceSubtype,
+  IPAddress,
+  Port,
+}) => {
+  const allowedActuatorLinks = useSelector(
+    (state) => state.configReducer.allowedActuatorLinks
+  )
+  const swaggerRoutes = useSelector(
+    (state) => state.configReducer.swaggerRoutes
+  )
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
   const [links, setLinks] = useState([])
@@ -50,10 +54,10 @@ const SystemContainerLinks = ({ serviceName, IPAddress, Port }) => {
         setError(err)
       })
       .then((l) => {
-        setLinks(filter(l))
+        setLinks(filter(l, allowedActuatorLinks))
         setIsLoading(false)
       })
-  }, [serviceName, IPAddress, Port])
+  }, [serviceName, IPAddress, Port, allowedActuatorLinks])
 
   useEffect(() => {
     createLinks()
@@ -114,16 +118,10 @@ const SystemContainerLinks = ({ serviceName, IPAddress, Port }) => {
           Object.keys(links).map((l, index) => (
             <ListGroup.Item key={index}>
               <a
-                href={`${apiUri}/systems/${serviceName.replace(
-                  "/",
-                  ""
-                )}/actuator/${l}`}
+                href={`/systems/${serviceName.replace("/", "")}/actuator/${l}`}
                 target="_blank"
                 rel="noreferrer"
-              >{`${apiUri}/systems/${serviceName.replace(
-                "/",
-                ""
-              )}/actuator/${l}`}</a>
+              >{`/systems/${serviceName.replace("/", "")}/actuator/${l}`}</a>
             </ListGroup.Item>
           ))}
       </ListGroup>
@@ -131,13 +129,13 @@ const SystemContainerLinks = ({ serviceName, IPAddress, Port }) => {
         {swaggerRoutes.map((r, index) => (
           <ListGroup.Item key={index}>
             <a
-              href={`${apiUri}/systems/${serviceName.replace(
-                "/",
+              href={`/systems/${serviceName.replace("/", "")}${r.replace(
+                "**",
                 ""
-              )}${r.replace("**", "")}`}
+              )}`}
               target="_blank"
               rel="noreferrer"
-            >{`${apiUri}/systems/${serviceName.replace("/", "")}${r.replace(
+            >{`/systems/${serviceName.replace("/", "")}${r.replace(
               "**",
               ""
             )}`}</a>

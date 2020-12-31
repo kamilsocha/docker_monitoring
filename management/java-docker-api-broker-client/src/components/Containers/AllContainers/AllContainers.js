@@ -1,6 +1,5 @@
 import React from "react"
 import { useSelector } from "react-redux"
-import { Container } from "react-bootstrap"
 
 import ContainersTable from "../ContainersTable/ContainersTable"
 
@@ -9,10 +8,8 @@ const AllContainers = () => {
     (state) => state.containersReducer.allContainers
   )
   return (
-    <div className="m-3">
-      <Container fluid>
-        {containers && <ContainersTable containers={containers} />}
-      </Container>
+    <div className="my-3">
+      {containers && <ContainersTable containers={containers} />}
     </div>
   )
 }

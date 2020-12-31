@@ -1,9 +1,8 @@
 import axios from "axios"
 import { authHeader } from "../axios-orders"
-const apiUri = `${process.env.REACT_APP_API_URL}`
 
 export const createOrUpdateLinks = async (serviceName, IPAddress, Port) => {
-  const response = await axios.post(`${apiUri}/routes`, null, {
+  const response = await axios.post(`/routes`, null, {
     headers: authHeader(),
     params: {
       name: serviceName.replace("/", ""),
@@ -17,9 +16,9 @@ export const createOrUpdateLinks = async (serviceName, IPAddress, Port) => {
 }
 
 export const refreshService = (serviceName) => {
-  axios.post(`${apiUri}/${serviceName.replace("/", "")}/actuator/refresh`)
+  axios.post(`/systems/${serviceName.replace("/", "")}/actuator/refresh`)
 }
 
 export const shutdownService = (serviceName) => {
-  axios.post(`${apiUri}/${serviceName.replace("/", "")}/actuator/shutdown`)
+  axios.post(`/systems/${serviceName.replace("/", "")}/actuator/shutdown`)
 }
