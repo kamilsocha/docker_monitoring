@@ -1,3 +1,6 @@
+server:
+  port: 8085
+
 feign:
   hystrix:
     enabled: true
@@ -23,38 +26,13 @@ hystrix:
       metrics:
         rollingStats:
           timeInMilliseconds: 20000
-  dashboard:
-    proxy-stream-allow-list: "*"
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  endpoint:
-    shutdown:
-      enabled: true
-    health:
-      show-details: always
-  security:
-    enabled: false
 
 swagger:
-  title:  Eureka Server
+  title:  User Movies Catalog Service
   description: Netflix Eureka Discovery Server for microservices system.
-  license: License
-  licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: 0.1
-  contact:
-    name: Kamil Socha
-    url:
-    email: kamisoc782@student.polsl.pl
+  version: 1.0.0
 
 info:
   app:
-    name: ${spring.application.name}
     description: Eureka Discovery Server for microservices system.
-    version: 0.1.0
-  developer:
-    name: Kamil Socha
-    email: kamisoc782@student.polsl.pl
+    version: 1.0.0

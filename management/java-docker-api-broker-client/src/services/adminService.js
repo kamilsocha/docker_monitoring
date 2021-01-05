@@ -1,9 +1,9 @@
-import axios from "axios"
-import { authHeader } from "../axios-orders"
+// import axios from "axios"
+import axios, { authHeader } from "../axios-orders"
 
 export const fetchUsers = async () => {
   // const response = await axios.get("http://localhost:8080/users", {
-  const response = await axios.get("/users", {
+  const response = await axios.get("/auth/users", {
     headers: authHeader(),
   })
   return response?.data
@@ -15,7 +15,7 @@ export const createUser = async (email, password) => {
   //   { email, password },
 
   const response = await axios.post(
-    "/users",
+    "/auth/users",
     { email, password },
     {
       headers: authHeader(),
@@ -26,7 +26,7 @@ export const createUser = async (email, password) => {
 
 export const deleteUser = async (id) => {
   // const res = await axios.delete(`http://localhost:8080/users/${id}`, {
-  await axios.delete(`/users/${id}`, {
+  await axios.delete(`/auth/users/${id}`, {
     headers: authHeader(),
   })
 }

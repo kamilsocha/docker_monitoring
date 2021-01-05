@@ -35,10 +35,7 @@ spring:
       password: ${CONFIG_SERVER_PWD}
     loadbalancer:
       ribbon:
-        enabled: false #??
-
-server:
-  port: 8080
+        enabled: false
 
 eureka:
   instance:

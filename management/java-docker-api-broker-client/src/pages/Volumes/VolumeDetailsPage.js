@@ -25,7 +25,6 @@ const VolumeDetailsPage = () => {
         setIsLoading(false)
       })
       .then((data) => {
-        console.log("volume", data)
         setVolume(data)
         setIsLoading(false)
       })

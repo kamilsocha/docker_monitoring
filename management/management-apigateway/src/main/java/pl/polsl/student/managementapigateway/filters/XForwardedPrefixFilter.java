@@ -16,7 +16,7 @@ public class XForwardedPrefixFilter extends ZuulFilter {
 
     @Override
     public int filterOrder() {
-        return 1;
+        return 0;
     }
 
     @Override

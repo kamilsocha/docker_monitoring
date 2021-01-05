@@ -26,6 +26,8 @@ public class MovieServiceImpl implements MovieService {
 
     private final MovieRepository movieRepository;
 
+    private final PosterStorageServiceImpl posterStorageService;
+
     @Override
     public Page<Movie> findAll(Pageable pageable) {
         log.warn("Processing request... Find all... Port: " + port);
@@ -34,6 +36,7 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public List<Movie> findAllButSpecified(Long[] idsToFilterOut) {
+        log.warn("Processing request... Find all but specified... Port: " + port);
         return movieRepository.findAllByIdNotIn(idsToFilterOut);
     }
 
@@ -52,7 +55,16 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public void delete(Long id) {
-        movieRepository.deleteById(id);
+    public boolean delete(Long id) {
+        log.warn("Processing request... Delete by id: " + id + "... Port: " + port);
+        var movie = movieRepository.findById(id);
+        if(movie.isPresent()) {
+            var posterUri = movie.get().getPosterUri();
+            var filename = posterUri.substring(posterUri.lastIndexOf("/"));
+            posterStorageService.delete(filename);
+            movieRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 }

@@ -1,0 +1,19 @@
+
+spring:
+  profiles: test
+
+eureka:
+  client:
+    enabled: false
+
+server:
+  port: 8080
+
+poster:
+  upload-dir: ./uploads
+
+logging:
+  level:
+    root: info
+
+

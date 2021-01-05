@@ -23,131 +23,260 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7b57ef5-9192-4ce8-9205-d940d3428d29" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/components/DateFormatter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/configuration/SystemsConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/controllers/ConfigurationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/domain/LabelKeys.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/domain/LabelValues.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/dtos/UserGetDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/services/ConfigurationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/services/impl/ConfigurationServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../management-apigateway/systemsConfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/components/BootStrap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/configuration/SwaggerBasePathTransformationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/configuration/SwaggerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/configuration/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/controllers/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/controllers/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/domain/BaseEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/domain/BootStrapEntry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/domain/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/domain/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/dtos/PasswordPatchDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/dtos/UserGetDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/dtos/UserPostDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/exceptions/DefaultExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/exceptions/ElementNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/exceptions/NotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/repositories/BootStrapEntryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/repositories/RoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/repositories/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/security/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/security/JwtAuthorizationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/security/JwtUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/security/JwtUsernamePasswordAuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/security/JwtUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/security/UsernamePasswordAuthenticationRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/services/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/services/bootstrapservices/BootStrapEntryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/services/bootstrapservices/BootStrapService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/services/bootstrapservices/DevelopmentBootStrapService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/services/bootstrapservices/TestBootstrapService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/services/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/validation/EqualPasswordConstraint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/validation/EqualPasswordConstraintValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/test/java/pl/polsl/student/authservice/UserControllerIntegrationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/test/java/pl/polsl/student/authservice/UserServiceUnitTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/test/resources/application-test.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/filters/CORSFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/filters/FilterHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/filters/LocalAuthorizationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../systems-configuration-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../systems-configuration-service/src/main/java/pl/polsl/student/systemsconfigurationservice/configuration/SwaggerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../systems-configuration-service/src/main/java/pl/polsl/student/systemsconfigurationservice/configuration/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../systems-configuration-service/systemsConfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../movie-service/src/main/resources/data-test.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-server/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../../config-server/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../config-server/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-server/src/main/resources/bootstrap.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/application-docker.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/application-docker.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/converter-service-docker.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/converter-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/converter-service.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/hystrix-dashboard.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/movie-service-docker.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/movie-service-docker.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/movie-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/movie-service.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/rating-service-docker.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/rating-service-docker.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/rating-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/rating-service.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/user-movies-catalog-service-docker.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/user-movies-catalog-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/user-movies-catalog-service.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/user-service-docker.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/user-service-docker.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/user-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/user-service.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/zuul-proxy-docker.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/zuul-proxy-docker.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/zuul-proxy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../config-server/src/main/resources/configs/zuul-proxy.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../converter-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../../converter-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../converter-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../converter-service/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../converter-service/src/main/java/pl/polsl/student/converterservice/configuration/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../converter-service/src/main/java/pl/polsl/student/converterservice/configuration/SwaggerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../converter-service/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../converter-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../converter-service/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../discovery-server/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../../discovery-server/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../discovery-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../discovery-server/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../discovery-server/src/main/resources/bootstrap.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../discovery-server/uploads/1609005253931_baby_driver.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker-compose-prod/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker-compose-prod/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1607890606265_baby_driver.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1607891150935_baby_driver.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1607891155876_risky.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1607891159133_the_conversation.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1607891161634_the_godfather.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1607891164048_the_godfatherII.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1607891166793_gladiator.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1607891169467_the_shawshank_redemption.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1608044382798_baby_driver.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1608044395826_risky.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1608044406021_the_conversation.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1608044416532_the_godfather.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1608044426492_the_godfatherII.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1608044436038_gladiator.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1608044466116_the_shawshank_redemption.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/init_moviedb.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker-compose-prod/init_moviedb.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/init_ratingdb.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker-compose-prod/init_ratingdb.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1609011132105_baby_driver.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1609013557943_baby_driver.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1609015350733_baby_driver.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1609015386008_risky.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1609015397013_the_conversation.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1609015408164_the_godfather.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1609015420206_the_godfatherII.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1609015430315_gladiator.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1609015440679_the_shawshank_redemption.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1609023262222_baby_driver.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1609023265602_risky.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1609023267732_the_conversation.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1609023269521_the_godfather.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1609023271164_the_godfatherII.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1609023272930_gladiator.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-prod/uploadsVolume/1609023275055_the_shawshank_redemption.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../docker-compose-test/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker-compose-test/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../docker-compose-test/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker-compose-test/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-test/init_moviedb.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker-compose-test/init_moviedb.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose-test/init_ratingdb.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker-compose-test/init_ratingdb.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../edge-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../../edge-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../edge-service/src/main/java/pl/polsl/student/edgeservice/EdgeServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../edge-service/src/main/java/pl/polsl/student/edgeservice/EdgeServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../edge-service/src/main/java/pl/polsl/student/edgeservice/configuration/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../edge-service/src/main/java/pl/polsl/student/edgeservice/configuration/SwaggerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../edge-service/src/main/java/pl/polsl/student/edgeservice/controllers/HomeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../edge-service/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../edge-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../edge-service/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../edge-service/src/test/java/pl/polsl/student/edgeservice/EdgeServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../hystrix-dashboard/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../hystrix-dashboard/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../hystrix-dashboard/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../hystrix-dashboard/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.gradle/6.5/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.gradle/6.5/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.gradle/6.6.1/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.gradle/6.6.1/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.gradle/6.6.1/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.gradle/6.6.1/fileContent/fileContent.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.gradle/6.6.1/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.gradle/6.6.1/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.gradle/6.6.1/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.gradle/6.6.1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.gradle/6.6.1/javaCompile/classAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.gradle/6.6.1/javaCompile/jarAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.gradle/6.6.1/javaCompile/javaCompile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.gradle/6.6.1/javaCompile/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.gradle/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.gradle/checksums/md5-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.gradle/checksums/sha1-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.gradle/configuration-cache/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.idea/dataSources/d0aa55ff-1ef5-4df5-b63d-12e04ec77fc1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.idea/dataSources/d0aa55ff-1ef5-4df5-b63d-12e04ec77fc1/storage_v2/_src_/database/dockerapidb.-M2rfQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.idea/dataSources/d0aa55ff-1ef5-4df5-b63d-12e04ec77fc1/storage_v2/_src_/database/dockerapidb.-M2rfQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.idea/dataSources/d0aa55ff-1ef5-4df5-b63d-12e04ec77fc1/storage_v2/_src_/database/dockerapidb.-M2rfQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.idea/dataSources/d0aa55ff-1ef5-4df5-b63d-12e04ec77fc1/storage_v2/_src_/database/dockerapidb.-M2rfQ/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/HELP.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/JavaDockerApiBrokerApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/components/BootStrap.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/configuration/DockerClientConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/configuration/SwaggerConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/configuration/WebSecurityConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/controllers/ContainerController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/controllers/DockerInfoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/controllers/ImageController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/controllers/NetworkController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/controllers/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/controllers/VolumeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/domain/BaseEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/domain/BootStrapEntry.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/domain/Role.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/domain/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/dto/ContainerCreateDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/dto/CreateNetworkDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/dto/UserGetDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/dto/UserPostDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/enums/BootstrapLabel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/exceptions/ContainerCreationException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/exceptions/DefaultExceptionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/exceptions/ElementNotFoundException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/exceptions/EmailAlreadyTakenException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/repositories/BootStrapEntryRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/repositories/RoleRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/repositories/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/security/JwtAuthenticationEntryPoint.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/security/JwtAuthorizationFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/security/JwtUserDetailsService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/security/JwtUsernamePasswordAuthenticationFilter$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/security/JwtUsernamePasswordAuthenticationFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/security/JwtUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/security/UsernamePasswordAuthenticationRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/ContainerService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/DockerInfoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/ImageService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/NetworkService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/VolumeService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/bootstrapservices/BootStrapEntryService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/bootstrapservices/BootStrapService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/bootstrapservices/DevelopmentBootStrapService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/impl/ContainerServiceImpl$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/impl/ContainerServiceImpl$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/impl/ContainerServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/impl/DockerInfoServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/impl/ImageServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/impl/NetworkServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/impl/UserServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/impl/VolumeServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/validation/EqualPasswordConstraint.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/main/pl/polsl/student/javadockerapibroker/validation/EqualPasswordConstraintValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/classes/java/test/pl/polsl/student/javadockerapibroker/JavaDockerApiBrokerApplicationTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/resources/main/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/resources/main/certs/ca.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/resources/main/certs/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/resources/main/certs/key.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/build/tmp/compileTestJava/source-classes-mapping.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-docker-api-broker/gradlew.bat" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/.env.production" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/.env.production" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/axios-orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/axios-orders.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Auth/SignInFormContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Auth/SignInFormContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/AllContainers/AllContainers.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/AllContainers/AllContainers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/ContainersNav/ContainersNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/ContainersNav/ContainersNav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/ContainersTable/ContainersTableRow.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/ContainersTable/ContainersTableRow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/ContainersTable/StateCell.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/ContainersTable/StateCell.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/CreateContainer/CreateContainerForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/CreateContainer/CreateContainerForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Details/ContainerActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Details/ContainerActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Details/ContainerDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Details/ContainerDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Details/ContainerDetailsBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Details/ContainerDetailsBoard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Details/StateField.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Details/StateField.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Details/SystemContainerLinks.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Details/SystemContainerLinks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Details/SystemDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Details/SystemDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Details/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Details/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/NoSystemContainers/NoSystemContainers.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/NoSystemContainers/NoSystemContainers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Systems/SystemInstance.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Systems/SystemInstance.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Systems/SystemLabelName.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Systems/Systems.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Containers/Systems/Systems.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Home/InfoComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Home/InfoComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Home/VersionComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Home/VersionComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Menu/Menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Menu/Menu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Menu/MenuItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Menu/MenuItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Menu/menuStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/Menu/menuStyles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/ZuulRoutes/ZuulRouteItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/ZuulRoutes/ZuulRouteItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/common/ArrayProp.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/common/ArrayProp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/common/ObjectProp.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/components/common/ObjectProp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/constants/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/constants/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/nginx/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/nginx/nginx.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/navigation/Routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/navigation/Routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Auth/AuthPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Auth/AuthPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Containers/ContainersPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Containers/ContainersPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Home/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Home/HomePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Images/ImagesPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Images/ImagesPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/MainPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Volumes/VolumesPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Volumes/VolumesPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/ZuulRoutes/ZuulRoutesManagementPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/ZuulRoutes/ZuulRoutesManagementPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Images/ImageDetailsPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Images/ImageDetailsPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Networks/NetworkDetailsPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Networks/NetworkDetailsPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Volumes/VolumeDetailsPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/pages/Volumes/VolumeDetailsPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/services/adminService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/services/adminService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/services/containerService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/services/containerService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/services/createRoutesService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/services/createRoutesService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/services/homeService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/services/homeService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/services/imageService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/services/imageService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/services/networkService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/services/networkService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/services/volumeService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/services/volumeService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/store/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/store/actions/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/store/actions/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/store/actions/config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/store/actions/containers.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/store/actions/containers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/store/reducers/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/store/reducers/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/store/reducers/containers.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/store/reducers/containers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-docker-api-broker-client/src/store/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/../java-docker-api-broker-client/src/store/utils.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/6df75fd6-e661-4197-a44e-c900f4436be7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6df75fd6-e661-4197-a44e-c900f4436be7.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6df75fd6-e661-4197-a44e-c900f4436be7/storage_v2/_src_/database/dockerapidb.-M2rfQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6df75fd6-e661-4197-a44e-c900f4436be7/storage_v2/_src_/database/dockerapidb.-M2rfQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/configuration/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/configuration/WebSecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/controllers/ContainerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/controllers/ContainerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/controllers/ImageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/controllers/ImageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/ContainerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/ContainerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/impl/ContainerServiceImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/impl/ContainerServiceImpl$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/impl/ContainerServiceImpl$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/impl/ContainerServiceImpl$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/impl/ContainerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/impl/ContainerServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/impl/ImageServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/impl/ImageServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/impl/VolumeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/polsl/student/javadockerapibroker/services/impl/VolumeServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/pl/polsl/student/javadockerapibroker/JavaDockerApiBrokerApplicationTests.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/java-docker-api-broker-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/java-docker-api-broker-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/pl.polsl.student.javadockerapibroker.JavaDockerApiBrokerApplicationTests.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/pl.polsl.student.javadockerapibroker.JavaDockerApiBrokerApplicationTests.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/pl.polsl.student.javadockerapibroker.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/pl.polsl.student.javadockerapibroker.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-pl.polsl.student.javadockerapibroker.JavaDockerApiBrokerApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-pl.polsl.student.javadockerapibroker.JavaDockerApiBrokerApplicationTests.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/pl.polsl.student.javadockerapibroker.JavaDockerApiBrokerApplicationTests.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/base-style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/js/report.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/pl.polsl.student.javadockerapibroker.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-pl.polsl.student.javadockerapibroker.JavaDockerApiBrokerApplicationTests.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/bootJar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/bootJar/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/configuration/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/configuration/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/controllers/ContainerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/controllers/ContainerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/controllers/ImageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/controllers/ImageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/services/ContainerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/services/ContainerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/services/impl/ContainerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/services/impl/ContainerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/services/impl/ImageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/services/impl/ImageServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/services/impl/VolumeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/student/javadockerapibroker/services/impl/VolumeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pl/polsl/student/javadockerapibroker/JavaDockerApiBrokerApplicationTests.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -156,58 +285,155 @@
       <change beforePath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/.gradle/6.6.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../management-apigateway/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../management-apigateway/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../management-apigateway/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/.gradle/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../management-apigateway/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../management-apigateway/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../management-apigateway/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/configuration/SwaggerConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/configuration/SwaggerConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/configuration/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/configuration/WebSecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/ManagementApigatewayApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/ManagementApigatewayApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/components/BootStrap.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/configuration/SystemsConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/configuration/WebSecurityConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/controllers/ConfigurationController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/controllers/RouteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/controllers/RouteController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/controllers/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/domain/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/services/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/services/bootstrapservices/DevelopmentBootStrapService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/services/bootstrapservices/DevelopmentBootStrapService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/services/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/services/impl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/controllers/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/domain/BaseEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/domain/BootStrapEntry.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/domain/LabelKeys.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/domain/LabelValues.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/domain/Role.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/domain/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/dtos/PasswordPatchDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/dtos/UserGetDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/dtos/UserPostDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/enums/BootstrapLabel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/exceptions/EmailAlreadyTakenException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/filters/AuthorizationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/filters/AuthorizationFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/filters/XForwardedPrefixFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/filters/XForwardedPrefixFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/repositories/BootStrapEntryRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/repositories/RoleRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/repositories/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/security/JwtAuthenticationEntryPoint.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/security/JwtAuthorizationFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/security/JwtUserDetailsService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/security/JwtUsernamePasswordAuthenticationFilter$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/security/JwtUsernamePasswordAuthenticationFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/security/JwtUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/security/UsernamePasswordAuthenticationRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/services/ConfigurationService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/services/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/services/bootstrapservices/BootStrapEntryService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/services/bootstrapservices/BootStrapService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/services/bootstrapservices/DevelopmentBootStrapService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/services/impl/ConfigurationServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/services/impl/UserServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/validation/EqualPasswordConstraint.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/main/pl/polsl/student/managementapigateway/validation/EqualPasswordConstraintValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/classes/java/test/pl/polsl/student/managementapigateway/ManagementApigatewayApplicationTests.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../management-apigateway/build/libs/management-apigateway-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/libs/management-apigateway-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/reports/tests/test/classes/pl.polsl.student.managementapigateway.ManagementApigatewayApplicationTests.html" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/reports/tests/test/classes/pl.polsl.student.managementapigateway.ManagementApigatewayApplicationTests.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/reports/tests/test/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/reports/tests/test/packages/pl.polsl.student.managementapigateway.html" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/reports/tests/test/packages/pl.polsl.student.managementapigateway.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/reports/tests/test/classes/pl.polsl.student.managementapigateway.ManagementApigatewayApplicationTests.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/reports/tests/test/css/base-style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/reports/tests/test/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/reports/tests/test/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/reports/tests/test/js/report.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/reports/tests/test/packages/pl.polsl.student.managementapigateway.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../management-apigateway/build/resources/main/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/resources/main/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/test-results/test/TEST-pl.polsl.student.managementapigateway.ManagementApigatewayApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/test-results/test/TEST-pl.polsl.student.managementapigateway.ManagementApigatewayApplicationTests.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/test-results/test/binary/output.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/test-results/test/binary/output.bin.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/test-results/test/TEST-pl.polsl.student.managementapigateway.ManagementApigatewayApplicationTests.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/test-results/test/binary/output.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/build/test-results/test/binary/results.bin" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../management-apigateway/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/configuration/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/configuration/SwaggerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/configuration/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/configuration/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/ManagementApigatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/ManagementApigatewayApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/components/BootStrap.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/configuration/SystemsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../systems-configuration-service/src/main/java/pl/polsl/student/systemsconfigurationservice/domain/SystemsConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/configuration/WebSecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/controllers/ConfigurationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../systems-configuration-service/src/main/java/pl/polsl/student/systemsconfigurationservice/controllers/ConfigurationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/controllers/RouteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/controllers/RouteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/services/bootstrapservices/DevelopmentBootStrapService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/services/bootstrapservices/DevelopmentBootStrapService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/services/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/services/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/controllers/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/domain/BaseEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/domain/BootStrapEntry.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/domain/LabelKeys.java" beforeDir="false" afterPath="$PROJECT_DIR$/../systems-configuration-service/src/main/java/pl/polsl/student/systemsconfigurationservice/domain/LabelKeys.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/domain/LabelValues.java" beforeDir="false" afterPath="$PROJECT_DIR$/../systems-configuration-service/src/main/java/pl/polsl/student/systemsconfigurationservice/domain/LabelValues.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/domain/Role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/domain/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/dtos/PasswordPatchDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/dtos/UserGetDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/dtos/UserPostDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/enums/BootstrapLabel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/enums/BootstrapLabel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/exceptions/EmailAlreadyTakenException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../auth-service/src/main/java/pl/polsl/student/authservice/exceptions/EmailAlreadyTakenException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/filters/AuthorizationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/filters/AuthorizationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/filters/XForwardedPrefixFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/filters/XForwardedPrefixFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/repositories/BootStrapEntryRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/repositories/RoleRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/repositories/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/security/JwtAuthenticationEntryPoint.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/security/JwtAuthorizationFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/security/JwtUserDetailsService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/security/JwtUsernamePasswordAuthenticationFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/security/JwtUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/security/UsernamePasswordAuthenticationRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/services/ConfigurationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../systems-configuration-service/src/main/java/pl/polsl/student/systemsconfigurationservice/services/ConfigurationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/services/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/services/bootstrapservices/BootStrapEntryService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/services/bootstrapservices/BootStrapService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/services/bootstrapservices/DevelopmentBootStrapService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/services/impl/ConfigurationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../systems-configuration-service/src/main/java/pl/polsl/student/systemsconfigurationservice/services/impl/ConfigurationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/services/impl/UserServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/validation/EqualPasswordConstraint.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/validation/EqualPasswordConstraintValidator.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../management-apigateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../management-apigateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../management-apigateway/src/test/java/pl/polsl/student/managementapigateway/ManagementApigatewayApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movie-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../../movie-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movie-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../movie-service/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movie-service/src/main/java/pl/polsl/student/movieservice/MovieServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../movie-service/src/main/java/pl/polsl/student/movieservice/MovieServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movie-service/src/main/java/pl/polsl/student/movieservice/configuration/PosterStorageProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movie-service/src/main/java/pl/polsl/student/movieservice/configuration/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../movie-service/src/main/java/pl/polsl/student/movieservice/configuration/SwaggerConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../movie-service/src/main/java/pl/polsl/student/movieservice/controllers/MovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../movie-service/src/main/java/pl/polsl/student/movieservice/controllers/MovieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../movies-api-client/.env.production" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/.env.production" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movie-service/src/main/java/pl/polsl/student/movieservice/services/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../movie-service/src/main/java/pl/polsl/student/movieservice/services/MovieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movie-service/src/main/java/pl/polsl/student/movieservice/services/PosterStorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../movie-service/src/main/java/pl/polsl/student/movieservice/services/PosterStorageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movie-service/src/main/java/pl/polsl/student/movieservice/services/impl/MovieServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../movie-service/src/main/java/pl/polsl/student/movieservice/services/impl/MovieServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movie-service/src/main/java/pl/polsl/student/movieservice/services/impl/PosterStorageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../movie-service/src/main/java/pl/polsl/student/movieservice/services/impl/PosterStorageServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movie-service/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movie-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../movie-service/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movie-service/src/main/resources/static/moviedb_public_movies.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movie-service/src/test/java/pl/polsl/student/movieservice/MovieServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../movie-service/src/test/java/pl/polsl/student/movieservice/MovieServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movies-api-client/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../movies-api-client/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../movies-api-client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../movies-api-client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../movies-api-client/src/axios-orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/src/axios-orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movies-api-client/nginx/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/nginx/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movies-api-client/prodold" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movies-api-client/src/components/Admin/AddMovie.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/src/components/Admin/AddMovie.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../movies-api-client/src/components/CatalogItem/CatalogItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/src/components/CatalogItem/CatalogItem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../movies-api-client/src/components/MovieDetails/MovieDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/src/components/MovieDetails/MovieDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../movies-api-client/src/components/MovieDetails/UserCatalogMovieDetails.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../movies-api-client/src/components/MovieItem/MovieItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/src/components/MovieItem/MovieItem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../movies-api-client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../movies-api-client/src/navigation/NavbarMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/src/navigation/NavbarMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../movies-api-client/src/store/allMovies/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/src/store/allMovies/actions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../movies-api-client/src/store/auth/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/src/store/auth/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../movies-api-client/src/store/movieCatalog/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../movies-api-client/src/store/movieCatalog/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../user-service/src/main/java/pl/polsl/student/userservice/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../user-service/src/main/java/pl/polsl/student/userservice/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../user-service/src/main/java/pl/polsl/student/userservice/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../user-service/src/main/java/pl/polsl/student/userservice/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../user-service/src/main/java/pl/polsl/student/userservice/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../user-service/src/main/java/pl/polsl/student/userservice/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../rating-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../../rating-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../rating-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../rating-service/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../rating-service/src/main/java/pl/polsl/student/ratingservice/configuration/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../rating-service/src/main/java/pl/polsl/student/ratingservice/configuration/SwaggerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../rating-service/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../rating-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../rating-service/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../rating-service/src/main/resources/static/ratingdb_public_ratings.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../rating-service/src/test/java/pl/polsl/student/ratingservice/RatingServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../uploadsVolume/1607189889734_the_godfather.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../uploadsVolume/1607189907963_baby_driver.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../uploadsVolume/1607189911980_risky.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../uploadsVolume/1607189916366_the_conversation.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../uploadsVolume/1607189962177_the_godfatherII.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../uploadsVolume/1607189966495_gladiator.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../uploadsVolume/1607189974497_the_shawshank_redemption.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../uploadsVolume/1607213005401_venom.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../user-movies-catalog-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../../user-movies-catalog-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../user-movies-catalog-service/src/main/java/pl/polsl/student/usermoviescatalogservice/configuration/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../user-movies-catalog-service/src/main/java/pl/polsl/student/usermoviescatalogservice/configuration/SwaggerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../user-movies-catalog-service/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../user-movies-catalog-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../user-movies-catalog-service/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../user-movies-catalog-service/src/test/java/pl/polsl/student/usermoviescatalogservice/UserMoviesCatalogServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../user-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../../user-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../user-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../user-service/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../user-service/src/main/java/pl/polsl/student/userservice/configuration/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../user-service/src/main/java/pl/polsl/student/userservice/configuration/SwaggerConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../user-service/src/main/java/pl/polsl/student/userservice/services/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../user-service/src/main/java/pl/polsl/student/userservice/services/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../user-service/src/main/resources/application.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../user-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../user-service/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../user-service/src/test/java/pl/polsl/student/userservice/UserServiceApplicationTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,16 +444,25 @@
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/../auth-service">
+      <ProjectState />
+    </projectState>
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
     <projectState path="$PROJECT_DIR$/../management-apigateway">
       <ProjectState />
     </projectState>
+    <projectState path="$PROJECT_DIR$/../systems-configuration-service">
+      <ProjectState />
+    </projectState>
   </component>
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$/../auth-service">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -281,7 +516,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../stary_dysk/rok III/sem V/IO/school-diary-api-master/school-diary-api-master" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
@@ -294,19 +529,22 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\repo\praca dyplomowa\backend-full\microservices\management\auth-service" />
       <recent name="C:\repo\praca dyplomowa\backend-full\microservices\management\management-apigateway" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="pl.polsl.student.managementapigateway.configuration" />
-      <recent name="pl.polsl.student.managementapigateway.controllers" />
-      <recent name="pl.polsl.student.managementapigateway.components" />
-      <recent name="pl.polsl.student.managementapigateway.enums" />
-      <recent name="pl.polsl.student.managementapigateway.services.impl" />
+      <recent name="pl.polsl.student.authservice.configuration" />
+      <recent name="pl.polsl.student.systemsconfigurationservice.configuration" />
+      <recent name="pl.polsl.student.systemsconfigurationservice.services.impl" />
+      <recent name="pl.polsl.student.systemsconfigurationservice.services" />
+      <recent name="pl.polsl.student.systemsconfigurationservice.controllers" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway" />
-      <recent name="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/exceptions" />
-      <recent name="$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/services" />
+      <recent name="C:\repo\praca dyplomowa\backend-full\microservices\management\auth-service\src\main\resources" />
+      <recent name="C:\repo\praca dyplomowa\backend-full\microservices\management\auth-service\src\test\resources" />
+      <recent name="C:\repo\praca dyplomowa\backend-full\microservices\management\systems-configuration-service" />
+      <recent name="C:\repo\praca dyplomowa\backend-full\microservices\management\systems-configuration-service\src\main\java\pl\polsl\student\systemsconfigurationservice" />
+      <recent name="C:\repo\praca dyplomowa\backend-full\microservices\management\auth-service\src\main\java\pl\polsl\student\authservice" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -316,7 +554,140 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ManagementApigatewayApplication">
+  <component name="RunManager" selected="Gradle.UserControllerIntegrationTests">
+    <configuration name="UserControllerIntegrationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/../auth-service" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;pl.polsl.student.authservice.UserControllerIntegrationTests&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="UserControllerIntegrationTests.shouldCreateUserThenGetExpectedUser" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/../auth-service" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;pl.polsl.student.authservice.UserControllerIntegrationTests.shouldCreateUserThenGetExpectedUser&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="UserServiceUnitTests.shouldCreateUser" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/../auth-service" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;pl.polsl.student.authservice.UserServiceUnitTests.shouldCreateUser&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="UserServiceUnitTests.shouldDeleteUser" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/../auth-service" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;pl.polsl.student.authservice.UserServiceUnitTests.shouldDeleteUser&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="UserServiceUnitTests.shouldModifyPassword" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/../auth-service" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;pl.polsl.student.authservice.UserServiceUnitTests.shouldModifyPassword&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="AuthServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="auth-service.main" />
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="pl.polsl.student.authservice.AuthServiceApplication" />
+      <option name="ACTIVE_PROFILES" value="development" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthServiceTests" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="auth-service.main" />
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="pl.polsl.student.authservice.AuthServiceApplication" />
+      <option name="ACTIVE_PROFILES" value="test" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="JavaDockerApiBrokerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="java-docker-api-broker.main" />
       <extension name="net.ashald.envfile">
@@ -356,6 +727,31 @@
       </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="pl.polsl.student.managementapigateway.ManagementApigatewayApplication" />
       <option name="ACTIVE_PROFILES" value="development" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <additionalParameters>
+        <param>
+          <option name="enabled" value="true" />
+          <option name="name" value="config-file" />
+          <option name="value" value="C:\systemsConfig.json" />
+        </param>
+      </additionalParameters>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SystemsConfigurationServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="systems-configuration-service.main" />
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="pl.polsl.student.systemsconfigurationservice.SystemsConfigurationServiceApplication" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <additionalParameters>
         <param>
@@ -409,35 +805,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Discovery" type="docker-deploy" factoryName="docker-image" temporary="true" server-name="Docker">
-      <deployment type="docker-image">
-        <settings>
-          <option name="imageTag" value="microservices/discovery-server:latest" />
-          <option name="command" value="ADD ./build/libs/*.jar app.jar" />
-          <option name="containerName" value="discovery-server" />
-          <option name="entrypoint" value="java -Dspring.profiles.active=docker -jar /app.jar" />
-          <option name="portBindings">
-            <list>
-              <DockerPortBindingImpl>
-                <option name="containerPort" value="8761" />
-                <option name="hostPort" value="8761" />
-              </DockerPortBindingImpl>
-            </list>
-          </option>
-          <option name="commandLineOptions" value="" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Docker.Discovery" />
+      <item itemvalue="Gradle.UserServiceUnitTests.shouldCreateUser" />
+      <item itemvalue="Gradle.UserServiceUnitTests.shouldModifyPassword" />
+      <item itemvalue="Gradle.UserServiceUnitTests.shouldDeleteUser" />
+      <item itemvalue="Gradle.UserControllerIntegrationTests" />
+      <item itemvalue="Gradle.UserControllerIntegrationTests.shouldCreateUserThenGetExpectedUser" />
       <item itemvalue="Spring Boot.WindowsConfiguration" />
       <item itemvalue="Spring Boot.JavaDockerApiBrokerApplication" />
       <item itemvalue="Spring Boot.ManagementApigatewayApplication" />
+      <item itemvalue="Spring Boot.AuthServiceApplication" />
+      <item itemvalue="Spring Boot.AuthServiceTests" />
+      <item itemvalue="Spring Boot.SystemsConfigurationServiceApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.Discovery" />
+        <item itemvalue="Gradle.UserControllerIntegrationTests" />
+        <item itemvalue="Gradle.UserControllerIntegrationTests.shouldCreateUserThenGetExpectedUser" />
+        <item itemvalue="Gradle.UserServiceUnitTests.shouldDeleteUser" />
+        <item itemvalue="Gradle.UserServiceUnitTests.shouldCreateUser" />
+        <item itemvalue="Gradle.UserServiceUnitTests.shouldModifyPassword" />
       </list>
     </recent_temporary>
   </component>
@@ -486,7 +873,11 @@
       <workItem from="1609078708627" duration="15246000" />
       <workItem from="1609150419576" duration="19906000" />
       <workItem from="1609321058934" duration="3412000" />
-      <workItem from="1609415999857" duration="558000" />
+      <workItem from="1609415999857" duration="26576000" />
+      <workItem from="1609678414530" duration="19349000" />
+      <workItem from="1609712638479" duration="5606000" />
+      <workItem from="1609755542769" duration="8701000" />
+      <workItem from="1609807572904" duration="2689000" />
     </task>
     <servers />
   </component>
@@ -519,135 +910,145 @@
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
     <state x="3007" y="430" key="#DockerRemoteWithCert/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608213822900" />
-    <state x="2499" y="24" width="1092" height="766" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609256204281">
+    <state x="2499" y="24" width="1092" height="1124" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609691425144">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
     <state x="310" y="14" width="1089" height="789" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1606078887385" />
-    <state x="2499" y="24" width="1092" height="766" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609256204281" />
+    <state x="2499" y="24" width="1092" height="1124" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609691425144" />
     <state x="310" y="14" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1606174338442" />
     <state x="2117" y="24" width="1467" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608225365678" />
-    <state x="3044" y="426" width="994" height="587" key="#com.intellij.ide.util.MemberChooser" timestamp="1609264178658">
+    <state x="2090" y="92" width="2298" height="1256" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1609708464128">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
-    <state x="3044" y="426" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609264178658" />
+    <state x="2090" y="92" width="2298" height="1256" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609708464128" />
+    <state x="3044" y="426" width="994" height="587" key="#com.intellij.ide.util.MemberChooser" timestamp="1609763597347">
+      <screen x="1998" y="0" width="2482" height="1440" />
+    </state>
+    <state x="3044" y="426" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609763597347" />
     <state x="647" y="244" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1608328211752" />
     <state x="2679" y="426" width="994" height="587" key="#com.intellij.ide.util.MemberChooser/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608232385062" />
-    <state x="498" y="214" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1606078749735">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="498" y="214" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1606078749735" />
-    <state x="2613" y="467" width="524" height="503" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1608225022375">
-      <screen x="1600" y="0" width="2560" height="1440" />
-    </state>
-    <state x="2613" y="467" width="524" height="503" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608225022375" />
-    <state x="3019" y="429" key="FileChooserDialogImpl" timestamp="1608126324812">
+    <state x="2803" y="374" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1609691418833">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
-    <state x="3019" y="429" key="FileChooserDialogImpl/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608126324812" />
-    <state width="1686" height="736" key="GridCell.Tab.0.bottom" timestamp="1609284809910">
+    <state x="498" y="214" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1606078749735" />
+    <state x="2803" y="374" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609691418833" />
+    <state x="2760" y="589" width="957" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1609446608147">
+      <screen x="1998" y="0" width="2482" height="1440" />
+    </state>
+    <state x="2760" y="589" width="957" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609446608147" />
+    <state x="2980" y="467" width="524" height="503" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1609689844475">
+      <screen x="1998" y="0" width="2482" height="1440" />
+    </state>
+    <state x="2980" y="467" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609689844475" />
+    <state x="2613" y="467" width="524" height="503" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608225022375" />
+    <state x="3019" y="429" key="FileChooserDialogImpl" timestamp="1609810813028">
+      <screen x="1998" y="0" width="2482" height="1440" />
+    </state>
+    <state x="3019" y="429" key="FileChooserDialogImpl/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609810813028" />
+    <state width="1686" height="578" key="GridCell.Tab.0.bottom" timestamp="1609811846154">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
     <state width="1024" height="319" key="GridCell.Tab.0.bottom/0.0.1536.824/1982.0.2498.1440@0.0.1536.824" timestamp="1608660326721" />
     <state width="2455" height="601" key="GridCell.Tab.0.bottom/0.0.1536.824/1982.0.2498.1440@1982.0.2498.1440" timestamp="1607705502766" />
-    <state width="1024" height="250" key="GridCell.Tab.0.bottom/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1608208364602" />
-    <state width="1686" height="736" key="GridCell.Tab.0.bottom/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609284809910" />
+    <state width="2439" height="614" key="GridCell.Tab.0.bottom/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1609712621662" />
+    <state width="1686" height="578" key="GridCell.Tab.0.bottom/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609811846154" />
     <state width="1024" height="252" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1608426172304" />
     <state width="1739" height="504" key="GridCell.Tab.0.bottom/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608235886382" />
-    <state width="1686" height="736" key="GridCell.Tab.0.center" timestamp="1609284809910">
+    <state width="1686" height="578" key="GridCell.Tab.0.center" timestamp="1609811846154">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
     <state width="1024" height="319" key="GridCell.Tab.0.center/0.0.1536.824/1982.0.2498.1440@0.0.1536.824" timestamp="1608660326721" />
     <state width="2455" height="601" key="GridCell.Tab.0.center/0.0.1536.824/1982.0.2498.1440@1982.0.2498.1440" timestamp="1607705502766" />
-    <state width="1024" height="250" key="GridCell.Tab.0.center/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1608208364602" />
-    <state width="1686" height="736" key="GridCell.Tab.0.center/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609284809910" />
+    <state width="2439" height="614" key="GridCell.Tab.0.center/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1609712621662" />
+    <state width="1686" height="578" key="GridCell.Tab.0.center/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609811846154" />
     <state width="1024" height="252" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1608426172304" />
     <state width="1739" height="504" key="GridCell.Tab.0.center/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608235886382" />
-    <state width="1686" height="736" key="GridCell.Tab.0.left" timestamp="1609284809910">
+    <state width="1686" height="578" key="GridCell.Tab.0.left" timestamp="1609811846153">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
     <state width="1024" height="319" key="GridCell.Tab.0.left/0.0.1536.824/1982.0.2498.1440@0.0.1536.824" timestamp="1608660326720" />
     <state width="2455" height="601" key="GridCell.Tab.0.left/0.0.1536.824/1982.0.2498.1440@1982.0.2498.1440" timestamp="1607705502766" />
-    <state width="1024" height="250" key="GridCell.Tab.0.left/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1608208364602" />
-    <state width="1686" height="736" key="GridCell.Tab.0.left/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609284809910" />
+    <state width="2439" height="614" key="GridCell.Tab.0.left/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1609712621662" />
+    <state width="1686" height="578" key="GridCell.Tab.0.left/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609811846153" />
     <state width="1024" height="252" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1608426172304" />
     <state width="1739" height="504" key="GridCell.Tab.0.left/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608235886382" />
-    <state width="1686" height="736" key="GridCell.Tab.0.right" timestamp="1609284809910">
+    <state width="1686" height="578" key="GridCell.Tab.0.right" timestamp="1609811846154">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
     <state width="1024" height="319" key="GridCell.Tab.0.right/0.0.1536.824/1982.0.2498.1440@0.0.1536.824" timestamp="1608660326721" />
     <state width="2455" height="601" key="GridCell.Tab.0.right/0.0.1536.824/1982.0.2498.1440@1982.0.2498.1440" timestamp="1607705502766" />
-    <state width="1024" height="250" key="GridCell.Tab.0.right/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1608208364602" />
-    <state width="1686" height="736" key="GridCell.Tab.0.right/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609284809910" />
+    <state width="2439" height="614" key="GridCell.Tab.0.right/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1609712621662" />
+    <state width="1686" height="578" key="GridCell.Tab.0.right/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609811846154" />
     <state width="1024" height="252" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1608426172304" />
     <state width="1739" height="504" key="GridCell.Tab.0.right/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608235886382" />
-    <state width="1686" height="736" key="GridCell.Tab.1.bottom" timestamp="1609284809911">
+    <state width="1686" height="578" key="GridCell.Tab.1.bottom" timestamp="1609811846154">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
     <state width="1024" height="319" key="GridCell.Tab.1.bottom/0.0.1536.824/1982.0.2498.1440@0.0.1536.824" timestamp="1608660326722" />
     <state width="2455" height="601" key="GridCell.Tab.1.bottom/0.0.1536.824/1982.0.2498.1440@1982.0.2498.1440" timestamp="1607705502767" />
-    <state width="1024" height="250" key="GridCell.Tab.1.bottom/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1608208364603" />
-    <state width="1686" height="736" key="GridCell.Tab.1.bottom/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609284809911" />
+    <state width="2439" height="614" key="GridCell.Tab.1.bottom/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1609712621663" />
+    <state width="1686" height="578" key="GridCell.Tab.1.bottom/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609811846154" />
     <state width="1024" height="252" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1608426172304" />
     <state width="1739" height="504" key="GridCell.Tab.1.bottom/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608235886382" />
-    <state width="1686" height="736" key="GridCell.Tab.1.center" timestamp="1609284809911">
+    <state width="1686" height="578" key="GridCell.Tab.1.center" timestamp="1609811846154">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
     <state width="1024" height="319" key="GridCell.Tab.1.center/0.0.1536.824/1982.0.2498.1440@0.0.1536.824" timestamp="1608660326721" />
     <state width="2455" height="601" key="GridCell.Tab.1.center/0.0.1536.824/1982.0.2498.1440@1982.0.2498.1440" timestamp="1607705502766" />
-    <state width="1024" height="250" key="GridCell.Tab.1.center/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1608208364602" />
-    <state width="1686" height="736" key="GridCell.Tab.1.center/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609284809911" />
+    <state width="2439" height="614" key="GridCell.Tab.1.center/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1609712621663" />
+    <state width="1686" height="578" key="GridCell.Tab.1.center/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609811846154" />
     <state width="1024" height="252" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1608426172304" />
     <state width="1739" height="504" key="GridCell.Tab.1.center/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608235886382" />
-    <state width="1686" height="736" key="GridCell.Tab.1.left" timestamp="1609284809911">
+    <state width="1686" height="578" key="GridCell.Tab.1.left" timestamp="1609811846154">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
     <state width="1024" height="319" key="GridCell.Tab.1.left/0.0.1536.824/1982.0.2498.1440@0.0.1536.824" timestamp="1608660326721" />
     <state width="2455" height="601" key="GridCell.Tab.1.left/0.0.1536.824/1982.0.2498.1440@1982.0.2498.1440" timestamp="1607705502766" />
-    <state width="1024" height="250" key="GridCell.Tab.1.left/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1608208364602" />
-    <state width="1686" height="736" key="GridCell.Tab.1.left/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609284809911" />
+    <state width="2439" height="614" key="GridCell.Tab.1.left/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1609712621662" />
+    <state width="1686" height="578" key="GridCell.Tab.1.left/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609811846154" />
     <state width="1024" height="252" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1608426172304" />
     <state width="1739" height="504" key="GridCell.Tab.1.left/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608235886382" />
-    <state width="1686" height="736" key="GridCell.Tab.1.right" timestamp="1609284809911">
+    <state width="1686" height="578" key="GridCell.Tab.1.right" timestamp="1609811846154">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
     <state width="1024" height="319" key="GridCell.Tab.1.right/0.0.1536.824/1982.0.2498.1440@0.0.1536.824" timestamp="1608660326722" />
     <state width="2455" height="601" key="GridCell.Tab.1.right/0.0.1536.824/1982.0.2498.1440@1982.0.2498.1440" timestamp="1607705502766" />
-    <state width="1024" height="250" key="GridCell.Tab.1.right/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1608208364603" />
-    <state width="1686" height="736" key="GridCell.Tab.1.right/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609284809911" />
+    <state width="2439" height="614" key="GridCell.Tab.1.right/0.0.1536.824/1998.0.2482.1440@0.0.1536.824" timestamp="1609712621663" />
+    <state width="1686" height="578" key="GridCell.Tab.1.right/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609811846154" />
     <state width="1024" height="252" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1608426172304" />
     <state width="1739" height="504" key="GridCell.Tab.1.right/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608235886382" />
-    <state width="1686" height="736" key="GridCell.Tab.2.bottom" timestamp="1609284809912">
+    <state width="1686" height="578" key="GridCell.Tab.2.bottom" timestamp="1609811846154">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
     <state width="1024" height="319" key="GridCell.Tab.2.bottom/0.0.1536.824/1982.0.2498.1440@0.0.1536.824" timestamp="1608638381842" />
-    <state width="1686" height="736" key="GridCell.Tab.2.bottom/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609284809912" />
+    <state width="1686" height="578" key="GridCell.Tab.2.bottom/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609811846154" />
     <state width="1024" height="285" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1608328511663" />
     <state width="1739" height="504" key="GridCell.Tab.2.bottom/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608235838982" />
-    <state width="1686" height="736" key="GridCell.Tab.2.center" timestamp="1609284809912">
+    <state width="1686" height="578" key="GridCell.Tab.2.center" timestamp="1609811846154">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
     <state width="1024" height="319" key="GridCell.Tab.2.center/0.0.1536.824/1982.0.2498.1440@0.0.1536.824" timestamp="1608638381842" />
-    <state width="1686" height="736" key="GridCell.Tab.2.center/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609284809912" />
+    <state width="1686" height="578" key="GridCell.Tab.2.center/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609811846154" />
     <state width="1024" height="285" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1608328511663" />
     <state width="1739" height="504" key="GridCell.Tab.2.center/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608235838982" />
-    <state width="1686" height="736" key="GridCell.Tab.2.left" timestamp="1609284809911">
+    <state width="1686" height="578" key="GridCell.Tab.2.left" timestamp="1609811846154">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
     <state width="1024" height="319" key="GridCell.Tab.2.left/0.0.1536.824/1982.0.2498.1440@0.0.1536.824" timestamp="1608638381842" />
-    <state width="1686" height="736" key="GridCell.Tab.2.left/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609284809911" />
+    <state width="1686" height="578" key="GridCell.Tab.2.left/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609811846154" />
     <state width="1024" height="285" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1608328511663" />
     <state width="1739" height="504" key="GridCell.Tab.2.left/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608235838982" />
-    <state width="1686" height="736" key="GridCell.Tab.2.right" timestamp="1609284809912">
+    <state width="1686" height="578" key="GridCell.Tab.2.right" timestamp="1609811846154">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
     <state width="1024" height="319" key="GridCell.Tab.2.right/0.0.1536.824/1982.0.2498.1440@0.0.1536.824" timestamp="1608638381842" />
-    <state width="1686" height="736" key="GridCell.Tab.2.right/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609284809912" />
+    <state width="1686" height="578" key="GridCell.Tab.2.right/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609811846154" />
     <state width="1024" height="285" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1608328511663" />
     <state width="1739" height="504" key="GridCell.Tab.2.right/67.27.1533.873/1600.0.2560.1440@1600.0.2560.1440" timestamp="1608235838982" />
-    <state x="2904" y="424" key="NewModule_or_Project.wizard" timestamp="1608126327962">
+    <state x="2904" y="424" key="NewModule_or_Project.wizard" timestamp="1609436245509">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
-    <state x="2904" y="424" key="NewModule_or_Project.wizard/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1608126327962" />
+    <state x="2904" y="424" key="NewModule_or_Project.wizard/0.0.1536.824/1998.0.2482.1440@1998.0.2482.1440" timestamp="1609436245509" />
     <state x="2310" y="178" width="1756" height="1089" key="SettingsEditor" timestamp="1609102209193">
       <screen x="1998" y="0" width="2482" height="1440" />
     </state>
@@ -679,11 +1080,6 @@
           <url>file://$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/filters/MForwardedHeaderFilter.java</url>
           <line>33</line>
           <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../management-apigateway/src/main/java/pl/polsl/student/managementapigateway/services/impl/UserServiceImpl.java</url>
-          <line>65</line>
-          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

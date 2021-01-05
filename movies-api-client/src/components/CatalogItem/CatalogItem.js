@@ -14,7 +14,7 @@ const CatalogItem = ({ item }) => {
     <div className="my-5 mx-2">
       <div className="image-container d-flex justify-content-start mx-2 shadow">
         <img
-          src={`${apiUri}/movie-service/${posterUri}`}
+          src={`${apiUri}/movie-service${posterUri}`}
           alt={placeholderImage}
           className="catalog-item"
         />

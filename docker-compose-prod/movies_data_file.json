@@ -1,0 +1,46 @@
+{
+  "movies": [
+    {
+      "name": "Baby Driver",
+      "description": "After being coerced into working for a crime boss, a young getaway driver finds himself taking part in a heist doomed to fail.",
+      "director": "Edgar Wright",
+      "posterUri": "/movies/posters/baby_driver.jpg"
+    },
+    {
+      "name": "Risky Business",
+      "description": "A Chicago teenager is looking for fun at home while his parents are away, but the situation quickly gets out of hand.",
+      "director": "Paul Brickman",
+      "posterUri": "/movies/posters/risky_business.jpg"
+    },
+    {
+      "name": "The Conversation",
+      "description": "A paranoid, secretive surveillance expert has a crisis of conscience when he suspects that the couple he is spying on will be murdered.",
+      "director": "Francis Ford Coppola",
+      "posterUri": "/movies/posters/the_conversation.jpg"
+    },
+    {
+      "name": "The Godfather",
+      "description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+      "director": "Francis Ford Coppola",
+      "posterUri": "/movies/posters/the_godfather.jpg"
+    },
+    {
+      "name": "The Godfather II",
+      "description": "The early life and career of Vito Corleone in 1920s New York City is portrayed, while his son, Michael, expands and tightens his grip on the family crime syndicate.",
+      "director": "Francis Ford Coppola",
+      "posterUri": "/movies/posters/the_godfatherII.jpg"
+    },
+    {
+      "name": "The Shawshank Redemption",
+      "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+      "director": "Frank Darabont",
+      "posterUri": "/movies/posters/the_shawshank_redemption.jpg"
+    },
+    {
+      "name": "Gladiator",
+      "description": "A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.",
+      "director": "Ridley Scott",
+      "posterUri": "/movies/posters/gladiator.jpg"
+    }
+  ]
+}

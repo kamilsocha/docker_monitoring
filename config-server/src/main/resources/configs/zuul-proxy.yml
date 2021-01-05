@@ -1,30 +1,32 @@
-# server:
-#   forward-headers-strategy: framework
 
 zuul:
-  #  ignored-services: '*'
   routes:
     user-movies-catalog-service:
-      path: "/user-movies-catalog-service/**"
+      path: "/api/user-movies-catalog-service/**"
       serviceId: user-movies-catalog-service
     movie-service:
-      path: "/movie-service/**"
+      path: "/api/movie-service/**"
       serviceId: movie-service
     rating-service:
-      path: "/rating-service/**"
+      path: "/api/rating-service/**"
       serviceId: rating-service
     user-service:
-      path: "/user-service/**"
+      path: "/api/user-service/**"
       serviceId: user-service
     converter-service:
-      path: "/converter-service/**"
+      path: "/api/converter-service/**"
       serviceId: converter-service
     app:
       url: "http://localhost:3000"
 
 ribbon:
-  ConnectTimeout: 1000
-  ReadTimeout: 1000
+  ConnectTimeout: 5000
+  ReadTimeout: 5000
+  ServerListRefreshInterval: 5000
+  MaxAutoRetries: 10
+  MaxAutoRetriesNextServer: 10
+  eureka:
+    enabled: true
 
 hystrix:
   command:
@@ -32,44 +34,22 @@ hystrix:
       circuitBreaker:
         requestVolumeThreshold: 5
         errorThresholdPercentage: 50
-        sleepWindowInMilliseconds: 10000
+        sleepWindowInMilliseconds: 2000
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 4000
+            timeoutInMilliseconds: 36000
       metrics:
         rollingStats:
           timeInMilliseconds: 10000
     dashboard:
       proxy-stream-allow-list: "*"
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  endpoint:
-    shutdown:
-      enabled: true
-    health:
-      show-details: always
-
 swagger:
-  title: ${spring.application.name}
   description: Netflix Zuul API Gateway Server for microservices system.
-  license: License
-  licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: 0.1
-  contact:
-    name: Kamil Socha
-    url:
-    email: kamisoc782@student.polsl.pl
+  version: 1.0.0
 
 info:
   app:
-    name: ${spring.application.name}
     description: Netflix Zuul API Gateway Server for microservices system.
-    version: 0.1.0
-  developer:
-    name: Kamil Socha
-    email: kamisoc782@student.polsl.pl
+    version: 1.0.0

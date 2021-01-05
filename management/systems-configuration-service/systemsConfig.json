@@ -1,0 +1,45 @@
+{
+  "labelKeys" : {
+    "serviceNameLabelKey": ".name",
+    "systemNameLabelKey": ".systembelongto.name",
+    "systemNameLabelFullKey": "",
+    "serviceTypeLabelKey": ".type",
+    "infraServiceTypeLabelKey": ".infra",
+    "domServiceTypeLabelKey": ".dom",
+    "serviceSubtypeLabelKey": ".subtype"
+  },
+  "labelValues": {
+    "infraTypeLabelValue": "infra",
+    "domainTypeLabelValue": "dom",
+    "microServiceSubtypeLabelValue": "ms",
+    "databaseServiceSubtypeLabelValue": "db",
+    "guiServiceSubtypeLabelValue": "gui"
+  },
+  "infraServicesSubtypes": ["apigateway","disco", "config", "other"],
+  "actuatorServiceSubtypes": ["ms", "apigateway", "discovery", "config", "other"],
+  "allowedActuatorLinks": [
+    "archaius",
+    "beans",
+    "caches",
+    "conditions",
+    "configprops",
+    "env",
+    "features",
+    "health",
+    "heapdump",
+    "info",
+    "loggers",
+    "mappings",
+    "metrics",
+    "prometheus",
+    "scheduledTasks",
+    "seviceRegistry"
+  ],
+  "swaggerRoutes": [
+    "/v2/api-docs",
+    "/swagger-resources/**",
+    "/configuration/**",
+    "/swagger-ui/",
+    "/webjars/**"
+  ]
+}

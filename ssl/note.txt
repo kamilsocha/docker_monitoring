@@ -1,1 +1,0 @@
-keytool -genkeypair -alias account-key -keyalg RSA -keysize 2048 -storetype PKCS12 -keystore account-key.p12 -validity 3650

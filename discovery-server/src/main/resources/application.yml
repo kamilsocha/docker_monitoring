@@ -19,6 +19,8 @@ eureka:
       enabled: true
   server:
     enable-self-preservation: false
+    wait-time-in-ms-when-sync-empty: 0
+    response-cache-update-interval-ms: 5000
 
 management:
   endpoints:

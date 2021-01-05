@@ -26,7 +26,7 @@ const MovieItem = ({ item }) => {
             overlay={popover}
           >
             <img
-              src={`${apiUri}/movie-service/${posterUri}`}
+              src={`${apiUri}/movie-service${posterUri}`}
               alt={placeholderImage}
               className="movie-item"
             />

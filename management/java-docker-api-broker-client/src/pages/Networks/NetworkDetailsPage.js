@@ -25,7 +25,6 @@ const NetworkDetailsPage = () => {
         setIsLoading(false)
       })
       .then((data) => {
-        console.log("network", data)
         setNetwork(data)
         setIsLoading(false)
       })

@@ -29,7 +29,6 @@ eureka:
     service-url:
       defaulZone: http://localhost:8761/eureka/
 
-
 ---
 spring:
   profiles: docker
@@ -40,7 +39,6 @@ spring:
     loadbalancer:
       ribbon:
         enabled: false
-
 eureka:
   instance:
     hostname: zuul-proxy
@@ -48,3 +46,4 @@ eureka:
   client:
     serviceUrl:
       defaultZone: ${EUREKA_URI:http://discovery:8761/eureka/}
+

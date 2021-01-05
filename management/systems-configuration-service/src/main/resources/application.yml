@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: systems-configuration-service
+
+server:
+  port: 7083
+
+security:
+  username: ${MANAGEMENT_USERNAME:user}
+  password: ${MANAGEMENT_PASSWORD:password}
+
+config-file: ${CONFIG_FILE_PATH:"./systemsConfig.json"}
+
+swagger:
+  title: ${spring.application.name}
+  description: Zuul API Gateway for docker management system.
+  license: License
+  licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 0.1
+  contact:
+    name: Kamil Socha
+    url:
+    email: kamisoc782@student.polsl.pl
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      show-details: always
+
+info:
+  app:
+    name: ${spring.application.name}
+    description: Netflix Zuul API Gateway Server for management of docker microservices system.
+    version: 0.1.0
+  developer:
+    name: Kamil Socha
+    email: kamisoc782@student.polsl.pl
+
+---
+spring:
+  profiles: docker
+
+server:
+  port: 8080

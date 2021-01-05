@@ -1,5 +1,5 @@
-import axios from "axios"
-import { authHeader } from "../../axios-orders"
+// import axios from "axios"
+import axios, { authHeader } from "../../axios-orders"
 import moment from "moment"
 import { fetchConfig } from "./config"
 
@@ -93,7 +93,7 @@ export const fetchUserData = (accessToken) => {
     header = authHeader()
   }
   return async (dispatch) => {
-    const response = await axios.get("/users/current", {
+    const response = await axios.get("/auth/users/current", {
       // const response = await axios.get("http://localhost:8080/users/current", {
       headers: header,
     })
@@ -109,7 +109,7 @@ export const auth = (email, password) => {
   return async (dispatch) => {
     dispatch(authStart())
     const response = await axios
-      .post(`/login`, { username: email, password })
+      .post(`/auth/login`, { username: email, password })
       // .post(`http://localhost:8080/login`, { username: email, password })
       .catch((err) => {
         dispatch(authFail(err))

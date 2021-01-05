@@ -24,12 +24,14 @@ const AddMovie = () => {
       })
       .catch((err) => {
         console.log(err)
+        setSubmitting(false)
       })
       .then(() => {
         setSubmitting(false)
         resetForm()
       })
     console.log("response", response)
+    setSubmitting(false)
   }
 
   return (

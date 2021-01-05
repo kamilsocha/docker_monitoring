@@ -1,7 +1,6 @@
 package pl.polsl.student.managementapigateway.controllers;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import pl.polsl.student.managementapigateway.services.ZuulDynamicRoutingService;
@@ -29,7 +28,6 @@ public class RouteController {
         return res;
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping
     public void removeRoute(@RequestParam String name) {
         String nameToRemove = name.replace("/", "");

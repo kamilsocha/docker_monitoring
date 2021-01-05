@@ -19,33 +19,15 @@ spring:
     hibernate:
       ddl-auto: update
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  endpoint:
-    shutdown:
-      enabled: true
-    health:
-      show-details: always
+server:
+  port: 8084
 
 swagger:
   title: User Service
   description: Service containing users.
-  license: License
-  licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: 0.1
-  contact:
-    name: Kamil Socha
-    url:
-    email: kamisoc782@student.polsl.pl
+  version: 1.0.0
 
 info:
   app:
-    name: ${spring.application.name}
     description: Eureka Discovery Server for microservices system.
-    version: 0.1.0
-  developer:
-    name: Kamil Socha
-    email: kamisoc782@student.polsl.pl
+    version: 1.0.0

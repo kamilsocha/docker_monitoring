@@ -5,7 +5,7 @@ import "./index.css"
 import App from "./App"
 import reportWebVitals from "./reportWebVitals"
 import { Provider } from "react-redux"
-import { BrowserRouter } from "react-router-dom"
+import { HashRouter } from "react-router-dom"
 import thunkMiddleware from "redux-thunk"
 import { applyMiddleware, combineReducers, compose, createStore } from "redux"
 import { authReducer } from "./store/reducers/auth"
@@ -42,9 +42,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter basename="/app">
+        <HashRouter>
           <App />
-        </BrowserRouter>
+        </HashRouter>
       </PersistGate>
     </Provider>
   </React.StrictMode>,

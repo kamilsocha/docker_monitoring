@@ -13,8 +13,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @EnableSwagger2
-@Configuration
-@PropertySource("classpath:application.yml")
+//@Configuration
 public class SwaggerConfig {
 
     private static final String BASE_PACKAGE = "pl.polsl.student.edgeservice";

@@ -1,7 +1,7 @@
 import axios, { authHeader } from "../axios-orders"
 
 export const fetchVolumes = async (dangling = false) => {
-  const response = await axios.get("/volumes", {
+  const response = await axios.get("/docker-client/volumes", {
     headers: authHeader(),
     params: { dangling },
   })
@@ -9,7 +9,7 @@ export const fetchVolumes = async (dangling = false) => {
 }
 
 export const inspectVolume = async (Name) => {
-  const response = await axios.get(`/volumes/${Name}/inspect`, {
+  const response = await axios.get(`/docker-client/volumes/${Name}/inspect`, {
     headers: authHeader(),
   })
   return response?.data

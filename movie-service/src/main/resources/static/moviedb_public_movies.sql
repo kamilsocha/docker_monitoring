@@ -1,3 +1,0 @@
-INSERT INTO public.movies (id, description, director, name) VALUES (1, 'A Chicago teenager is looking for fun at home while his parents are away, but the situation quickly gets out of hand.', 'Paul Brickman', 'Risky Business');
-INSERT INTO public.movies (id, description, director, name) VALUES (2, 'Wiretrapping specialist tries to save two people.', 'Francis Ford Coppola', 'The Conversation');
-INSERT INTO public.movies (id, description, director, name) VALUES (3, 'When a sports agent has a moral epiphany and is fired for expressing it, he decides to put his new philosophy to the test as an independent agent with the only athlete who stays with him and his former colleague.', 'Cameron Crowe', 'Jerry Maguire');

@@ -7,6 +7,7 @@ import java.io.IOException;
 
 public interface PosterStorageService {
 
-    String store(MultipartFile file) throws IOException;
+    String store(MultipartFile file);
     Resource loadAsResource(String filename);
+    boolean delete(String filename);
 }

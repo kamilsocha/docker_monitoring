@@ -25,7 +25,6 @@ const ImageDetailsPage = () => {
         setIsLoading(false)
       })
       .then((data) => {
-        console.log("image", data)
         setImage(data)
         setIsLoading(false)
       })

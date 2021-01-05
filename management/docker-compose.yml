@@ -11,30 +11,23 @@ networks:
 
 services:
   apigateway:
-    image: sochakamil/management-gateway
+    image: ks10096/management-gateway
     build: ./management-apigateway
     container_name: managementgateway
     env_file: ./.env
     environment:
-      - DB_SERVER=managementDb
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - POSTGRES_DB=${POSTGRES_MANAGEMENT_DB}
-      - API_URI=managementapi:8080
+      - API_URI=managementdockerclient:8080
+
+      - AUTH_URI=auth-service:8080
+      - SYSTEMS_CONFIG_URI=systems-config-service:8080
+
       - APP_URI=managementapp:80
       - PROMETHEUS=prometheus:9090
       - GRAFANA=grafana:3000
-      - CONFIG_FILE_PATH=/systemsConfig.json
     networks:
       management:
-    volumes:
-      - type: bind
-        source: ./systemsConfig.json
-        target: /systemsConfig.json
     ports:
       - "8080:8080"
-    depends_on:
-      - managementDb
     labels:
       pl.polsl.student.name: "management-gateway"
       pl.polsl.student.systembelongto.name: "management"
@@ -43,14 +36,52 @@ services:
       pl.polsl.student.type.infra: "ms"
       pl.polsl.student.type.infra.subtype: "apigateway"
 
-  managementapp:
-    image: sochakamil/management-app
-    build: ./java-docker-api-broker-client
-    # container_name: managementapp
+  auth-service:
+    image: ks10096/management-auth-service
+    build: ./auth-service
+    env_file: ./.env
+    environment:
+      - DB_SERVER=managementDb
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_MANAGEMENT_DB}
     networks:
       management:
-    # ports:
-    #   - "80:80"
+    depends_on:
+      - managementDb
+    labels:
+      pl.polsl.student.name: "management-auth-service"
+      pl.polsl.student.systembelongto.name: "management"
+
+      pl.polsl.student.type: "infra"
+      pl.polsl.student.type.infra: "ms"
+      pl.polsl.student.type.infra.subtype: "auth"
+
+  systems-config-service:
+    image: ks10096/management-systems-config-service
+    build: ./systems-configuration-service
+    env_file: ./.env
+    environment:
+      - CONFIG_FILE_PATH=/systemsConfig.json
+    networks:
+      management:
+    volumes:
+      - type: bind
+        source: ./systemsConfig.json
+        target: /systemsConfig.json
+    labels:
+      pl.polsl.student.name: "management-systems-config-service"
+      pl.polsl.student.systembelongto.name: "management"
+
+      pl.polsl.student.type: "infra"
+      pl.polsl.student.type.infra: "ms"
+      pl.polsl.student.type.infra.subtype: "config"
+
+  managementapp:
+    image: ks10096/management-app
+    build: ./java-docker-api-broker-client
+    networks:
+      management:
     labels:
       pl.polsl.student.name: "docker-management-client"
       pl.polsl.student.systembelongto.name: "management"
@@ -58,8 +89,8 @@ services:
       pl.polsl.student.type: "infra"
       pl.polsl.student.type.infra: "gui"
 
-  managementapi:
-    image: sochakamil/management-api
+  managementdockerclient:
+    image: ks10096/management-docker-client
     build: ./java-docker-api-broker
     # when using default connection over docker socket
     volumes:

@@ -40,9 +40,6 @@ spring:
       ribbon:
         enabled: false
 
-server:
-  port: 8080
-
 eureka:
   instance:
     hostname: user-service

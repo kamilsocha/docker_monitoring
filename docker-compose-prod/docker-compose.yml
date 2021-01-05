@@ -13,12 +13,14 @@ volumes:
 
 services:
   discovery:
-    image: sochakamil/discovery-server
+    image: ks10096/discovery-server
     build: ../discovery-server/
     restart: always
-    ports:
-      - "8761:8761"
+    # ports:
+    #   - "8761:8761"
     env_file: ./.env
+    environment:
+      - SPRING_PROFILES_ACTIVE=${ACTIVE_PROFILE}
     networks:
       - back
       - management
@@ -36,7 +38,7 @@ services:
           memory: 350M
 
   config-server:
-    image: sochakamil/config-server
+    image: ks10096/config-server
     build: ../config-server/
     restart: always
     env_file: ./.env
@@ -44,7 +46,7 @@ services:
       - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
       - SPRING_SECURITY_USER_NAME=${CONFIG_SERVER_USR}
       - SPRING_SECURITY_USER_PASSWORD=${CONFIG_SERVER_PWD}
-
+      - SPRING_PROFILES_ACTIVE=${ACTIVE_PROFILE},native
     networks:
       - back
       - management
@@ -68,7 +70,7 @@ services:
           memory: 350M
 
   apigateway:
-    image: sochakamil/edge-server
+    image: ks10096/edge-server
     build: ../edge-service/
     restart: always
     env_file: ./.env
@@ -76,6 +78,7 @@ services:
       - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
       - CONFIG_SERVER_USER=${CONFIG_SERVER_USR}
       - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
+      - SPRING_PROFILES_ACTIVE=${ACTIVE_PROFILE}
       - MOVIE_CLIENT=movieclient:80
     networks:
       front:
@@ -99,7 +102,7 @@ services:
           memory: 350M
 
   movieclient:
-    image: sochakamil/movies-api-client
+    image: ks10096/movies-api-client
     build: ../movies-api-client
     networks:
       management:
@@ -116,12 +119,13 @@ services:
       pl.polsl.student.type.dom: "gui"
 
   userCatalog:
-    image: sochakamil/user-movies-catalog-service
+    image: ks10096/user-movies-catalog-service
     build: ../user-movies-catalog-service/
     restart: always
     env_file: ./.env
     environment:
       - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
+      - SPRING_PROFILES_ACTIVE=${ACTIVE_PROFILE}
       - CONFIG_SERVER_USER=${CONFIG_SERVER_USR}
       - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
     networks:
@@ -143,12 +147,13 @@ services:
           memory: 350M
 
   movies:
-    image: sochakamil/movie-service
+    image: ks10096/movie-service
     build: ../movie-service/
     restart: always
     env_file: ./.env
     environment:
       - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
+      - SPRING_PROFILES_ACTIVE=${ACTIVE_PROFILE}
       - DB_SERVER=movieDb
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
@@ -156,6 +161,7 @@ services:
       - CONFIG_SERVER_USER=${CONFIG_SERVER_USR}
       - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
       - SPRING_JPA_HIBERNATE_DDL_AUTO=${ddl_auto}
+      - DATA_FILE=/app/data_file.json
     networks:
       - back
       - management
@@ -178,12 +184,13 @@ services:
           memory: 350M
 
   ratings:
-    image: sochakamil/rating-service
+    image: ks10096/rating-service
     build: ../rating-service/
     restart: always
     env_file: ./.env
     environment:
       - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
+      - SPRING_PROFILES_ACTIVE=${ACTIVE_PROFILE}
       - DB_SERVER=ratingDb
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
@@ -191,6 +198,7 @@ services:
       - CONFIG_SERVER_USER=${CONFIG_SERVER_USR}
       - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
       - SPRING_JPA_HIBERNATE_DDL_AUTO=${ddl_auto}
+      - DATA_FILE=/app/data_file.json
     networks:
       - back
       - management
@@ -211,12 +219,13 @@ services:
           memory: 350M
 
   users:
-    image: sochakamil/user-service
+    image: ks10096/user-service
     build: ../user-service
     restart: always
     env_file: ./.env
     environment:
       - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
+      - SPRING_PROFILES_ACTIVE=${ACTIVE_PROFILE}
       - DB_SERVER=userDb
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
@@ -243,12 +252,13 @@ services:
           memory: 350M
 
   converter:
-    image: sochakamil/converter-service
+    image: ks10096/converter-service
     build: ../converter-service
     restart: always
     env_file: ./.env
     environment:
       - EUREKA_URI=http://${DISCOVERY_NAME}:${DISCOVERY_PORT}/eureka
+      - SPRING_PROFILES_ACTIVE=${ACTIVE_PROFILE}
       - CONFIG_SERVER_USER=${CONFIG_SERVER_USR}
       - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PWD}
     networks:
@@ -271,7 +281,6 @@ services:
   movieDb:
     image: postgres:alpine
     restart: always
-    container_name: movieDb
     volumes:
       - moviedb:/var/lib/postgresql/data:rw
       - ./init_moviedb.sql:/docker-entrypoint-initdb.d/init.sql
@@ -297,7 +306,6 @@ services:
   ratingDb:
     image: postgres:alpine
     restart: always
-    container_name: ratingDb
     volumes:
       - ratingdb:/var/lib/postgresql/data:rw
       - ./init_ratingdb.sql:/docker-entrypoint-initdb.d/init.sql
@@ -323,7 +331,6 @@ services:
   userDb:
     image: postgres:alpine
     restart: always
-    container_name: userDb
     volumes:
       - userdb:/var/lib/postgresql/data:rw
       - ./init_userdb.sql:/docker-entrypoint-initdb.d/init.sql

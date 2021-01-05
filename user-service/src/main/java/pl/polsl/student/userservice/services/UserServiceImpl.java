@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import pl.polsl.student.userservice.domain.User;
 import pl.polsl.student.userservice.domain.UserPostDto;
 import pl.polsl.student.userservice.domain.UserRole;
+import pl.polsl.student.userservice.exceptions.UserNotFoundException;
+import pl.polsl.student.userservice.exceptions.UsernameNotFoundException;
 import pl.polsl.student.userservice.repositories.UserRepository;
 
 import java.util.LinkedHashSet;
@@ -40,7 +42,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findById(Long id) {
         log.warn("Processing request... Find by user id: " + id + "... Port: " + port);
-        return userRepository.findById(id).orElse(null);
+        return userRepository.findById(id).orElseThrow(
+                () -> new UserNotFoundException(id)
+        );
     }
 
     @Override
@@ -51,8 +55,9 @@ public class UserServiceImpl implements UserService {
         }
         User newUser = new User();
         newUser.setEmail(testUserEmail);
-        newUser.setFirstName("testFirstName");
-        newUser.setLastName("testLastName");
+        newUser.setFirstName("firstname");
+        newUser.setLastName("lastname");
+        newUser.setRole(UserRole.ROLE_USER);
         return userRepository.save(newUser);
     }
 
@@ -60,7 +65,9 @@ public class UserServiceImpl implements UserService {
     public User findByEmail(String email) {
         log.warn("Processing request... Find by user email: " + email + "... Port: " + port);
         Optional<User> user = userRepository.findByEmail(email);
-        return user.orElse(null);
+        return user.orElseThrow(
+                () -> new UsernameNotFoundException(email)
+        );
     }
 
     @Override

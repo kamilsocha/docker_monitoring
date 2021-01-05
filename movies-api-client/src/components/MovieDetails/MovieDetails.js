@@ -35,7 +35,7 @@ const MovieDetails = ({
         <Row>
           <Col md={4} className="">
             <Card.Img
-              src={`${apiUri}/movie-service/${movie.posterUri}`}
+              src={`${apiUri}/movie-service${movie.posterUri}`}
               alt={placeholderImage}
               className="card-image shadow"
             />

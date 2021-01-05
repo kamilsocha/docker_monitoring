@@ -11,6 +11,9 @@ Sposób uruchomienia
 Aplikacja monitorująca systemy na localhost:7080
 ścieżki: actuator/routes
 gui: /app
-przykładowy użytkownik:
-email: user@user.com
-hasło: user
+przykładowy użytkownik systemu monitorowanego:
+email: test@test.com
+hasło: <nie sprawdzane>
+konto administratora użytkownika systemu monitorującego:
+email: admin@admin.com
+hasło: admin

@@ -1,87 +1,24 @@
-pl/polsl/student/managementapigateway/exceptions/NotFoundException.java
- pl.polsl.student.managementapigateway.exceptions.NotFoundException
-pl/polsl/student/managementapigateway/domain/BaseEntity.java
- pl.polsl.student.managementapigateway.domain.BaseEntity
-pl/polsl/student/managementapigateway/repositories/BootStrapEntryRepository.java
- pl.polsl.student.managementapigateway.repositories.BootStrapEntryRepository
-pl/polsl/student/managementapigateway/enums/BootstrapLabel.java
- pl.polsl.student.managementapigateway.enums.BootstrapLabel
-pl/polsl/student/managementapigateway/dtos/UserPostDto.java
- pl.polsl.student.managementapigateway.dtos.UserPostDto
-pl/polsl/student/managementapigateway/services/bootstrapservices/BootStrapEntryService.java
- pl.polsl.student.managementapigateway.services.bootstrapservices.BootStrapEntryService
-pl/polsl/student/managementapigateway/components/BootStrap.java
- pl.polsl.student.managementapigateway.components.BootStrap
-pl/polsl/student/managementapigateway/security/JwtUserDetailsService.java
- pl.polsl.student.managementapigateway.security.JwtUserDetailsService
 pl/polsl/student/managementapigateway/configuration/SwaggerConfig.java
  pl.polsl.student.managementapigateway.configuration.SwaggerConfig
-pl/polsl/student/managementapigateway/domain/BootStrapEntry.java
- pl.polsl.student.managementapigateway.domain.BootStrapEntry
-pl/polsl/student/managementapigateway/domain/LabelValues.java
- pl.polsl.student.managementapigateway.domain.LabelValues
-pl/polsl/student/managementapigateway/services/ZuulDynamicRoutingService.java
- pl.polsl.student.managementapigateway.services.ZuulDynamicRoutingService
-pl/polsl/student/managementapigateway/configuration/WebSecurityConfig.java
- pl.polsl.student.managementapigateway.configuration.WebSecurityConfig
-pl/polsl/student/managementapigateway/ManagementApigatewayApplication.java
- pl.polsl.student.managementapigateway.ManagementApigatewayApplication
-pl/polsl/student/managementapigateway/security/JwtUtils.java
- pl.polsl.student.managementapigateway.security.JwtUtils
-pl/polsl/student/managementapigateway/repositories/RoleRepository.java
- pl.polsl.student.managementapigateway.repositories.RoleRepository
-pl/polsl/student/managementapigateway/services/bootstrapservices/BootStrapService.java
- pl.polsl.student.managementapigateway.services.bootstrapservices.BootStrapService
-pl/polsl/student/managementapigateway/validation/EqualPasswordConstraint.java
- pl.polsl.student.managementapigateway.validation.EqualPasswordConstraint
-pl/polsl/student/managementapigateway/exceptions/DefaultExceptionHandler.java
- pl.polsl.student.managementapigateway.exceptions.DefaultExceptionHandler
-pl/polsl/student/managementapigateway/services/impl/ConfigurationServiceImpl.java
- pl.polsl.student.managementapigateway.services.impl.ConfigurationServiceImpl
-pl/polsl/student/managementapigateway/filters/AuthorizationFilter.java
- pl.polsl.student.managementapigateway.filters.AuthorizationFilter
-pl/polsl/student/managementapigateway/filters/XForwardedPrefixFilter.java
- pl.polsl.student.managementapigateway.filters.XForwardedPrefixFilter
-pl/polsl/student/managementapigateway/security/JwtAuthorizationFilter.java
- pl.polsl.student.managementapigateway.security.JwtAuthorizationFilter
-pl/polsl/student/managementapigateway/domain/Role.java
- pl.polsl.student.managementapigateway.domain.Role
-pl/polsl/student/managementapigateway/security/JwtAuthenticationEntryPoint.java
- pl.polsl.student.managementapigateway.security.JwtAuthenticationEntryPoint
-pl/polsl/student/managementapigateway/exceptions/EmailAlreadyTakenException.java
- pl.polsl.student.managementapigateway.exceptions.EmailAlreadyTakenException
-pl/polsl/student/managementapigateway/exceptions/ElementNotFoundException.java
- pl.polsl.student.managementapigateway.exceptions.ElementNotFoundException
-pl/polsl/student/managementapigateway/security/UsernamePasswordAuthenticationRequest.java
- pl.polsl.student.managementapigateway.security.UsernamePasswordAuthenticationRequest
-pl/polsl/student/managementapigateway/validation/EqualPasswordConstraintValidator.java
- pl.polsl.student.managementapigateway.validation.EqualPasswordConstraintValidator
-pl/polsl/student/managementapigateway/dtos/PasswordPatchDto.java
- pl.polsl.student.managementapigateway.dtos.PasswordPatchDto
-pl/polsl/student/managementapigateway/repositories/UserRepository.java
- pl.polsl.student.managementapigateway.repositories.UserRepository
-pl/polsl/student/managementapigateway/domain/LabelKeys.java
- pl.polsl.student.managementapigateway.domain.LabelKeys
-pl/polsl/student/managementapigateway/configuration/SystemsConfig.java
- pl.polsl.student.managementapigateway.configuration.SystemsConfig
-pl/polsl/student/managementapigateway/controllers/ConfigurationController.java
- pl.polsl.student.managementapigateway.controllers.ConfigurationController
-pl/polsl/student/managementapigateway/services/ConfigurationService.java
- pl.polsl.student.managementapigateway.services.ConfigurationService
-pl/polsl/student/managementapigateway/security/JwtUsernamePasswordAuthenticationFilter.java
- pl.polsl.student.managementapigateway.security.JwtUsernamePasswordAuthenticationFilter
- pl.polsl.student.managementapigateway.security.JwtUsernamePasswordAuthenticationFilter$1
-pl/polsl/student/managementapigateway/services/bootstrapservices/DevelopmentBootStrapService.java
- pl.polsl.student.managementapigateway.services.bootstrapservices.DevelopmentBootStrapService
-pl/polsl/student/managementapigateway/dtos/UserGetDto.java
- pl.polsl.student.managementapigateway.dtos.UserGetDto
+pl/polsl/student/managementapigateway/exceptions/NotFoundException.java
+ pl.polsl.student.managementapigateway.exceptions.NotFoundException
 pl/polsl/student/managementapigateway/controllers/RouteController.java
  pl.polsl.student.managementapigateway.controllers.RouteController
-pl/polsl/student/managementapigateway/domain/User.java
- pl.polsl.student.managementapigateway.domain.User
-pl/polsl/student/managementapigateway/services/UserService.java
- pl.polsl.student.managementapigateway.services.UserService
-pl/polsl/student/managementapigateway/services/impl/UserServiceImpl.java
- pl.polsl.student.managementapigateway.services.impl.UserServiceImpl
-pl/polsl/student/managementapigateway/controllers/UserController.java
- pl.polsl.student.managementapigateway.controllers.UserController
+pl/polsl/student/managementapigateway/filters/AuthorizationFilter.java
+ pl.polsl.student.managementapigateway.filters.AuthorizationFilter
+pl/polsl/student/managementapigateway/services/ZuulDynamicRoutingService.java
+ pl.polsl.student.managementapigateway.services.ZuulDynamicRoutingService
+pl/polsl/student/managementapigateway/exceptions/ElementNotFoundException.java
+ pl.polsl.student.managementapigateway.exceptions.ElementNotFoundException
+pl/polsl/student/managementapigateway/filters/LocalAuthorizationFilter.java
+ pl.polsl.student.managementapigateway.filters.LocalAuthorizationFilter
+pl/polsl/student/managementapigateway/exceptions/DefaultExceptionHandler.java
+ pl.polsl.student.managementapigateway.exceptions.DefaultExceptionHandler
+pl/polsl/student/managementapigateway/filters/FilterHelper.java
+ pl.polsl.student.managementapigateway.filters.FilterHelper
+pl/polsl/student/managementapigateway/filters/XForwardedPrefixFilter.java
+ pl.polsl.student.managementapigateway.filters.XForwardedPrefixFilter
+pl/polsl/student/managementapigateway/ManagementApigatewayApplication.java
+ pl.polsl.student.managementapigateway.ManagementApigatewayApplication
+pl/polsl/student/managementapigateway/filters/CORSFilter.java
+ pl.polsl.student.managementapigateway.filters.CORSFilter

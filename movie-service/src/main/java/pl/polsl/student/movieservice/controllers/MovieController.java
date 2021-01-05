@@ -22,11 +22,9 @@ import pl.polsl.student.movieservice.services.impl.PosterStorageServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
-//@CrossOrigin("*")
 @Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/movies")
@@ -79,7 +77,6 @@ public class MovieController {
 
         String filename = posterStorageService.store(file);
         String fileDownloadUri = ServletUriComponentsBuilder
-//                .fromCurrentContextPath()
                 .fromPath("")
                 .path("/movies/posters/")
                 .path(filename).toUriString();
@@ -103,6 +100,7 @@ public class MovieController {
             contentType = request.getServletContext().getMimeType(resource.getFile().getAbsolutePath());
         } catch (IOException e) {
             e.printStackTrace();
+            log.info("content type exception");
         }
         return ResponseEntity
                 .status(HttpStatus.OK)
@@ -114,7 +112,9 @@ public class MovieController {
     @ApiOperation(value = "Delete movie.")
     @DeleteMapping("/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable Long id) {
-        movieService.delete(id);
-        return ResponseEntity.ok().build();
+        final HttpStatus status = movieService.delete(id) == true ? HttpStatus.OK : HttpStatus.NOT_FOUND;
+        return ResponseEntity
+                .status(status)
+                .build();
     }
 }

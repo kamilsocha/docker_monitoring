@@ -1,0 +1,28 @@
+
+spring:
+  profiles: test
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
+    username: ks
+    password: ks
+    initialization-mode: always
+    platform: h2
+    data: classpath:data-test.sql
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+
+eureka:
+  client:
+    enabled: false
+
+poster:
+  upload-dir: ./uploads
+
+logging:
+  level:
+    root: info
+
+

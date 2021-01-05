@@ -12,5 +12,5 @@ public interface MovieService {
     List<Movie> findAllButSpecified(Long[] idsToFilterOut);
     Movie findById(Long id);
     Movie createOneMovie(Movie movie);
-    void delete(Long id);
+    boolean delete(Long id);
 }

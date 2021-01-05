@@ -27,6 +27,7 @@ dependencies {
 	implementation 'io.springfox:springfox-boot-starter:3.0.0'
 	// metrics
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'junit:junit:4.12'
 	runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
 	implementation 'org.apache.commons:commons-lang3:3.10'
 	// validation
@@ -35,6 +36,8 @@ dependencies {
 	implementation 'com.google.guava:guava:28.1-jre'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+
+	testImplementation 'org.mockito:mockito-core:3.6.28'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}

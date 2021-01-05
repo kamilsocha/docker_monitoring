@@ -13,7 +13,6 @@ export const authCheckState = () => {
   return (dispatch) => {
     dispatch(authStart())
     const email = localStorage.getItem("email")
-    console.log("email", email)
     if (email === undefined || email === null) {
       dispatch(logout())
     } else {
@@ -68,7 +67,6 @@ export const authFail = (error) => {
 }
 
 export const logout = () => {
-  console.log("logout called")
   localStorage.removeItem("userId")
   localStorage.removeItem("email")
   localStorage.removeItem("userRole")

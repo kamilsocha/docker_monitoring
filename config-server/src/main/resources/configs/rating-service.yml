@@ -5,8 +5,10 @@ spring:
     password: 1234
   jpa:
     hibernate:
-      ddl-auto: update
-#      ddl-auto: create
+      ddl-auto: none
+
+server:
+  port: 8083
 
 management:
   endpoints:
@@ -22,19 +24,9 @@ management:
 swagger:
   title:  Rating Service
   description: Rating service with postgres database connection.
-  license: License
-  licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: 0.1
-  contact:
-    name: Kamil Socha
-    url:
-    email: kamisoc782@student.polsl.pl
+  version: 1.0.0
 
 info:
   app:
-    name: ${spring.application.name}
     description: Service for retrieving information about ratings of movies.
-    version: 0.1.0
-  developer:
-    name: Kamil Socha
-    email: kamisoc782@student.polsl.pl
+    version: 1.0.0

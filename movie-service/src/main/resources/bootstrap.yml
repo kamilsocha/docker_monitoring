@@ -14,8 +14,8 @@ spring:
         enabled: true
         service-id: config-server
 
-server:
-  port: 9081
+data:
+  file: ${DATA_FILE:./data_file.json}
 
 eureka:
   instance:

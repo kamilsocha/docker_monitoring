@@ -24,7 +24,7 @@ export const fetchContainers = () => {
   return async (dispatch, getState) => {
     dispatch(fetchContainersStart())
     const response = await axios
-      .get("/containers", {
+      .get("/docker-client/containers", {
         params: {
           showSize: true,
           showAll: true,

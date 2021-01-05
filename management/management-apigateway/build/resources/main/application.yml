@@ -1,64 +1,36 @@
 spring:
   application:
     name: management-apigateway
-  jackson:
-    serialization:
-      FAIL_ON_EMPTY_BEANS: false
-  datasource:
-    url: jdbc:postgresql://localhost:5432/dockerapidb
-    username: postgres
-    password: 1234
-    driver-class-name: org.postgresql.Driver
-    hikari:
-      minimum-idle: 0
-      maximum-pool-size: 15
-      connection-timeout: 10000
-      idle-timeout: 300000
-      max-lifetime: 600000
-      initialization-fail-timeout: -1
-      validation-timeout: 1000
-    continue-on-error: true
-  jpa:
-    open-in-view: false
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
-    hibernate:
-      ddl-auto: create
-
-application:
-  security:
-    jwt:
-      prefix: "Bearer "
-      secret: N0NuokWWb5XjMP+V3XLfyLkaSArwxNm17VeAvv7+y4+Y/DmxBLenvwOPO404lfl6UfyyEGgQ02ETDEPRMwV/+Q==
-      access:
-        header: Authorization
-        expiration: 120
-      refresh:
-        header: RefreshToken
-        expiration: 14400
-
-config-file: ${CONFIG_FILE_PATH:"./systemsConfig.json"}
 
 server:
   port: 7081
   forward-headers-strategy: framework
 
+security:
+  username: ${MANAGEMENT_USERNAME:user}
+  password: ${MANAGEMENT_PASSWORD:password}
+
 api:
   username: ${MANAGEMENT_USERNAME:user}
   password: ${MANAGEMENT_PASSWORD:password}
 
-admin:
-  email: ${ADMIN_EMAIL:admin@admin.com}
-  password: ${ADMIN_PASSWORD:admin}
-
 zuul:
   routes:
-    api:
+    docker-client:
+      path: "/api/docker-client/**"
+      sensitive-headers:
       url: "http://localhost:8001"
+    auth-service:
+      path: "/api/auth/**"
+      sensitive-headers:
+      url: "http://localhost:7082"
+    systems-config:
+      path: "/api/systems-config/**"
+      sensitive-headers:
+      url: "http://localhost:7083"
     app:
+      sensitive-headers:
       url: "http://localhost:3000"
-    redirect:
-      path: "/redirect/**"
-      url: "http://localhost:7080"
 
 swagger:
   title: ${spring.application.name}
@@ -94,22 +66,28 @@ info:
 ---
 spring:
   profiles: docker
-  datasource:
-    url: jdbc:postgresql://${DB_SERVER}:5432/${POSTGRES_DB}
-    username: ${POSTGRES_USER}
-    password: ${POSTGRES_PASSWORD}
 
 server:
   port: 8080
 
 zuul:
   routes:
-    api:
-      url: http://${API_URI}
-      sensitive-headers:
     app:
       url: http://${APP_URI}
       sensitive-headers:
+    docker-client:
+      path: "/api/docker-client/**"
+      url: http://${API_URI}
+      sensitive-headers:
+    auth-service:
+      path: "/api/auth/**"
+      sensitive-headers:
+      url: http://${AUTH_URI}
+    systems-config:
+      path: "/api/systems-config/**"
+      sensitive-headers:
+      url: http://${SYSTEMS_CONFIG_URI}
+
     prometheus:
       url: http://${PROMETHEUS}
       sensitive-headers:
