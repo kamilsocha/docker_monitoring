@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.*;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
@@ -51,11 +52,17 @@ public class FilterHelper {
 
         ResponseEntity<?> response;
 
-        response = restTemplate.exchange(url, HttpMethod.GET, rewriteHeaders(request), String.class);
-
-        if(response.getStatusCode() == HttpStatus.OK) {
+        try {
+            response = restTemplate.exchange(url, HttpMethod.GET, rewriteHeaders(request), String.class);
+            if(response.getStatusCode() == HttpStatus.OK) {
+                RequestContext ctx = RequestContext.getCurrentContext();
+                ctx.addZuulRequestHeader("Authorization", authHeader());
+            }
+        } catch (HttpStatusCodeException e) {
             RequestContext ctx = RequestContext.getCurrentContext();
-            ctx.addZuulRequestHeader("Authorization", authHeader());
+            ctx.setResponseStatusCode(e.getRawStatusCode());
+            ctx.setResponseBody(e.getMessage());
+            ctx.setSendZuulResponse(false);
         }
     }
 }

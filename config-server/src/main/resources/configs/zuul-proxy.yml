@@ -20,11 +20,11 @@ zuul:
       url: "http://localhost:3000"
 
 ribbon:
-  ConnectTimeout: 5000
-  ReadTimeout: 5000
+  ConnectTimeout: 3000
+  ReadTimeout: 3000
   ServerListRefreshInterval: 5000
-  MaxAutoRetries: 10
-  MaxAutoRetriesNextServer: 10
+  MaxAutoRetries: 5
+  MaxAutoRetriesNextServer: 5
   eureka:
     enabled: true
 
@@ -34,11 +34,11 @@ hystrix:
       circuitBreaker:
         requestVolumeThreshold: 5
         errorThresholdPercentage: 50
-        sleepWindowInMilliseconds: 2000
+        sleepWindowInMilliseconds: 3000
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 36000
+            timeoutInMilliseconds: 72000
       metrics:
         rollingStats:
           timeInMilliseconds: 10000

@@ -12,7 +12,7 @@ networks:
 services:
   apigateway:
     image: ks10096/management-gateway
-    build: ./management-apigateway
+    build: ../management/management-apigateway
     container_name: managementgateway
     env_file: ./.env
     environment:
@@ -38,7 +38,7 @@ services:
 
   auth-service:
     image: ks10096/management-auth-service
-    build: ./auth-service
+    build: ../management/auth-service
     env_file: ./.env
     environment:
       - DB_SERVER=managementDb
@@ -59,7 +59,7 @@ services:
 
   systems-config-service:
     image: ks10096/management-systems-config-service
-    build: ./systems-configuration-service
+    build: ../management/systems-configuration-service
     env_file: ./.env
     environment:
       - CONFIG_FILE_PATH=/systemsConfig.json
@@ -79,7 +79,7 @@ services:
 
   managementapp:
     image: ks10096/management-app
-    build: ./java-docker-api-broker-client
+    build: ../management/java-docker-api-broker-client
     networks:
       management:
     labels:
@@ -91,7 +91,7 @@ services:
 
   managementdockerclient:
     image: ks10096/management-docker-client
-    build: ./java-docker-api-broker
+    build: ../management/java-docker-api-broker
     # when using default connection over docker socket
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock # working on both linux and windows
