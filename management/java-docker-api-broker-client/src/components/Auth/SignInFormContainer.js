@@ -14,15 +14,21 @@ const SignInFormContainer = () => {
     dispatch(authActions.auth(values.email, values.password))
   }
 
+  const displayError = () => {
+    if (error.response.status === 401) {
+      return <Card.Text className="text-danger">Wrong credentials</Card.Text>
+    } else {
+      return <Card.Text className="text-danger">{error.message}</Card.Text>
+    }
+  }
+
   return (
     <Card className="shadow mx-auto" style={{ maxWidth: "600px" }}>
       <Card.Body>
         <Card.Title className="text-center h3 font-weight-bolder">
           Sign In
         </Card.Title>
-        {error && (
-          <Card.Text className="text-danger">{error.message}</Card.Text>
-        )}
+        {error && displayError()}
         <SignInForm onSubmit={handleSignIn} />
       </Card.Body>
     </Card>

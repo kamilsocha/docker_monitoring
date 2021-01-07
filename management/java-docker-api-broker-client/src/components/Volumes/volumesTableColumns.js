@@ -9,7 +9,7 @@ export const COLUMNS = [
     Header: "Name",
     accessor: "Name",
     Cell: ({ value, baseurl }) => {
-      return (
+      return value ? (
         <OverlayTrigger placement="right" overlay={<Tooltip>{value}</Tooltip>}>
           <Link to={`${baseurl}/${value}`}>
             <span style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
@@ -17,6 +17,8 @@ export const COLUMNS = [
             </span>
           </Link>
         </OverlayTrigger>
+      ) : (
+        <span>-</span>
       )
     },
     sortType: "basic",
@@ -26,12 +28,14 @@ export const COLUMNS = [
     Header: "Mountpoint",
     accessor: "Mountpoint",
     Cell: ({ value }) => {
-      return (
+      return value ? (
         <OverlayTrigger placement="right" overlay={<Tooltip>{value}</Tooltip>}>
           <span style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
             {truncate(value, 30, 27)}
           </span>
         </OverlayTrigger>
+      ) : (
+        <span>-</span>
       )
     },
     sortType: "basic",

@@ -117,9 +117,9 @@ services:
   managementDb:
     image: postgres:alpine
     restart: always
-    container_name: managementDb
     volumes:
-      - managementdb:/var/lib/postgresql:rw
+      - managementdb:/var/lib/postgresql/data:rw
+      - ./init_managementdb.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       management:
     env_file: ./.env

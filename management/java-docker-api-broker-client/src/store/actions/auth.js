@@ -110,7 +110,10 @@ export const auth = (email, password) => {
     dispatch(authStart())
     const response = await axios
       .post(`/auth/login`, { username: email, password })
-      // .post(`http://localhost:8080/login`, { username: email, password })
+      // .post(`http://localhost:8080/api/auth/login`, {
+      //   username: email,
+      //   password,
+      // })
       .catch((err) => {
         dispatch(authFail(err))
       })

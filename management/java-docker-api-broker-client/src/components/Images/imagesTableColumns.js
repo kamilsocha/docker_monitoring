@@ -10,13 +10,22 @@ export const COLUMNS = [
     accessor: "Id",
     Cell: ({ value, baseurl }) => {
       return (
-        <OverlayTrigger placement="right" overlay={<Tooltip>{value}</Tooltip>}>
-          <Link to={`${baseurl}/${value}`}>
-            <span style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
-              {truncate(value, 22, 19)}
-            </span>
-          </Link>
-        </OverlayTrigger>
+        <>
+          {value ? (
+            <OverlayTrigger
+              placement="right"
+              overlay={<Tooltip>{value}</Tooltip>}
+            >
+              <Link to={`${baseurl}/${value}`}>
+                <span style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
+                  {truncate(value, 22, 19)}
+                </span>
+              </Link>
+            </OverlayTrigger>
+          ) : (
+            <span>-</span>
+          )}
+        </>
       )
     },
     sortType: "basic",
@@ -24,30 +33,39 @@ export const COLUMNS = [
   {
     Header: "Containers",
     accessor: "Containers",
-    Cell: ({ value }) => (
-      <span className="text-center">{value === -1 ? "0" : value}</span>
-    ),
+    Cell: ({ value }) =>
+      value ? (
+        <span className="text-center">{value === -1 ? "0" : value}</span>
+      ) : (
+        <span>-</span>
+      ),
     disableFilters: true,
     sortType: "basic",
   },
   {
     Header: "Repo Tags",
     accessor: "RepoTags",
-    Cell: ({ value }) => <span>{value[0]}</span>,
+    Cell: ({ value }) =>
+      value ? <span>{value ? value[0] : "-"}</span> : <span>-</span>,
     sortType: "basic",
   },
   {
     Header: "Size",
     accessor: "Size",
-    Cell: ({ value }) => <span>{Math.round(value / 1000000)} MB</span>,
+    Cell: ({ value }) =>
+      value ? <span>{Math.round(value / 1000000)} MB</span> : <span>-</span>,
     sortType: "basic",
   },
   {
     Header: "Created",
     accessor: "Created",
     Cell: ({ value }) => {
-      const createdDate = new Date(new Date().getTime() - value)
-      return <span>{createdDate.toLocaleString()}</span>
+      if (value) {
+        const createdDate = new Date(new Date().getTime() - value)
+        return <span>{createdDate.toLocaleString()}</span>
+      } else {
+        return <span>-</span>
+      }
     },
     sortType: "basic",
   },

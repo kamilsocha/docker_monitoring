@@ -59,7 +59,7 @@ const NetworkDetailsPage = () => {
 
   return (
     <Page fluid="true">
-      <PageTitle title="Image Details">
+      <PageTitle title="Network Details">
         <BackButton />
       </PageTitle>
       <PageContent>

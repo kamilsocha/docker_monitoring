@@ -42,9 +42,11 @@ const Routes = () => {
       <Route path="/networks">
         <NetworksPage />
       </Route>
-      <Route path="/zuul-routes">
-        <ZuulRoutesManagementPage />
-      </Route>
+      {userRole.includes(USER_ROLES.ROLE_ADMIN) && (
+        <Route path="/zuul-routes">
+          <ZuulRoutesManagementPage />
+        </Route>
+      )}
       {userRole.includes(USER_ROLES.ROLE_ADMIN) && (
         <Route path="/admin">
           <AdminPage />

@@ -6,10 +6,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -28,7 +25,8 @@ public class User extends BaseEntity implements UserDetails {
     @Column(name = "is_active")
     private Boolean isActive;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "role_id", referencedColumnName = "id",nullable = false)
     private Role role;
 
     @Override

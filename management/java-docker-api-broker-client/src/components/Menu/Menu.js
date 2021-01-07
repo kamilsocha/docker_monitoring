@@ -79,14 +79,15 @@ const Menu = (props) => {
           >
             <MenuItem text="Networks" icon={faNetworkWired} />
           </Nav.Link>
-
-          <Nav.Link
-            as={NavLink}
-            to="/zuul-routes"
-            activeClassName="m-active rounded"
-          >
-            <MenuItem text="Proxy Routes" icon={faProjectDiagram} />
-          </Nav.Link>
+          {userRole?.includes(USER_ROLES.ROLE_ADMIN) && (
+            <Nav.Link
+              as={NavLink}
+              to="/zuul-routes"
+              activeClassName="m-active rounded"
+            >
+              <MenuItem text="Proxy Routes" icon={faProjectDiagram} />
+            </Nav.Link>
+          )}
           {userRole?.includes(USER_ROLES.ROLE_ADMIN) && (
             <Nav.Link
               as={NavLink}
