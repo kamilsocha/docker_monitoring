@@ -30,7 +30,7 @@ public class SwaggerBasePathTransformationFilter implements WebMvcSwaggerTransfo
 
             String basePath = StringUtils.isEmpty(uriComponents.getPath()) ? "/" : uriComponents.getPath();
             swagger.basePath(basePath);
-            
+
             final Map<String, Path> newPaths = swagger.getPaths().entrySet().stream().collect(Collectors.toMap(
                     entry -> entry.getKey().replaceAll("^" + basePath, ""), Map.Entry::getValue));
             swagger.setPaths(newPaths);

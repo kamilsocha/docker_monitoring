@@ -1,0 +1,28 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+    restart:
+      enabled: true
+    health:
+      show-details: always
+
+swagger:
+  license: License
+  licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+  contact:
+    name: Kamil Socha
+    url:
+    email: kamisoc782@student.polsl.pl
+
+info:
+  app:
+    name: ${spring.application.name}
+  developer:
+    name: Kamil Socha
+    email: kamisoc782@student.polsl.pl

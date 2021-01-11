@@ -1,5 +1,6 @@
 // import axios from "axios"
 import axios, { authHeader } from "../../axios-orders"
+import { logout } from "./auth"
 
 export const FETCH_CONFIG_SUCCESS = "FETCH_CONFIG_SUCCESS"
 
@@ -23,6 +24,8 @@ export const fetchConfig = () => {
     const data = response?.data
     if (data) {
       dispatch(fetchConfigSuccess(data))
+    } else {
+      logout()
     }
   }
 }

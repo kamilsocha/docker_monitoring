@@ -54,7 +54,7 @@ services:
       - discovery
     volumes:
       - type: bind
-        source: ../config-server/src/main/resources/configs
+        source: ./configs
         target: /app/config
     labels:
       pl.polsl.student.name: "cloud-config-server"
@@ -165,8 +165,6 @@ services:
     networks:
       - back
       - management
-    ports:
-      - "8081:8080"
     depends_on:
       - discovery
       - config-server

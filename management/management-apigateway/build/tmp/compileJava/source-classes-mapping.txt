@@ -4,8 +4,8 @@ pl/polsl/student/managementapigateway/exceptions/NotFoundException.java
  pl.polsl.student.managementapigateway.exceptions.NotFoundException
 pl/polsl/student/managementapigateway/controllers/RouteController.java
  pl.polsl.student.managementapigateway.controllers.RouteController
-pl/polsl/student/managementapigateway/filters/CORSFilter.java
- pl.polsl.student.managementapigateway.filters.CORSFilter
+pl/polsl/student/managementapigateway/filters/FilterHelper.java
+ pl.polsl.student.managementapigateway.filters.FilterHelper
 pl/polsl/student/managementapigateway/services/ZuulDynamicRoutingService.java
  pl.polsl.student.managementapigateway.services.ZuulDynamicRoutingService
 pl/polsl/student/managementapigateway/exceptions/ElementNotFoundException.java
@@ -20,5 +20,5 @@ pl/polsl/student/managementapigateway/filters/AuthorizationFilter.java
  pl.polsl.student.managementapigateway.filters.AuthorizationFilter
 pl/polsl/student/managementapigateway/filters/LocalAuthorizationFilter.java
  pl.polsl.student.managementapigateway.filters.LocalAuthorizationFilter
-pl/polsl/student/managementapigateway/filters/FilterHelper.java
- pl.polsl.student.managementapigateway.filters.FilterHelper
+pl/polsl/student/managementapigateway/filters/CORSFilter.java
+ pl.polsl.student.managementapigateway.filters.CORSFilter

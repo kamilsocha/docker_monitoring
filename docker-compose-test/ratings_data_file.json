@@ -1,0 +1,14 @@
+{
+  "ratings": [
+    {
+      "movieId": 1,
+      "userId": 1,
+      "rating": 7.0
+    },
+    {
+      "movieId": 2,
+      "userId": 1,
+      "rating": 8.0
+    }
+  ]
+}

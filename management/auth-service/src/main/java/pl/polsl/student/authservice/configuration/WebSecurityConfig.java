@@ -37,12 +37,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final String[] AUTH_WHITELIST = {
             "/login",
-//            "/app/**",
-////            "/api/**",
-//            "/systems/**",
 //            "/prometheus/**",
 //            "/grafana/**",
-//            "/**",
             // swagger
             "/v2/api-docs",
             "/swagger-resources/**",

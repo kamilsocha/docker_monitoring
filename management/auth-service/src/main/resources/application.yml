@@ -19,7 +19,6 @@ spring:
       validation-timeout: 1000
     continue-on-error: true
   jpa:
-    open-in-view: false
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: none

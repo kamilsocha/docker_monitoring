@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom"
 import MovieDetails from "../../components/MovieDetails/MovieDetails"
 import MovieList from "../../components/MovieList/MovieList"
 
-import * as allMoviesActions from "../../store/allMovies/actions"
 import * as userCatalogActions from "../../store/movieCatalog/actions"
 
 const AllMoviesPage = () => {
@@ -20,8 +19,8 @@ const AllMoviesPage = () => {
   }, [dispatch])
 
   useEffect(() => {
-    if (id) {
-      setSelectedMovie(movies.find((m) => m.id === parseInt(id)))
+    if (id && movies) {
+      setSelectedMovie(movies?.find((m) => m.id === parseInt(id)))
     }
   }, [id, setSelectedMovie, movies])
 

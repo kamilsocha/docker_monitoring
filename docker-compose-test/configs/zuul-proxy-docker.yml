@@ -1,0 +1,28 @@
+zuul:
+  ribbon:
+    eager-load:
+      enabled: true
+  routes:
+    user-movies-catalog-service:
+      path: "/api/user-movies-catalog-service/**"
+      serviceId: user-movies-catalog-service
+      sensitive-headers:
+    movie-service:
+      path: "/api/movie-service/**"
+      serviceId: movie-service
+      sensitive-headers:
+    rating-service:
+      path: "/api/rating-service/**"
+      serviceId: rating-service
+      sensitive-headers:
+    user-service:
+      path: "/api/user-service/**"
+      serviceId: user-service
+      sensitive-headers:
+    converter-service:
+      path: "/api/converter-service/**"
+      serviceId: converter-service
+      sensitive-headers:
+    app:
+      url: http://${movie_client}
+      sensitive-headers:

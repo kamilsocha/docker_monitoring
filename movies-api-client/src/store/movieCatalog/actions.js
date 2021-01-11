@@ -45,7 +45,6 @@ export const fetchUserCatalogMovies = () => {
         dispatch(fetchUserCatalogMoviesFail(err))
       })
     const dataUserCatalog = resUserCatalog?.data
-    console.log("catalog data", dataUserCatalog)
 
     if (dataUserCatalog) {
       dispatch(fetchUserCatalogMoviesSuccess(dataUserCatalog))

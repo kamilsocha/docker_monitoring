@@ -16,11 +16,10 @@ services:
     image: ks10096/discovery-server
     build: ../discovery-server/
     restart: always
-    # ports:
-    #   - "8761:8761"
     env_file: ./.env
     environment:
       - SPRING_PROFILES_ACTIVE=${ACTIVE_PROFILE}
+      - DISCO_SERVICE_NAME=${DISCOVERY_NAME}
     networks:
       - back
       - management
@@ -54,7 +53,7 @@ services:
       - discoverytest
     volumes:
       - type: bind
-        source: ../config-server/src/main/resources/configs
+        source: ./configs
         target: /app/config
     labels:
       pl.polsl.student.name: "cloud-config-server"
@@ -171,6 +170,9 @@ services:
       - movieDb
     volumes:
       - ./uploadsVolume:/app/uploads
+      - type: bind
+        source: ./movies_data_file.json
+        target: /app/data_file.json
     labels:
       pl.polsl.student.name: "movie-service"
       pl.polsl.student.systembelongto.name: "test1system"
@@ -202,6 +204,10 @@ services:
     networks:
       - back
       - management
+    volumes:
+      - type: bind
+        source: ./ratings_data_file.json
+        target: /app/data_file.json
     depends_on:
       - discoverytest
       - config-server

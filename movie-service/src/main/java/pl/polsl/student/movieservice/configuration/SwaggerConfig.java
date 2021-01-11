@@ -15,6 +15,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Profile(value = {"development", "production", "docker"})
 @EnableSwagger2
+@Configuration
 public class SwaggerConfig {
 
     private static final String BASE_PACKAGE = "pl.polsl.student.movieservice";
@@ -57,7 +58,6 @@ public class SwaggerConfig {
     @Bean
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-//                .host("localhost:9081")
                 .select()
                 .apis(RequestHandlerSelectors.basePackage(BASE_PACKAGE))
                 .build()

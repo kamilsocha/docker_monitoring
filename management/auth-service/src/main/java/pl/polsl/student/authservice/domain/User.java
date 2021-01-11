@@ -26,7 +26,7 @@ public class User extends BaseEntity implements UserDetails {
     private Boolean isActive;
 
     @ManyToOne
-    @JoinColumn(name = "role_id", referencedColumnName = "id",nullable = false)
+    @JoinColumn(name = "role_id", referencedColumnName = "id", nullable = false)
     private Role role;
 
     @Override

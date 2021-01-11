@@ -1,0 +1,22 @@
+{
+  "movies": [
+    {
+      "name": "Movie 1 Title",
+      "description": "Movie 1 description.",
+      "director": "Movie 1 director",
+      "posterUri": "/movies/posters/movie1.jpg"
+    },
+    {
+      "name": "Movie 2 Title",
+      "description": "Movie 2 description.",
+      "director": "Movie 2 director",
+      "posterUri": "/movies/posters/movie2.jpg"
+    },
+    {
+      "name": "Movie 3 Title",
+      "description": "Movie 3 description.",
+      "director": "Movie 3 director",
+      "posterUri": "/movies/posters/movie3.jpg"
+    }
+  ]
+}

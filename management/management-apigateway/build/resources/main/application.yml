@@ -87,10 +87,13 @@ zuul:
       path: "/api/systems-config/**"
       sensitive-headers:
       url: http://${SYSTEMS_CONFIG_URI}
+  host:
+    connect-timeout-millis: 300000
+    socket-timeout-millis: 300000
 
-    prometheus:
-      url: http://${PROMETHEUS}
-      sensitive-headers:
-    grafana:
-      url: http://${GRAFANA}
-      sensitive-headers:
+#    prometheus:
+#      url: http://${PROMETHEUS}
+#      sensitive-headers:
+#    grafana:
+#      url: http://${GRAFANA}
+#      sensitive-headers:

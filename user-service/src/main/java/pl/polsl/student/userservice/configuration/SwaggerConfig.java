@@ -15,6 +15,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Profile(value = {"development", "production", "docker"})
 @EnableSwagger2
+@Configuration
 public class SwaggerConfig {
 
     private static final String BASE_PACKAGE = "pl.polsl.student.userservice";

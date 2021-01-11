@@ -19,8 +19,8 @@ const UserCatalogPage = () => {
   }, [dispatch])
 
   useEffect(() => {
-    if (id) {
-      setSelectedMovie(movies.find((m) => m.movieId === parseInt(id)))
+    if (id && movies) {
+      setSelectedMovie(movies?.find((m) => m.movieId === parseInt(id)))
     }
   }, [id, setSelectedMovie, movies])
 

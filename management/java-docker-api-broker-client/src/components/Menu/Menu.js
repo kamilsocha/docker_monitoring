@@ -14,7 +14,6 @@ import {
 import MenuItem from "./MenuItem"
 import "./menuStyles.css"
 
-import dac_logo from "../../assets/dac_logo.png"
 import { useSelector } from "react-redux"
 import { USER_ROLES } from "../../constants/constants"
 
@@ -27,15 +26,7 @@ const Menu = (props) => {
       expand="xl"
       className={{ ...props.classes }}
     >
-      <Navbar.Brand className="text-center">
-        <img
-          src={dac_logo}
-          width="54px"
-          height="54px"
-          className="m-0 p-0"
-          alt=""
-        />
-      </Navbar.Brand>
+      <Navbar.Brand className="text-center"></Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
